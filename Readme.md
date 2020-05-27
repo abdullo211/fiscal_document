@@ -73,8 +73,16 @@ Operations for order
 **Content example**
 
 ```json
-{
-    "token": "93144b288eb1fdccbe46d6fc0f241a51766ecd3d"
+ {
+  "TerminalID": "UZ170703100189", 
+  "ReceiptSeq": 643,
+  "DateTime": "20200518221403",
+  "FiscalSign": "248429044289", 
+  "AppletVersion": "0300", 
+  "QRCodeURL":
+  "https://ofd.soliq.uz/check?t=UZ170703100189&r=643&c=20200518221403&s=248429044289" },
+  "error": null,
+  "is_success": true 
 }
 ```
 
