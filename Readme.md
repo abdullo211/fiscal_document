@@ -2,7 +2,7 @@
 
 Operations for order
 
-**URL** : `/api/login/`
+**URL** : `/order/create/`
 
 **Method** : `POST`
 
@@ -66,38 +66,56 @@ Operations for order
 }
 ```
 
-## Success Response
-
-**Code** : `200 OK`
-
-**Content example**
+## Response
 
 ```json
  {
-  "TerminalID": "UZ170703100189", 
-  "ReceiptSeq": 643,
-  "DateTime": "20200518221403",
-  "FiscalSign": "248429044289", 
-  "AppletVersion": "0300", 
-  "QRCodeURL":
-  "https://ofd.soliq.uz/check?t=UZ170703100189&r=643&c=20200518221403&s=248429044289" },
-  "error": null,
-  "is_success": true 
+  "terminal_id": [id of terminal ], 
+  "receipt_count": [receipt count int zreport],
+  "date_time": [Date time in tm],
+  "fiscal_sign": [fiscal sign number], 
+  "applet_version": [version of applet], 
+  "qr_url": [qrcode url]
+  },
+  "error": {
+    "code":[code of error],
+    "message":[error message],
+    "data":[extra data for error]
+    },
+  "is_success": [is success response] 
 }
 ```
 
-## Error Response
-
-**Condition** : If 'username' and 'password' combination is wrong.
-
-**Code** : `400 BAD REQUEST`
+**Success example**
+**Code** : `200 OK`
 
 **Content** :
-
 ```json
 {
-    "non_field_errors": [
-        "Unable to login with provided credentials."
-    ]
+"data": {
+  "TerminalID": "UZ170703100189", 
+  "ReceiptSeq": 643,
+  "DateTime": "20200518221403",
+  "FiscalSign": "248429044289", "AppletVersion": "0300", "QRCodeURL":
+  "https://ofd.soliq.uz/check?t=UZ170703100189&r=643&c=20200518221403&s=248429044289" 
+  },
+"error": null,
+"is_success": true 
+}
+```
+**Error example**
+**Condition** : If 'Printer not working'
+**Code** : `200 OK`
+
+**Content** :
+```json
+{
+"data": null,
+ "error": {
+    "code":101,
+    "message":"Printer not working",
+    "data":null
+    },
+"is_success": false 
 }
 ```
