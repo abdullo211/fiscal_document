@@ -229,7 +229,7 @@ Operations for refuse order
 }
 ```
 **Error example**
-**Condition** : If 'Printer not working'
+**Condition** : If 'Fiscal module is not initialized yet'
 **Code** : `200 OK`
 
 **Content** :
