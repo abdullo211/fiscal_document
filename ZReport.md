@@ -49,7 +49,7 @@ Operation for open ZReport
 {
 "data": null,
  "error": {
-    "code": 101 ,
+    "code": 9327,
     "message": "ZREPORT_ALREADY_OPEN",
     "data": null
     },
@@ -105,7 +105,7 @@ Operation for open ZReport
 {
 "data": null,
  "error": {
-    "code": 101 ,
+    "code": 9326,
     "message": "ZREPORT_ALREADY_CLOSE",
     "data": null
     },
