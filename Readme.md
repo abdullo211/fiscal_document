@@ -1,6 +1,6 @@
-# Login
+# Order
 
-Used to create order
+Operations for order
 
 **URL** : `/api/login/`
 
