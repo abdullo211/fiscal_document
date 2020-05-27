@@ -283,6 +283,7 @@ Operation for print last order
 "error":null,
 "is_success": true 
 }
+```
 
 **Error example**
 **Condition** : If 'Printer not working'
