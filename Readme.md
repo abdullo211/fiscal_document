@@ -294,7 +294,7 @@ Operation for print last order
 "data": null,
 "error": {
     "code": 101,
-    "message": "FISCAL_MODULE_NOT_INITIALIZED",
+    "message": "Printer not working",
     "data": null
     },
 "is_success": false 
