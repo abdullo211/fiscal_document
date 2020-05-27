@@ -19,21 +19,21 @@ Operation for create order
   {
    "name":[product name String], 
    "barcode":[product barcode String], 
-   "amount":[product amount ],
+   "amount":[product amount  multiplied to 1000],
    "price":[product_price * amount],
-   "product_price":[product price], 
-   "vat":[nds price], 
-   "vat_percent":[nds percent ],
-   "discount":[discount price],
+   "product_price":[product_price multiplied to 100], 
+   "vat":[nds price multiplied to 100], 
+   "vat_percent":[nds percent],
+   "discount":[discount price  multiplied to 100],
    "discount_percent":[discount price percent],
-   "other":[other discount prices] 
+   "other":[other discount prices  multiplied to 100] 
    }
 ], 
 "time":[Time in format yyyy-MM-dd HH:mm:ss or null],
 "cashier":[Cashier name], 
-"received_cash":[received cash price], 
-"change":[change price], 
-"received_card":[received card price]
+"received_cash":[received cash price  multiplied to 100], 
+"change":[change price multiplied to 100], 
+"received_card":[received card price  multiplied to 100]
 }
 ```
 
@@ -143,21 +143,21 @@ Operations for refuse order
   {
    "name":[product name String], 
    "barcode":[product barcode String], 
-   "amount":[product amount ],
+   "amount":[product amount  multiplied to 1000],
    "price":[product_price * amount],
-   "product_price":[product price], 
-   "vat":[nds price], 
-   "vat_percent":[nds percent ],
-   "discount":[discount price],
+   "product_price":[product_price multiplied to 100], 
+   "vat":[nds price multiplied to 100], 
+   "vat_percent":[nds percent],
+   "discount":[discount price  multiplied to 100],
    "discount_percent":[discount price percent],
-   "other":[other discount prices] 
+   "other":[other discount prices  multiplied to 100] 
    }
 ], 
 "time":[Time in format yyyy-MM-dd HH:mm:ss or null],
 "cashier":[Cashier name], 
-"received_cash":[received cash price], 
-"change":[change price], 
-"received_card":[received card price]
+"received_cash":[received cash price  multiplied to 100], 
+"change":[change price multiplied to 100], 
+"received_card":[received card price  multiplied to 100]
 }
 ```
 
