@@ -70,7 +70,8 @@ Operation for create order
 ## Response
 
 ```json
- {
+{
+ "data":{
   "terminal_id": [id of terminal ], 
   "receipt_count": [receipt count int zreport],
   "date_time": [Date time in tm],
@@ -194,6 +195,7 @@ Operations for refuse order
 
 ```json
  {
+ "data":{
   "terminal_id": [id of terminal ], 
   "receipt_count": [receipt count int zreport],
   "date_time": [Date time in tm],
@@ -244,3 +246,59 @@ Operations for refuse order
 "is_success": false 
 }
 ```
+
+
+
+
+## Order print
+Operation for print last order 
+
+**URL** : `/order/print/`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+## Response
+
+```json
+ {
+ "data":null,
+  "error": {
+    "code":[code of error],
+    "message":[error message],
+    "data":[extra data for error]
+    },
+  "is_success": [is success response] 
+}
+```
+
+**Success example**
+**Code** : `200 OK`
+
+**Content** :
+```json
+{
+"data": null,
+"error":null,
+"is_success": true 
+}
+
+**Error example**
+**Condition** : If 'Printer not working'
+**Code** : `200 OK`
+
+**Content** :
+```json
+{
+"data": null,
+"error": {
+    "code": 101,
+    "message": "FISCAL_MODULE_NOT_INITIALIZED",
+    "data": null
+    },
+"is_success": false 
+}
+```
+
+
