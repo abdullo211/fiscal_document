@@ -23,7 +23,7 @@ Operation for create order
    "price":[product_price * amount],
    "product_price":[product_price multiplied to 100], 
    "vat":[nds price multiplied to 100], 
-   "vat_percent":[nds percent],
+   "vat_percent":[nds percent ```optional```],
    "discount":[discount price  multiplied to 100],
    "discount_percent":[discount price percent],
    "other":[other discount prices  multiplied to 100] 
