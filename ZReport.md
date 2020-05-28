@@ -56,8 +56,8 @@ Operation for open ZReport
 "is_success": false 
 }
 ```
-## Open ZReport
-Operation for open ZReport
+## Close ZReport
+Operation for close ZReport
 
 **URL** : `/zreport/close/`
 
