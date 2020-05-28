@@ -77,7 +77,8 @@ Operation for create order
   "date_time": [Date time in tm],
   "fiscal_sign": [fiscal sign number], 
   "applet_version": [version of applet], 
-  "qr_url": [qrcode url]
+  "qr_url": [qrcode url],
+  "cash_box_number": [cashbox number]
   },
   "error": {
     "code":[code of error],
@@ -95,12 +96,12 @@ Operation for create order
 ```json
 {
 "data": {
-  "TerminalID": "UZ170703100189", 
-  "ReceiptSeq": 643,
-  "DateTime": "20200518221403",
-  "FiscalSign": "248429044289", 
-  "AppletVersion": "0300", 
-  "QRCodeURL": "https://ofd.soliq.uz/check?t=UZ170703100189&r=643&c=20200518221403&s=248429044289" 
+  "terminal_id": "UZ170703100189", 
+  "receipt_count": 643,
+  "date_time": "20200518221403",
+  "fiscal_sign": "248429044289", 
+  "applet_version": "0300", 
+  "qr_url": "https://ofd.soliq.uz/check?t=UZ170703100189&r=643&c=20200518221403&s=248429044289" 
   },
 "error": null,
 "is_success": true 
@@ -219,12 +220,13 @@ Operations for refuse order
 ```json
 {
 "data": {
-  "TerminalID": "UZ170703100189", 
-  "ReceiptSeq": 643,
-  "DateTime": "20200518221403",
-  "FiscalSign": "248429044289", 
-  "AppletVersion": "0300", 
-  "QRCodeURL": "https://ofd.soliq.uz/check?t=UZ170703100189&r=643&c=20200518221403&s=248429044289" 
+  "terminal_id": "UZ170703100189", 
+  "receipt_count": 643,
+  "date_time": "20200518221403",
+  "fiscal_sign": "248429044289", 
+  "applet_version": "0300", 
+  "qr_url": "https://ofd.soliq.uz/check?t=UZ170703100189&r=643&c=20200518221403&s=248429044289",
+  "cash_box_number":"2"
   },
 "error": null,
 "is_success": true 
