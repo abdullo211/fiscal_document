@@ -29,11 +29,12 @@ Operation for create order
    "other":[other discount prices  multiplied to 100] 
    }
 ], 
-"time":[Time in format yyyy-MM-dd HH:mm:ss or null],
+"time":[Time in format yyyy-MM-dd HH:mm:ss],
 "cashier":[Cashier name], 
 "received_cash":[received cash price  multiplied to 100], 
 "change":[change price multiplied to 100], 
-"received_card":[received card price  multiplied to 100]
+"received_card":[received card price  multiplied to 100],
+"open_cashbox":[open cashbox device], 
 }
 ```
 
@@ -54,7 +55,8 @@ Operation for create order
      "vat_percent":15,
      "discount":115000.0,
      "discount_percent":50.0,
-     "other":0.0 
+     "other":0.0,
+     "open_cashbox":true
     }
   ], 
 "time":null,
@@ -154,7 +156,7 @@ Operations for refuse order
    "other":[other discount prices  multiplied to 100] 
    }
 ], 
-"time":[Time in format yyyy-MM-dd HH:mm:ss or null],
+"time":[Time in format yyyy-MM-dd HH:mm:ss],
 "cashier":[Cashier name], 
 "received_cash":[received cash price  multiplied to 100], 
 "change":[change price multiplied to 100], 
