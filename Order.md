@@ -34,7 +34,13 @@ Operation for create order
 "received_cash":[received cash price  multiplied to 100], 
 "change":[change price multiplied to 100], 
 "received_card":[received card price  multiplied to 100],
-+ "open_cashbox":[open cashbox device  {not required}], 
+"open_cashbox":[open cashbox device],
+"banners":[
+  {
+    "type":[Banner type : text, barcode,qr_code]
+    "data":[Banner data]
+  }
+ ]
 }
 ```
 
@@ -62,9 +68,20 @@ Operation for create order
 "cashier":"Admin", 
 "received_cash":100000, 
 "change":0, 
+"received_card":15000,
 "open_cashbox":true,
-"received_card":15000
-}
+"banners":
+[ 
+  {
+  "type":"text",
+  "data": "Код скидки для следующий покупки "
+  },
+  {
+  "type":"barcode",
+  "data":"23423423"
+  }
+]
+ }
  
 }
 ```
