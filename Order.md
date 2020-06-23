@@ -34,7 +34,7 @@ Operation for create order
 "received_cash":[received cash price  multiplied to 100], 
 "change":[change price multiplied to 100], 
 "received_card":[received card price  multiplied to 100],
-"open_cashbox":[open cashbox device {+not required}], 
++ "open_cashbox":[open cashbox device  {not required}], 
 }
 ```
 
