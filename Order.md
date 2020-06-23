@@ -13,7 +13,7 @@ Operation for create order
 
 ```json
 {
-"number":[order number or id],
+"number":[*order number or id],
 "products":
 [
   {
@@ -34,7 +34,7 @@ Operation for create order
 "received_cash":[received cash price  multiplied to 100], 
 "change":[change price multiplied to 100], 
 "received_card":[received card price  multiplied to 100],
-"open_cashbox":[open cashbox device], 
+"open_cashbox":[open cashbox device {not required}], 
 }
 ```
 
