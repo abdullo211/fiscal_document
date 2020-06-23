@@ -55,14 +55,14 @@ Operation for create order
      "vat_percent":15,
      "discount":115000.0,
      "discount_percent":50.0,
-     "other":0.0,
-     "open_cashbox":true
+     "other":0.0
     }
   ], 
 "time":null,
 "cashier":"Admin", 
 "received_cash":100000, 
 "change":0, 
+"open_cashbox":true,
 "received_card":15000
 }
  
