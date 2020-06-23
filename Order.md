@@ -37,7 +37,7 @@ Operation for create order
 "open_cashbox":[open cashbox device],
 "banners":[
   {
-    "type":[Banner type : text, barcode,qr_code]
+    "type":[Banner type - {text, barcode, qr_code}]
     "data":[Banner data]
   }
  ]
