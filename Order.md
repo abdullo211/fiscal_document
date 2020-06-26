@@ -82,8 +82,6 @@ Operation for create order
   }
 ]
  }
- 
-}
 ```
 
 ## Response
