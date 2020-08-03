@@ -125,6 +125,7 @@ Operation for close ZReport
 ## Request
 ```json
 {
+"close_zreport": [Close zreport true or false]
  "name": [zreport name], 
  "prices":[
   {
@@ -138,6 +139,7 @@ Operation for close ZReport
 
 ```
 {
+"close_zreport": true,
 "name":"Z Отчет",
 "prices":[
   {
