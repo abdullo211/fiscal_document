@@ -138,7 +138,7 @@ Operation for close ZReport
 
 ```
 {
-"name":"ZReport",
+"name":"Z Отчет",
 "prices":[
   {
    "type":"UZS",
