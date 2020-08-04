@@ -69,9 +69,23 @@ Operation for close ZReport
 
 ```json
 {
- "data":{
-  "time": [time open zreport], 
+  "data":{ 
   "applet_version": [Applet version],
+  "terminal_id": [Terminal id],
+  "number": [Number of ZReport],
+  "count": [All ZReport count],
+  "last_receipt_seq": [Last receipt number in this ZReport],
+  "first_receipt_seq": [First receipt number in this ZReport],
+  "open_time": [ZReport open time in format yyyy-MM-dd HH:mm:ss],
+  "close_time": [ZReport close time in format yyyy-MM-dd HH:mm:ss],
+  "total_refund_vat": [ZReport refund NDS price multiplied by 100]
+  "total_refund_card": [ZReport refund card price multiplied by 100]
+  "total_refund_cash": [ZReport refund cash price multiplied by 100]
+  "total_refund_count": [ZReport refund count] ,
+  "total_sale_vat": [ZReport sale NDS price multiplied by 100],
+  "total_sale_card": [ZReport sale card price multiplied by 100]
+  "total_sale_cash": [ZReport sale cash price multiplied by 100]
+  "total_sale_count": [ZReport sale count] ,
   },
   "error": {
     "code":[code of error],
