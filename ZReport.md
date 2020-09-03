@@ -7,6 +7,8 @@ Operation for open ZReport
 
 **Method** : `GET`
 
+**Parameter** : `time [in format yyyy-MM-dd HH:mm:ss]`
+
 **Auth required** : NO
 
 ## Response
