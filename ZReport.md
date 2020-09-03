@@ -149,6 +149,8 @@ Operation for close ZReport
 
 **Method** : `POST`
 
+**Parameter** : `time [in format yyyy-MM-dd HH:mm:ss]`
+
 **Auth required** : NO
 
 ## Request
