@@ -40,7 +40,16 @@ Operation for create order
     "type":[Banner type - {text, barcode, qr_code}]
     "data":[Banner data]
   }
- ]
+ ],
+"prices":
+[
+  {
+   "name":[price name String], 
+   "price":[price multiplied by 100], 
+   "vat_type":[vat name String],
+   "vat_price":[vat price multiplied by 100],
+   }
+] 
 }
 ```
 
@@ -80,7 +89,17 @@ Operation for create order
   "type":"barcode",
   "data":"23423423"
   }
-]
+],
+"prices":
+  [
+    {
+     "name":"PayMe", 
+     "price":100000,
+     "vat_type":"QQS", 
+     "vat_price":200000
+    }
+  ], 
+}
  }
 ```
 
@@ -175,7 +194,16 @@ Operations for refuse order
 "cashier":[Cashier name], 
 "received_cash":[received cash price  multiplied to 100], 
 "change":[change price multiplied to 100], 
-"received_card":[received card price  multiplied to 100]
+"received_card":[received card price  multiplied to 100],
+"prices":
+[
+  {
+   "name":[price name String], 
+   "price":[price multiplied by 100], 
+   "vat_type":[vat name String],
+   "vat_price":[vat price multiplied by 100],
+   }
+], 
 }
 ```
 
@@ -203,9 +231,17 @@ Operations for refuse order
 "cashier":"Admin", 
 "received_cash":100000, 
 "change":0, 
-"received_card":15000
+"received_card":15000,
+"prices":
+  [
+    {
+     "name":"UPAY", 
+     "price":100000,
+     "vat_type":"TUZATISH QQS", 
+     "vat_price":200000
+    }
+  ], 
 }
- 
 }
 ```
 
