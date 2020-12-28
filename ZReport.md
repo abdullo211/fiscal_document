@@ -164,7 +164,7 @@ Operation for close ZReport
  "name": [zreport name], 
  "prices":[
   {
-    "type":[Price type {UZS,USD,HUMO}]
+    "name":[Price name {UZS,USD,HUMO}]
     "price":[price  multiplied by 100]
   }
  ]
@@ -178,7 +178,7 @@ Operation for close ZReport
 "name":"Z Отчет",
 "prices":[
   {
-   "type":"UZS",
+   "name":"UZS",
    "price":240000
    }
  ]
