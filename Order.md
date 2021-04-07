@@ -73,7 +73,7 @@ Operation for create order
      "other":0.0
     }
   ], 
-"time":null,
+"time":"2021-04-07 12:52:02",
 "cashier":"Admin", 
 "received_cash":100000, 
 "change":0, 
