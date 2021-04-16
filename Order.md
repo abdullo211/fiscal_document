@@ -10,7 +10,7 @@ Operation for create order
 **Auth required** : NO
 
 **Data constraints**
-
+-- With * are optional fields
 ```json
 {
 "number":[*order number or id],
@@ -26,7 +26,9 @@ Operation for create order
    "vat_percent":[nds percent],
    "discount":[discount price  multiplied to 100],
    "discount_percent":[discount price percent],
-   "other":[other discount prices  multiplied to 100] 
+   "other":[other discount prices  multiplied to 100],
+  *"labels":[marking codes list],
+  *"class_code":[product class code for marking]
    }
 ], 
 "time":[Time in format yyyy-MM-dd HH:mm:ss],
@@ -34,14 +36,14 @@ Operation for create order
 "received_cash":[received cash price  multiplied to 100], 
 "change":[change price multiplied to 100], 
 "received_card":[received card price  multiplied to 100],
-"open_cashbox":[open cashbox device],
-"banners":[
+*"open_cashbox":[open cashbox device],
+*"banners":[
   {
     "type":[Banner type - {text, barcode, qr_code}]
-    "data":[Banner data]
+    "data":[Banner text]
   }
  ],
-"prices":
+*"prices":
 [
   {
    "name":[price name String], 
@@ -52,6 +54,7 @@ Operation for create order
 ] 
 }
 ```
+
 
 **Data example**
 
@@ -70,7 +73,9 @@ Operation for create order
      "vat_percent":15,
      "discount":115000.0,
      "discount_percent":50.0,
-     "other":0.0
+     "other":0.0,
+     "labels":["05367567230048c?eN1(o0029","05367567230048b5Mp17W3346"],
+     "class_code":"02206"
     }
   ], 
 "time":"2021-04-07 12:52:02",
@@ -188,6 +193,8 @@ Operations for refuse order
    "discount":[discount price  multiplied to 100],
    "discount_percent":[discount price percent],
    "other":[other discount prices  multiplied to 100] 
+  *"labels":[marking codes list],
+  *"class_code":[product class code for marking]
    }
 ], 
 "time":[Time in format yyyy-MM-dd HH:mm:ss],
@@ -224,10 +231,12 @@ Operations for refuse order
      "vat_percent":15,
      "discount":115000.0,
      "discount_percent":50.0,
-     "other":0.0 
+     "other":0.0,
+     "labels":["05367567230048c?eN1(o0029","05367567230048b5Mp17W3346"],
+     "class_code":"02206"
     }
   ], 
-"time":null,
+"time":"2021-04-15 14:35:02",
 "cashier":"Admin", 
 "received_cash":100000, 
 "change":0, 
