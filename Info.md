@@ -17,6 +17,7 @@ Operation for get info
   "applet_version": [Applet version],
   "current_receipt_seq": [Current receipt sequence count],
   "current_time": [Current time],
+  "last_operation_time":  [Last operation time],
   "receipt_count": [Receipt count],
   "receipt_max_count": [Max receipt count],
   "zreport_count": [Zreport count],
@@ -34,10 +35,22 @@ Operation for get info
   "is_success": [is success response] 
 }
 ```
-| Name          | Type          | Description   |
-| ------------- | ------------- | ------------- |
-| terminal_id   | String        | Printer serial number  |
-| applet_version  | String | Fiscal module applet version  |
+| Name                              | Type          | Description EN/RU                                                            | Example                                  |
+| --------------------------------- | ------------- | ---------------------------------------------------------------------------- | ---------------------------------------- |
+| terminal_id                       | String        | Fiscal module number/Номер фискального модуля                                | UZ170703100189                           |
+| applet_version                    | String        | Fiscal module applet version/Версия аплета фискального модуля                | 0300                                     |
+| current_receipt_seq               | String        | Current receipt seq/Порядковый номер чека                                    | 836                                      |
+| current_time                      | String        | Current time/Дата и время                                                    | 2021-09-08 19:29:59                      |
+| last_operation_time               | String        | Last operation time/Дата и время последней операци                           | 2021-09-08 19:29:59                      |
+| receipt_count                     | String        | Receipt count/Количество не оправленных чековы                               | 1                                        |
+| receipt_max_count                 | String        | Receipt max count/Максимальное количетсов чеков в одной кассовой смене       | 858                                      |
+| zreport_count                     | String        | Zreport count/Количекстов закрытых кассовых смен                             | 38                                       |
+| zreport_max_count                 | String        | Zreport_max_count/Количекстов закрытых кассовых смен                         | 832                                      |
+| available_persistent_memory       | String        | Available persistent memory/Доступная постоянная память                      | 32767                                    |
+| available_reset_memory            | String        | Available reset memory/Доступная память для сброса                           | 8918                                     |
+| available_deselect_memory         | String        | Available deselect memory/Доступная память для отмены выбора                 | 8918                                     |
+| cashbox_number                    | String        | Cashbox number/Денежный ящик                                                 | 0 - no open, 1 - open                    |
+
 
 **Success example**
 **Code** : `200 OK`
@@ -50,6 +63,7 @@ Operation for get info
     "applet_version": "0300",
     "current_receipt_seq": "836",
     "current_time": "2020-05-28 22:27:15",
+    "last_operation_time": "2021-09-08 19:32:39"
     "receipt_count": 0,
     "receipt_max_count": 858,
     "zreport_count": 38,
