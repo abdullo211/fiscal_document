@@ -34,6 +34,10 @@ Operation for get info
   "is_success": [is success response] 
 }
 ```
+| Name          | Type          | Description   |
+| ------------- | ------------- | ------------- |
+| terminal_id   | String        | Printer serial number  |
+| Content Cell  | Content Cell  | Content Cell  |
 
 **Success example**
 **Code** : `200 OK`
