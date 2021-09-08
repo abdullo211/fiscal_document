@@ -17,24 +17,24 @@ Operation for create order
 "products":
 [
   {
-   "name":[product name String], 
-   "barcode":[product barcode String], 
-   "amount":[product amount  multiplied by 1000],
+   "name":[product name], 
+   "barcode":[product barcode], 
+   "amount":[product amount],
    "price":[product_price * amount],
-   "product_price":[product_price multiplied by 100], 
-   "vat":[nds price multiplied by 100], 
-   "vat_percent":[nds percent],
-   "discount":[discount price  multiplied by 100],
-   "discount_percent":[discount price percent],
-   "other":[other discount prices  multiplied by 100],
-  *"labels":[marking codes list],
-  *"class_code":[product class code for marking]
+   "product_price":[product_price], 
+   "vat":[nds_price], 
+   "vat_percent":[nds_percent],
+   "discount":[discount_price],
+   "discount_percent":[discount_price_percent],
+   "other":[other_discount_prices  multiplied by 100],
+  *"labels":[marking_codes_list],
+  *"class_code":[product_class_code]
    }
 ], 
-"time":[Time in format yyyy-MM-dd HH:mm:ss],
-"cashier":[Cashier name], 
-"received_cash":[received cash price  multiplied by 100], 
-"change":[change price multiplied by 100], 
+"time":[time_in_format yyyy-MM-dd HH:mm:ss],
+"cashier":[cashier_name], 
+"received_cash":[received_cash_price], 
+"change":[change_price], 
 "received_card":[received card price  multiplied by 100],
 *"open_cashbox":[open cashbox device],
 *"banners":[
@@ -55,6 +55,30 @@ Operation for create order
 }
 ```
 
+| Name                        | Type   | Description EN/RU                                                      | Example                                     |
+| --------------------------- | -------| ---------------------------------------------------------------------- | ------------------------------------------- |
+| number                      | String | Forder number/Номер чека                                               | 1                                           |
+| name                        | String | Product name/Наименование товара или услуги                            | Хлеб                                        |
+| barcode                     | String | Product amount/Количество                                              | 1 шт. = 1000, 0,25 кг = 250                 |
+| amount                      | String | Product barcode/Штрих-код (GTIN) товара                                | EAN-8 47800007, EAN-13 4780000000007        |
+| price                       | String | Price/Цена                                                             | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| product_price               | String | Product price/Сумма                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| vat                         | String | Nds price/Сумма НДС                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| vat_percent                 | String | Nds percent/Ставка НДС                                                 | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
+| discount         | String | Discount price/Цена со скидкой                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 1000  |
+| discount_percent | String | Discount price percent/Процент скидки                                             | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
+| other            | String | Other discount prices/Другая скидка                                               | 50 тийин = 50, 1 сум = 100, 100 сум = 1000  |
+| labels           | String | Marking codes list/Код маркировки (значеник кода DataMatrix)                      | 05367567230048c?eN1(o0029                   |
+| class_code       | String | Product class code/Код классификатора                                             | 10999001001000000                           |
+| time             | String | Time in format YYYY-MM-DD HH:MM:SS/Дата и время в форомате ГГГГ-ММ-ДД ЧЧ-ММ-СС    | 2021-09-08 22:54:59                         |
+| cashier          | String | Cashier name/Имя кассира                                                          | Админ                                       |
+| received_cash    | String | Received cash price/Оплата наличными                                              | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| change           | String | Change price/Сдача                                                                | 100                                         |
+| received_card    | String | Received cash price/Оплата банковской картой                                      | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| open_cashbox     | String | Open cashbox device/Открытие денежнего ящика                                      | true = open, falce = not open               |
+| type             | String | Banner type - {text, barcode, qr_code}/Штрих-код, QR-код                          | barcode                                     |
+| data             | String | Banner text/Рекламный текст                                                       | Скидка на следующую покупку 5%              |
+
 
 **Data example**
 
@@ -66,14 +90,14 @@ Operation for create order
     {
      "name":"наименование товара или услуги", 
      "barcode":"4780000000007", 
-     "amount":1000.0,
-     "price":230000.0,
-     "product_price":2300.0, 
-     "vat":15000.0, 
+     "amount":2000,
+     "price":115000,
+     "product_price":230000, 
+     "vat":1500, 
      "vat_percent":15,
-     "discount":115000.0,
-     "discount_percent":50.0,
-     "other":0.0,
+     "discount":115000,
+     "discount_percent":50,
+     "other":0,
      "labels":["05367567230048c?eN1(o0029","05367567230048b5Mp17W3346"],
      "class_code":"02206"
     }
