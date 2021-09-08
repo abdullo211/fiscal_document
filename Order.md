@@ -158,6 +158,11 @@ Operation for create order
 }
 ```
 
+| Name               | Type   | Description EN/RU                                                              | Example                                     |
+| ------------------ | -------| ------------------------------------------------------------------------------ | ------------------------------------------- |
+| number             | String | Forder number/Номер чека                                                       | 1                                           |
+| name               | String | Product name/Наименование товара или услуги                                    | Хлеб                                        |
+
 **Success example**
 **Code** : `200 OK`
 
