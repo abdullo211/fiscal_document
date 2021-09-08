@@ -158,10 +158,14 @@ Operation for create order
 }
 ```
 
-| Name               | Type   | Description EN/RU                                                              | Example                                     |
-| ------------------ | -------| ------------------------------------------------------------------------------ | ------------------------------------------- |
-| number             | String | Forder number/Номер чека                                                       | 1                                           |
-| name               | String | Product name/Наименование товара или услуги                                    | Хлеб                                        |
+| Name           | Type   | Description EN/RU                                                   | Example                                                         |
+| -------------- | -------| ------------------------------------------------------------------- | --------------------------------------------------------------- |
+| terminal_id    | String | Fiscal module number/Номер фискального модуля                       | UZ170703100189                                                  |
+| receipt_count  | String | Receipt count/Номер чека                                            | 643                                                             |
+| date_time      | String | Date in format YYYYMMDDHHMMSS/Дата и время в формате ГГГГММДДЧЧММСС | 20200518221403                                                  |
+| fiscal_sign    | String | Fiscal sign/Фискальный признак                                      | 248429044289                                                    |
+| applet_version | String | Applet version/Версия аплета                                        | 0300                                                            |
+| qr_url         | String | QR url/QR ссылка                                                    | https://ofd.soliq.uz/check?t=UZ170703100189&r=643&c=20200518221 |
 
 **Success example**
 **Code** : `200 OK`
