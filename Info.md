@@ -37,7 +37,7 @@ Operation for get info
 | Name          | Type          | Description   |
 | ------------- | ------------- | ------------- |
 | terminal_id   | String        | Printer serial number  |
-| Content Cell  | Content Cell  | Content Cell  |
+| applet_version  | String | Fiscal module applet version  |
 
 **Success example**
 **Code** : `200 OK`
