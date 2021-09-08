@@ -46,38 +46,42 @@ Operation for create order
 *"prices":
 [
   {
-   "name":[price name String], 
-   "price":[price multiplied by 100], 
-   "vat_type":[vat name String],
-   "vat_price":[vat price multiplied by 100],
+   "name":[price_name], 
+   "price":[price], 
+   "vat_type":[vat_name],
+   "vat_price":[vat_price],
    }
 ] 
 }
 ```
 
-| Name                        | Type   | Description EN/RU                                                      | Example                                     |
-| --------------------------- | -------| ---------------------------------------------------------------------- | ------------------------------------------- |
-| number                      | String | Forder number/Номер чека                                               | 1                                           |
-| name                        | String | Product name/Наименование товара или услуги                            | Хлеб                                        |
-| barcode                     | String | Product amount/Количество                                              | 1 шт. = 1000, 0,25 кг = 250                 |
-| amount                      | String | Product barcode/Штрих-код (GTIN) товара                                | EAN-8 47800007, EAN-13 4780000000007        |
-| price                       | String | Price/Цена                                                             | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-| product_price               | String | Product price/Сумма                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-| vat                         | String | Nds price/Сумма НДС                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-| vat_percent                 | String | Nds percent/Ставка НДС                                                 | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
-| discount         | String | Discount price/Цена со скидкой                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 1000  |
-| discount_percent | String | Discount price percent/Процент скидки                                             | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
-| other            | String | Other discount prices/Другая скидка                                               | 50 тийин = 50, 1 сум = 100, 100 сум = 1000  |
-| labels           | String | Marking codes list/Код маркировки (значеник кода DataMatrix)                      | 05367567230048c?eN1(o0029                   |
-| class_code       | String | Product class code/Код классификатора                                             | 10999001001000000                           |
-| time             | String | Time in format YYYY-MM-DD HH:MM:SS/Дата и время в форомате ГГГГ-ММ-ДД ЧЧ-ММ-СС    | 2021-09-08 22:54:59                         |
-| cashier          | String | Cashier name/Имя кассира                                                          | Админ                                       |
-| received_cash    | String | Received cash price/Оплата наличными                                              | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-| change           | String | Change price/Сдача                                                                | 100                                         |
-| received_card    | String | Received cash price/Оплата банковской картой                                      | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-| open_cashbox     | String | Open cashbox device/Открытие денежнего ящика                                      | true = open, falce = not open               |
-| type             | String | Banner type - {text, barcode, qr_code}/Штрих-код, QR-код                          | barcode                                     |
-| data             | String | Banner text/Рекламный текст                                                       | Скидка на следующую покупку 5%              |
+| Name               | Type   | Description EN/RU                                                              | Example                                     |
+| ------------------ | -------| ------------------------------------------------------------------------------ | ------------------------------------------- |
+| number             | String | Forder number/Номер чека                                                       | 1                                           |
+| name               | String | Product name/Наименование товара или услуги                                    | Хлеб                                        |
+| barcode            | String | Product amount/Количество                                                      | 1 шт. = 1000; 0,25 кг = 250                 |
+| amount             | String | Product barcode/Штрих-код (GTIN) товара                                        | EAN-8 47800007, EAN-13 4780000000007        |
+| price              | String | Price/Цена                                                                     | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| product_price      | String | Product price/Сумма                                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| vat                | String | Nds price/Сумма НДС                                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| vat_percent        | String | Nds percent/Ставка НДС                                                         | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
+| discount           | String | Discount price/Цена со скидкой                                                 | 50 тийин = 50, 1 сум = 100, 100 сум = 1000  |
+| discount_percent   | String | Discount price percent/Процент скидки                                          | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
+| other              | String | Other discount prices/Другая скидка                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 1000  |
+| labels             | String | Marking codes list/Код маркировки (значеник кода DataMatrix)                   | 05367567230048c?eN1(o0029                   |
+| class_code         | String | Product class code/Код классификатора                                          | 10999001001000000                           |
+| time               | String | Time in format YYYY-MM-DD HH:MM:SS/Дата и время в форомате ГГГГ-ММ-ДД ЧЧ-ММ-СС | 2021-09-08 22:54:59                         |
+| cashier            | String | Cashier name/Имя кассира                                                       | Админ                                       |
+| received_cash      | String | Received cash price/Оплата наличными                                           | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| change             | String | Change price/Сдача                                                             | 100                                         |
+| received_card      | String | Received cash price/Оплата банковской картой                                   | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| open_cashbox       | String | Open cashbox device/Открытие денежнего ящика                                   | true = open, falce = not open               |
+| type               | String | Banner type - {text, barcode, qr_code}/Штрих-код, QR-код                       | barcode                                     |
+| data               | String | Banner text/Рекламный текст                                                    | Скидка на следующую покупку 5%              |
+| prices / name      | String | Price name/Наименование вида оплаты                                            | UDS, VISA, MasterCard, ...                  |
+| prices / price     | String | Price/Сумма                                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| prices / vat_type  | String | Vat type/Название налога и ставка                                              | НДС 15%                                     |
+| prices / vat_price | String | Vat price/Сумма налога                                                         | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 
 
 **Data example**
