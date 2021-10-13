@@ -59,8 +59,8 @@ Operation for create order
 | ------------------ | -------| ------------------------------------------------------------------------------ | ------------------------------------------- |
 | number             | String | Forder number/Номер чека                                                       | 1                                           |
 | name               | String | Product name/Наименование товара или услуги                                    | Хлеб                                        |
-| barcode            | String | Product amount/Количество                                                      | 1 шт. = 1000; 0,25 кг = 250                 |
-| amount             | String | Product barcode/Штрих-код (GTIN) товара                                        | EAN-8 47800007, EAN-13 4780000000007        |
+| barcode            | String | Product amount/Количество                                                      | EAN-8 47800007, EAN-13 4780000000007        |
+| amount             | String | Product barcode/Штрих-код (GTIN) товара                                        | 1 шт. = 1000; 0,25 кг = 250                 |
 | price              | String | Price/Цена                                                                     | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | product_price      | String | Product price/Сумма                                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | vat                | String | Nds price/Сумма НДС                                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
