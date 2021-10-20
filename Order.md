@@ -36,6 +36,9 @@ Operation for create order
 "received_cash":[received_cash_price], 
 "change":[change_price], 
 "received_card":[received card price  multiplied by 100],
+*"send_email":[Send order data to special email],
+*"email":[Email for sending order data],
+*"sms_phone_number" : [Phone number for sending order data],
 *"open_cashbox":[open cashbox device],
 *"banners":[
   {
@@ -112,6 +115,9 @@ Operation for create order
 "change":0, 
 "received_card":15000,
 "open_cashbox":true,
+"send_email":true,
+"email":"abdullo21113@gmail.com",
+"sms_phone_number" :"+998909999999",
 "banners":
 [ 
   {
@@ -239,6 +245,9 @@ Operations for refuse order
 "received_cash":[received cash price  multiplied to 100], 
 "change":[change price multiplied to 100], 
 "received_card":[received card price  multiplied to 100],
+*"send_email":[Send order data to special email],
+*"email":[Email for sending order data],
+*"sms_phone_number" : [Phone number for sending order data],
 "prices":
 [
   {
@@ -277,6 +286,9 @@ Operations for refuse order
 "cashier":"Admin", 
 "received_cash":100000, 
 "change":0, 
+"send_email":true,
+"email":"abdullo21113@gmail.com",
+"sms_phone_number" :"+998909999999",
 "received_card":15000,
 "prices":
   [
