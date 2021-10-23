@@ -51,7 +51,7 @@ Operation for create paymen via CLICK PASS
         "status_code": 0,
         "status": "successfully",
         "message": "Успешно подтвержден",
-        "transaction_id": "transaction_test_id_4",
+        "transaction_id": "ee000d20-b260-4b17-995a-a7bd113bdb22",
         "qr_code": "880101698207133392"
     },
     "error": null,
