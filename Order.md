@@ -64,8 +64,8 @@ Operation for create order
 | name               | String | Product name/Наименование товара или услуги                                    | Хлеб                                        |
 | barcode            | String | Product barcode/Штрих-код (GTIN) товара                                        | EAN-8 47800007, EAN-13 4780000000007        |
 | amount             | String | Product amount/Количество                                                      | 1 шт. = 1000; 0,25 кг = 250                 |
-| price              | String | Price/Цена                                                                     | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-| product_price      | String | Product price/Сумма                                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| price              | String | Price/Сумма                                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| product_price      | String | Product price/Цена за еденицу товра/услуги                                     | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | vat                | String | Nds price/Сумма НДС                                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | vat_percent        | String | Nds percent/Ставка НДС                                                         | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
 | discount           | String | Discount price/Цена со скидкой                                                 | 50 тийин = 50, 1 сум = 100, 100 сум = 1000  |
