@@ -1,6 +1,6 @@
 # INFO
 
-Operation for get info
+Operation for get info / Получение информации 
 
 **URL** : `/info/`
 
@@ -44,7 +44,7 @@ Operation for get info
 | current_receipt_seq         | String | Current receipt seq/Порядковый номер чека                              | 836                                        |
 | current_time                | String | Current time/Дата и время                                              | 2021-09-08 19:29:59                        |
 | last_operation_time         | String | Last operation time/Дата и время последней операци                     | 2021-09-08 19:29:59                        |
-| receipt_count               | String | Receipt count/Количество не оправленных чековы                         | 1                                          |
+| receipt_count               | String | Receipt count/Количество не оправленных чеков                          | 1                                          |
 | receipt_max_count           | String | Receipt max count/Максимальное количетсов чеков в одной кассовой смене | 858                                        |
 | zreport_count               | String | Zreport count/Количекстов закрытых кассовых смен                       | 38                                         |
 | zreport_max_count           | String | Zreport_max_count/Количекстов закрытых кассовых смен                   | 832                                        |
@@ -52,7 +52,7 @@ Operation for get info
 | available_reset_memory      | String | Available reset memory/Доступная память для сброса                     | 8918                                       |
 | available_deselect_memory   | String | Available deselect memory/Доступная память для отмены выбора           | 8918                                       |
 | cashbox_number              | String | Cashbox number/Денежный ящик                                           | 0 - no open, 1 - open                      |
-| version_code                | String | Version code/Варсия прощивки                                           | 1.12.1                                     |
+| version_code                | String | Version code/Версия прошивки                                           | 1.12.1                                     |
 | is_updated                  | Text   | Is updated/Обновление                                                  | false - no auto update, true - auto update |
 
 **Success example**
