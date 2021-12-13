@@ -65,14 +65,14 @@ Operation for create order
 | barcode            | String | Product barcode/Штрих-код (GTIN) товара                                        | EAN-8 47800007, EAN-13 4780000000007        |
 | amount             | String | Product amount/Количество                                                      | 1 шт. = 1000; 0,25 кг = 250                 |
 | price              | String | Price/Сумма                                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-| product_price      | String | Product price/Цена за еденицу товра/услуги                                     | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| product_price      | String | Product price/Цена за единицу товара/услуги                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | vat                | String | Nds price/Сумма НДС                                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | vat_percent        | String | Nds percent/Ставка НДС                                                         | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
 | discount           | String | Discount price/Цена со скидкой                                                 | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | discount_percent   | String | Discount price percent/Процент скидки                                          | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
 | other              | String | Other discount prices/Другая скидка                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | labels             | String | Marking codes list/Код маркировки (значеник кода DataMatrix)                   | 05367567230048c?eN1(o0029                   |
-| class_code         | String | Product class code/Код классификатора                                          | 10999001001000000                           |
+| class_code         | String | Product class code/Код классификатора ИКПУ                                     | 10999001001000000                           |
 | time               | String | Time in format YYYY-MM-DD HH:MM:SS/Дата и время в форомате ГГГГ-ММ-ДД ЧЧ-ММ-СС | 2021-09-08 22:54:59                         |
 | cashier            | String | Cashier name/Имя кассира                                                       | Админ                                       |
 | received_cash      | String | Received cash price/Оплата наличными                                           | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
