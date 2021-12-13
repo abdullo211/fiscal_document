@@ -1,6 +1,6 @@
 # TOOLS
 
-Open cash drawer API
+Open cash drawer API \ Открытие денежнего ящика
 
 **URL** : `print/open_cash_drawer`
 
