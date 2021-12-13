@@ -1,7 +1,7 @@
 # ZREPORT
 
 ## Open ZReport
-Operation for open ZReport
+Operation for open ZReport / Открытие кассовой смены
 
 **URL** : `/zreport/open/`
 
@@ -59,7 +59,7 @@ Operation for open ZReport
 }
 ```
 ## Close ZReport
-Operation for close ZReport
+Operation for close ZReport / Закрытие кассовой смены
 
 **URL** : `/zreport/close/`
 
@@ -147,7 +147,7 @@ Operation for close ZReport
 ```
 
 ## Close ZReport with print (X report = "false")
-Operation for close ZReport
+Operation for close ZReport / Закрытие кассовой смены с напечатыванием чека 
 
 **URL** : `/zreport/close/`
 
