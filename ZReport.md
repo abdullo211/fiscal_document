@@ -146,7 +146,7 @@ Operation for close ZReport
 }
 ```
 
-## Close ZReport with print
+## Close ZReport with print (X report = "false")
 Operation for close ZReport
 
 **URL** : `/zreport/close/`
