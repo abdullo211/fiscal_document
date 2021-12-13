@@ -78,7 +78,7 @@ Operation for create paymen via CLICK PASS
 
 # PAYME GO
 
-Operation for create paymen via CLICK PASS
+Operation for create paymen via PAYME GO
 
 **URL** : `/payment/payme`
 
@@ -89,7 +89,7 @@ Operation for create paymen via CLICK PASS
 ```json
 {
   "amount": [Payment price],
-  "qr_code": [Qr code from CLICK PASS],
+  "qr_code": [Qr code from PAYME GO],
 }
 ```
 **Content** :
@@ -108,7 +108,7 @@ Operation for create paymen via CLICK PASS
   "message": [click response message],
   "transaction_id": [transaction_uuid],
   "amount": [Price],
-   "qr_code": [Qr code from CLICK PASS],
+   "qr_code": [Qr code from PAYME GO],
   },
   "error": {
     "code":[code of error],
