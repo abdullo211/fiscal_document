@@ -1,7 +1,7 @@
 # ORDER
 
 ## Order create
-Operation for create order
+Operation for create order / Продажа
 
 **URL** : `/order/create/`
 
@@ -210,7 +210,7 @@ Operation for create order
 
 
 ## Order refuse
-Operations for refuse order
+Operations for refuse order / Возврат
 
 **URL** : `/order/refuse/`
 
@@ -364,7 +364,7 @@ Operations for refuse order
 
 
 ## Order print
-Operation for print last order 
+Operation for print last order / Печать последнего чека
 
 **URL** : `/order/print/`
 
