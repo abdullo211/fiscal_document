@@ -263,3 +263,90 @@ Operation for close ZReport / Закрытие кассовой смены с н
 "is_success": false 
 }
 ```
+
+## ZReport Info
+Operation for ZReport Info / Проверка состояния кассовой смены
+
+**URL** : `/zreport/info/`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+## Response
+
+```json
+{
+  "result": {
+    "data": {
+      "applet_version": [applet version],
+      "terminal_id": [terminal id],
+      "number": [number],
+      "count": [count],
+      "last_receipt_seq": [last receipt seq],
+      "first_receipt_seq": [first receipt seq],
+      "open_time": [open time],
+      "close_time": [close time],
+      "total_refund_vat": [total refund vat],
+      "total_refund_card": [total refund card],
+      "total_refund_cash": [total refund cash],
+      "total_refund_count": [total refund count],
+      "total_sale_vat": [total sale vat],
+      "total_sale_card": [total sale card],
+      "total_sale_cash": [total sale cash],
+      "total_sale_count": [total sale count]
+    },
+    "error": [error],
+    "is_success": [is success response]
+  }
+}
+```
+
+**Success example**
+**Code** : `200 OK`
+
+**Content** :
+```json
+{
+  "result": {
+    "data": {
+      "applet_version": "0302",
+      "terminal_id": "UZ191211501001",
+      "number": 118,
+      "count": 118,
+      "last_receipt_seq": 1159,
+      "first_receipt_seq": 1157,
+      "open_time": "2022-01-14 10:43:00",
+      "close_time": "",
+      "total_refund_vat": 0,
+      "total_refund_card": 0,
+      "total_refund_cash": 0,
+      "total_refund_count": 0,
+      "total_sale_vat": 0,
+      "total_sale_card": 0,
+      "total_sale_cash": 0,
+      "total_sale_count": 0
+    },
+    "error": null,
+    "is_success": true
+  }
+}
+```
+| Name                        | Type   | Description EN/RU                                                      | Example                                    |
+| --------------------------- | -------| ---------------------------------------------------------------------- | ------------------------------------------ |
+| applet_version              | String | Fiscal module applet version/Версия аплета фискального модуля          | 0302                                       |
+| terminal_id                 | String | Fiscal module number/Номер фискального модуля                          | UZ191211501001                             |
+| number                      | String | Number/Номер смены                                                     | 118                                        |
+| count                       | String | Count/Кол-во закрытых смен                                             | 118                                        |
+| last_receipt_seq            | String | Last receipt seq/Последний номер чека                                  | 1159                                       |
+| first_receipt_seq           | String | First receipt seq/Первый номер чека в текущей смене                    | 1157                                       |
+| open_time                   | String | Open time/Дата и время открытия смены                                  | 2022-01-14 10:43:00                        |
+| close_time                  | String | Close time/Дата и время закрытия смены                                 | ""                                         |
+| total_refund_vat            | String | Total refund vat/Сумма возврата НДС                                    | 0                                          |
+| total_refund_card           | String | Total refund card/Сумма возврата по карте                              | 0                                          |
+| total_refund_cash           | String | Total refund cash/Сумма вовзрата наличкой                              | 0                                          |
+| total_refund_count          | String | Total refund count/Количество возвратных чеков                         | 0                                          |
+| total_sale_vat              | String | Total sale vat/Сумма продаж НДС                                        | 0                                          |
+| total_sale_card             | String | Total sale card/Сумма продаж по картам                                 | 0                                          |
+| total_sale_cash             | String | Total sale cash/Сумма продаж наличкой                                  | 0                                          |
+| total_sale_count            | String | Total sale count/Количество продажных чеков                            | 0                                          |
