@@ -68,7 +68,7 @@ Operation for create order / Продажа
 | product_price      | String | Product price/Цена за единицу товара/услуги                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | vat                | String | Nds price/Сумма НДС                                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | vat_percent        | String | Nds percent/Ставка НДС                                                         | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
-| discount           | String | Discount price/Цена со скидкой                                                 | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| discount           | String | Discount price/Цена cкидки                                                     | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | discount_percent   | String | Discount price percent/Процент скидки                                          | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
 | other              | String | Other discount prices/Другая скидка                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | labels             | String | Marking codes list/Код маркировки (значеник кода DataMatrix)                   | 05367567230048c?eN1(o0029                   |
