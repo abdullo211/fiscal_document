@@ -42,7 +42,7 @@ Operation for create order / Продажа
 *"open_cashbox":[open cashbox device],
 *"banners":[
   {
-    "type":[Banner type - {text, barcode, qr_code}]
+    "type":[Banner type - {text, barcode}]
     "data":[Banner text]
   }
  ],
