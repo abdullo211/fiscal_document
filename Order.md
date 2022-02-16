@@ -84,7 +84,7 @@ Operation for create order / Продажа
 | change             | String | Change price/Сдача                                                             | 100                                         |
 | received_card      | String | Received cash price/Оплата банковской картой                                   | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | receipt_type       | String | Receipt type/Признак чека (0-обычный чек,1-авансовый чек,2-кредитный чек)      | 0                                           |
-                                Примечание: На авансовые и кредитные чеки QR код и фиск.признак не печатается
+|                    |        | Примечание: На авансовые и кредитные чеки QR код и фиск.признак не печатается  |                                             |
 | open_cashbox       | String | Open cashbox device/Открытие денежнего ящика                                   | true = open, falce = not open               |
 | type               | String | Banner type - {text, barcode, qr_code}/Штрих-код, QR-код                       | barcode                                     |
 | data               | String | Banner text/Рекламный текст                                                    | Скидка на следующую покупку 5%              |
