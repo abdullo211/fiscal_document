@@ -17,9 +17,11 @@ Operation for create order / Продажа
 "products":
 [
   {
-   "name":[product name], 
+   "name":[product name],
+   "comission_tin":[comission_tin],
    "barcode":[product barcode], 
    "amount":[product amount],
+   "units":[unit],
    "price":[product_price * amount],
    "product_price":[product_price], 
    "vat":[nds_price], 
@@ -36,6 +38,7 @@ Operation for create order / Продажа
 "received_cash":[received_cash_price], 
 "change":[change_price], 
 "received_card":[received card price  multiplied by 100],
+"receipt_type":[receipt_type],
 *"send_email":[Send order data to special email],
 *"email":[Email for sending order data],
 *"sms_phone_number" : [Phone number for sending order data],
@@ -62,8 +65,10 @@ Operation for create order / Продажа
 | ------------------ | -------| ------------------------------------------------------------------------------ | ------------------------------------------- |
 | number             | String | Forder number/Номер чека                                                       | 1                                           |
 | name               | String | Product name/Наименование товара или услуги                                    | Хлеб                                        |
+| comission_tin      | String | Sign commission check TIN/Признак комиссионный чек ИНН                         | 123456789                                   |
 | barcode            | String | Product barcode/Штрих-код (GTIN) товара                                        | EAN-8 47800007, EAN-13 4780000000007        |
 | amount             | String | Product amount/Количество                                                      | 1 шт. = 1000; 0,25 кг = 250                 |
+| units              | String | Unit/Единица измерения                                                         | 5 не больше 4 знач.                         |
 | price              | String | Price/Сумма                                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | product_price      | String | Product price/Цена за единицу товара/услуги                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | vat                | String | Nds price/Сумма НДС                                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
@@ -78,6 +83,8 @@ Operation for create order / Продажа
 | received_cash      | String | Received cash price/Оплата наличными                                           | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | change             | String | Change price/Сдача                                                             | 100                                         |
 | received_card      | String | Received cash price/Оплата банковской картой                                   | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| receipt_type       | String | Receipt type/Признак чека (0-обычный чек,1-авансовый чек,2-кредитный чек)      | 0                                           |
+                                Примечание: На авансовые и кредитные чеки QR код и фиск.признак не печатается
 | open_cashbox       | String | Open cashbox device/Открытие денежнего ящика                                   | true = open, falce = not open               |
 | type               | String | Banner type - {text, barcode, qr_code}/Штрих-код, QR-код                       | barcode                                     |
 | data               | String | Banner text/Рекламный текст                                                    | Скидка на следующую покупку 5%              |
@@ -95,9 +102,11 @@ Operation for create order / Продажа
   "products":
   [
     {
-     "name":"наименование товара или услуги", 
+     "name":"наименование товара или услуги",
+     "comission_tin": 123456789,
      "barcode":"4780000000007", 
      "amount":2000,
+     "units": 5,
      "price":115000,
      "product_price":230000, 
      "vat":1500, 
@@ -114,6 +123,7 @@ Operation for create order / Продажа
 "received_cash":100000, 
 "change":0, 
 "received_card":15000,
+"receipt_type": 1,
 "open_cashbox":true,
 "send_email":true,
 "email":"abdullo21113@gmail.com",
