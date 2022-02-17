@@ -29,8 +29,8 @@ Operation for create order / Продажа
    "discount":[discount_price],
    "discount_percent":[discount_price_percent],
    "other":[other_discount_prices  multiplied by 100],
-  *"labels":[marking_codes_list],
-  *"class_code":[product_class_code]
+   "labels":[marking_codes_list],
+   "class_code":[product_class_code]
    }
 ], 
 "time":[time_in_format yyyy-MM-dd HH:mm:ss],
