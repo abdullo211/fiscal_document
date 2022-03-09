@@ -42,7 +42,6 @@ Operation for create order / Продажа, аванс, кредит
 "received_cash":[received_cash_price], 
 "change":[change_price], 
 "received_card":[received card price  multiplied by 100],
-"receipt_type":[receipt_type],
 *"send_email":[Send order data to special email],
 *"email":[Email for sending order data],
 *"sms_phone_number" : [Phone number for sending order data],
