@@ -1,7 +1,7 @@
 # ORDER
 
 ## Order create
-Operation for create order / Продажа
+Operation for create order / Продажа, аванс, кредит
 
 **URL** : `/order/create/`
 
@@ -14,11 +14,11 @@ Operation for create order / Продажа
 ```json
 {
 "number":[*order number or id],
+"receipt_type":[receipt_type],
 "products":
 [
   {
    "name":[product name],
-   "comission_tin":[comission_tin],
    "barcode":[product barcode], 
    "amount":[product amount],
    "units":[unit],
@@ -30,7 +30,10 @@ Operation for create order / Продажа
    "discount_percent":[discount_price_percent],
    "other":[other_discount_prices  multiplied by 100],
    "labels":[marking_codes_list],
-   "class_code":[product_class_code]
+   "class_code":[product_class_code],
+   "comission_info":{
+              "inn":"inn comision",
+              "pinfl":"pinfl comission"
    }
 ], 
 "time":[time_in_format yyyy-MM-dd HH:mm:ss],
@@ -64,8 +67,9 @@ Operation for create order / Продажа
 | Name               | Type   | Description EN/RU                                                              | Example                                     |
 | ------------------ | -------| ------------------------------------------------------------------------------ | ------------------------------------------- |
 | number             | String | Forder number/Номер чека                                                       | 1                                           |
+| receipt_type       | String | Receipt type/Вид продажи (продажа,аванс,кредит)                                | order,prepaid,credit                        |
+|                    |        | Примечание: На авансовые и кредитные чеки QR код и фиск.признак не печатается  |                                             |
 | name               | String | Product name/Наименование товара или услуги                                    | Хлеб                                        |
-| comission_tin      | String | Sign commission check TIN/Признак комиссионный чек ИНН                         | 123456789                                   |
 | barcode            | String | Product barcode/Штрих-код (GTIN) товара                                        | EAN-8 47800007, EAN-13 4780000000007        |
 | amount             | String | Product amount/Количество                                                      | 1 шт. = 1000; 0,25 кг = 250                 |
 | units              | String | Unit/Единица измерения                                                         | 5 не больше 4 знач.                         |
@@ -78,13 +82,14 @@ Operation for create order / Продажа
 | other              | String | Other discount prices/Другая скидка                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | labels             | String | Marking codes list/Код маркировки (значеник кода DataMatrix)                   | 05367567230048c?eN1(o0029                   |
 | class_code         | String | Product class code/Код классификатора ИКПУ                                     | 10999001001000000                           |
+| comission_info     | String | Sign commission check TIN, PINFL/Признак комиссионный чек ИНН, ПИНФЛ           | 123456789, 12345678912345                   |
+
 | time               | String | Time in format yyyy-MM-dd hh:mm:ss/Дата и время в формате yyyy-MM-dd hh:mm:ss  | 2021-09-08 22:54:59                         |
 | cashier            | String | Cashier name/Имя кассира                                                       | Админ                                       |
 | received_cash      | String | Received cash price/Оплата наличными                                           | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | change             | String | Change price/Сдача                                                             | 100                                         |
 | received_card      | String | Received cash price/Оплата банковской картой                                   | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-| receipt_type       | String | Receipt type/Признак чека (0-обычный чек,1-авансовый чек,2-кредитный чек)      | 0                                           |
-|                    |        | Примечание: На авансовые и кредитные чеки QR код и фиск.признак не печатается  |                                             |
+
 | open_cashbox       | String | Open cashbox device/Открытие денежнего ящика                                   | true = open, falce = not open               |
 | type               | String | Banner type - {text, barcode, qr_code}/Штрих-код, QR-код                       | barcode                                     |
 | data               | String | Banner text/Рекламный текст                                                    | Скидка на следующую покупку 5%              |
@@ -98,12 +103,12 @@ Operation for create order / Продажа
 
 ```json
 {
-  "number":1, 
+  "number":1,
+  "receipt_type":"order",
   "products":
   [
     {
      "name":"наименование товара или услуги",
-     "comission_tin": 123456789,
      "barcode":"4780000000007", 
      "amount":2000,
      "units": 5,
@@ -115,7 +120,11 @@ Operation for create order / Продажа
      "discount_percent":50,
      "other":0,
      "labels":["05367567230048c?eN1(o0029","05367567230048b5Mp17W3346"],
-     "class_code":"02206"
+     "class_code":"02206",
+     "comission_info":{
+              "inn":"123456789",
+              "pinfl":"12345678912345"
+    }
     }
   ], 
 "time":"2021-04-07 12:52:02",
@@ -123,7 +132,6 @@ Operation for create order / Продажа
 "received_cash":100000, 
 "change":0, 
 "received_card":15000,
-"receipt_type": 1,
 "open_cashbox":true,
 "send_email":true,
 "email":"abdullo21113@gmail.com",
