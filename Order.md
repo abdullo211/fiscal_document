@@ -35,6 +35,7 @@ Operation for create order / Продажа, аванс, кредит
               "inn":"inn comision",
               "pinfl":"pinfl comission"
    }
+   }
 ], 
 "time":[time_in_format yyyy-MM-dd HH:mm:ss],
 "cashier":[cashier_name], 
