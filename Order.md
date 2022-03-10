@@ -155,7 +155,6 @@ Operation for create order / Продажа, аванс, кредит
     }
   ], 
 }
- }
 ```
 
 ## Response
