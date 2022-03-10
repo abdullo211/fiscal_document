@@ -255,6 +255,7 @@ Operations for refuse order / Возврат
   *"class_code":[product class code for marking]
    }
 ], 
+"qr_code":[link to web],
 "time":[Time in format yyyy-MM-dd HH:mm:ss],
 "cashier":[Cashier name], 
 "received_cash":[received cash price  multiplied to 100], 
@@ -297,6 +298,7 @@ Operations for refuse order / Возврат
      "class_code":"02206"
     }
   ], 
+"qr_code":"https://ofd.soliq.uz/check?t=UZ191211501001&r=1447&c=20220309125810&s=461313663448",
 "time":"2021-04-15 14:35:02",
 "cashier":"Admin", 
 "received_cash":100000, 
@@ -358,6 +360,22 @@ Operations for refuse order / Возврат
 }
 ```
 **Error example**
+**Condition** : If 'Refund info is not valid'
+**Code** : `65275 OK`
+
+**Content** :
+```json
+{
+    "data": null,
+    "error": {
+        "code": 65275,
+        "message": "not valid refund info",
+        "data": "refund info is not valid"
+    },
+    "is_success": false
+}
+```
+
 **Condition** : If 'Fiscal module is not initialized yet'
 **Code** : `200 OK`
 
