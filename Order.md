@@ -316,7 +316,6 @@ Operations for refuse order / Возврат
     }
   ], 
 }
-}
 ```
 
 ## Response
