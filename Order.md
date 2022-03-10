@@ -375,7 +375,7 @@ Operations for refuse order / Возврат
     "is_success": false
 }
 ```
-
+**Error example**
 **Condition** : If 'Fiscal module is not initialized yet'
 **Code** : `200 OK`
 
