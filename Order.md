@@ -96,6 +96,11 @@ Operation for create order / Продажа, аванс, кредит
 | prices / vat_type  | String | Vat type/Название налога и ставка                                              | НДС 15%                                     |
 | prices / vat_price | String | Vat price/Сумма налога                                                         | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 
+|ID|Description RU|
+|--| ------------ |
+|1 | штук         |
+|2 | пачка        |
+
 
 **Data example**
 
