@@ -168,7 +168,8 @@ Operation for create paymen via Humo PinPad
 }
 ```
 **Content** :
-```{
+```json
+{
   "amount": 50000 (цена в сотых 00)
 }
 ```
@@ -201,5 +202,4 @@ RRN:231511584547
 Univ. EMV POS 1.0.0/(MP) /687
  
 ====================================
-}
 ```
