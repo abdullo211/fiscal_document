@@ -151,3 +151,55 @@ Operation for create paymen via PAYME GO
 "is_success": false 
 }
 ```
+
+# Humo
+
+Operation for create paymen via Humo PinPad
+
+**URL** : `/payment/xumo`
+
+**Method** : `POST`
+
+**Auth required** : NO
+## Request 
+```json
+{
+  "amount": [Payment price]
+}
+```
+**Content** :
+```{
+  "amount": 50000 (цена в сотых 00)
+}
+```
+
+**Success example**
+**Code** : `200 OK`
+
+**Content** :
+```{
+	isSuccess=true, 
+	message=ОБЫЧНЫЙ ТОВАР
+ID Терминала:01000002  Номер смены 1
+ID Организации:190339999999902 
+                               Чек 6
+               Оплата
+              ОДОБРЕНО
+СУММА:                    500.00 UZS
+AID: A0860001000001    HUMO- EMV ICC
+TVR: 0000008000TSI:E800
+Карта: HUMO              Срок: 01/25
+        986009******7856:01
+          HUMO CARDTEST14
+Введен                   offline-PIN
+Код авторизации: 728892 
+                     Код ответа:
+000
+RRN:231511584547 
+              Дата:11/11/22
+17:01:07
+Univ. EMV POS 1.0.0/(MP) /687
+ 
+====================================
+}
+```
