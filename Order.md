@@ -80,8 +80,9 @@ Operation for create order / Продажа, аванс, кредит
 | discount           | String | Discount price/Цена cкидки                                                     | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | discount_percent   | String | Discount price percent/Процент скидки                                          | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
 | other              | String | Other discount prices/Другая скидка                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-| labels             | String | Marking codes list/Код маркировки (значеник кода DataMatrix)                   | 05367567230048c?eN1(o0029                   |
-| class_code         | String | Product class code/Код классификатора ИКПУ                                     | 10999001001000000                           |
+| labels             | String | Marking codes list/Код маркировки (значеник кода DataMatrix). К примеру если   | 05367567230048c?eN1(o0029                   |
+|                    |        | кол-во товаров с маркир. будет 5 шт, то в amount указываем 1 шт                |                                             |
+| class_code         | String | Product class code/Код классификатора ИКПУ (МХИК)                              | 10999001001000000                           |
 | comission_info     | String | Sign commission check TIN, PINFL/Признак комиссионный чек ИНН, ПИНФЛ           | 123456789, 12345678912345                   |
 | time               | String | Time in format yyyy-MM-dd hh:mm:ss/Дата и время в формате yyyy-MM-dd hh:mm:ss  | 2021-09-08 22:54:59                         |
 | cashier            | String | Cashier name/Имя кассира                                                       | Админ                                       |
