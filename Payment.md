@@ -107,6 +107,7 @@ Operation for create paymen via PAYME GO
   "status": [status code: success,error], 
   "message": [click response message],
   "transaction_id": [transaction_uuid],
+  "payment_id": [payment_id],
   "amount": [Price],
    "qr_code": [Qr code from PAYME GO],
   },
@@ -125,11 +126,15 @@ Operation for create paymen via PAYME GO
 **Content** :
 ```{
     "data": {
-        "status_code": 0,
+        "amount": 100,
+        "transaction_id": "615736db-f869-4beb-abd3-f99842d959db",
+        "payment_id": "63b5282a6f47f572807fd53e",
+        "inn": "000000000",
+        "qr_code": "50501010793410803298",
+        "kkm_id": "00000001",
+        "device_id": "00000001",
         "status": "successfully",
-        "message": "Успешно подтвержден",
-        "transaction_id": "ee000d20-b260-4b17-995a-a7bd113bdb22",
-        "qr_code": "880101698207133392"
+        "message": "successfully payment"
     },
     "error": null,
     "is_success": true
@@ -151,6 +156,68 @@ Operation for create paymen via PAYME GO
 "is_success": false 
 }
 ```
+
+
+# PAYME Fiscalization check
+
+Operation for send fiscalization check to PayMe
+
+**URL** : `/payment/payme_confirm`
+
+**Method** : `POST`
+
+**Auth required** : NO
+## Request 
+```json
+{
+    "payme_id": [Payment_id],
+    "receipt_id": [Number check],
+    "qr_code_url": [URL cheka],
+    "fiscal_sign": [Fiscal priznak cheka]
+}
+```
+**Content** :
+```json
+{
+    "payme_id":"63b5282a6f47f572807fd53e",
+    "receipt_id":"2421",
+    "qr_code_url":"https://ofd.soliq.uz/check?t=UZ170703100597&r=2421&c=20230104121801&s=514343190161",
+    "fiscal_sign":"514343190161"
+}
+```
+
+## Response
+**Success example**
+```json
+{
+    "data": {
+        "id": 123,
+        "result": {
+            "receipt": {
+                "_id": "63b1dc4f49a2bcd2132c39f3",
+                "create_time": 1672600657448,
+                "pay_time": 1672600657716
+            }
+        },
+        "error": null
+    },
+    "error": null,
+    "is_success": true
+}
+```
+**Error example**
+```json
+{
+    "data": null,
+    "error": {
+        "code": 7,
+        "message": "{\"fiscal_sign\":[\"This field may not be null.\"]}",
+        "data": null
+    },
+    "is_success": false
+}
+```
+
 
 # Humo
 
