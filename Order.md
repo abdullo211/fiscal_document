@@ -31,6 +31,7 @@ Operation for create order / Продажа, аванс, кредит
    "other":[other_discount_prices  multiplied by 100],
    "labels":[marking_codes_list],
    "class_code":[product_class_code],
+   "package_code":[package_code]
    "comission_info":{
               "inn":"inn/pinfl comision"
    }
@@ -81,7 +82,8 @@ Operation for create order / Продажа, аванс, кредит
 | other              | String | Other discount prices/Другая скидка                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | labels             | String | Marking codes list/Код маркировки (значеник кода DataMatrix). К примеру если   | 05367567230048c?eN1(o0029                   |
 |                    |        | кол-во товаров с маркир. будет 5 шт, то в amount указываем 1 шт                |                                             |
-| class_code         | String | Product class code/Код классификатора ИКПУ (МХИК)                              | 10999001001000000                           |
+| class_code         | String | Product class code/Код ИКПУ (МХИК) (tasnif.soliq.uz)                           | 10999001001000000                           |
+| package_code       | String | Package_code/ Код упаковки (tasnif.soliq.uz)                                   | 1520627                                     |
 | comission_info     | String | Sign commission check TIN, PINFL/Признак комиссионный чек ИНН, ПИНФЛ           | 123456789, 12345678912345                   |
 | time               | String | Time in format yyyy-MM-dd hh:mm:ss/Дата и время в формате yyyy-MM-dd hh:mm:ss  | 2021-09-08 22:54:59                         |
 | cashier            | String | Cashier name/Имя кассира                                                       | Админ                                       |
