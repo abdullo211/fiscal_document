@@ -75,6 +75,58 @@ Operation for create paymen via CLICK PASS
 }
 ```
 
+# CLICK Fiscalization check
+
+Operation for send fiscalization check to CLICK
+
+**URL** : `/payment/click_confirm`
+
+**Method** : `POST`
+
+**Auth required** : NO
+## Request 
+```json
+{
+    "payment_id": [Payment_id],
+    "qrcode": [URL cheka],    
+}
+```
+**Content** :
+```json
+{
+    "payment_id":"2354512461",
+    "qrcodel":"https://ofd.soliq.uz/check?t=UZ170703100597&r=2421&c=20230104121801&s=514343190161",    
+}
+```
+
+## Response
+**Success example**
+```json
+{
+    "data": {
+        "inn": "000000000",
+        "payment_id": "2354512461",
+        "qr_code": "https://ofd.soliq.uz/check?t=UZ170703100597&r=2904&c=20230222120100&s=113075569254",
+        "status": "successfully",
+        "error": null
+    },
+    "error": null,
+    "is_success": true
+}
+```
+**Error example**
+```json
+{
+     "data": null,
+    "error": {
+        "code": 7,
+        "message": "{\"payment_id\":[\"This field may not be blank.\"]}",
+        "data": null
+    },
+    "is_success": false
+}
+```
+
 
 # PAYME GO
 
