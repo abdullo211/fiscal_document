@@ -30,6 +30,7 @@ Operation for create paymen via CLICK PASS
   "status": [Status message],
   "message": [click response message],
   "transaction_id": [transaction_uuid],
+  "payment_id": [payment_id],
   "amount": [Price],
    "qr_code": [Qr code from CLICK PASS],
   },
@@ -48,11 +49,13 @@ Operation for create paymen via CLICK PASS
 **Content** :
 ```{
     "data": {
-        "status_code": 0,
-        "status": "successfully",
-        "message": "Успешно подтвержден",
-        "transaction_id": "ee000d20-b260-4b17-995a-a7bd113bdb22",
-        "qr_code": "880101698207133392"
+    "status_code": 0,
+    "status": "successfully",
+    "message": "Успешно подтвержден",
+    "amount": 100,
+    "payment_id": "2388672086",
+    "transaction_id": "ba0d49c8-a2fa-4f80-8f0b-9cfa079f9684",
+    "qr_code": "880227987004122008"
     },
     "error": null,
     "is_success": true
