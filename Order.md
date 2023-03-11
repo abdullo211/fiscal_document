@@ -109,7 +109,6 @@ Operation for create order / Продажа, аванс, кредит
 |7 | тонна/tonna             |
 |8 | миллиметр/millimetr     |
 |9 | сантиметр/santimetr     |
-|10| дециметр/dekimetr       |
 |11| метр/metr               |
 |12| километр/kilometr       |
 |22| миллилитр/millilitr     |
