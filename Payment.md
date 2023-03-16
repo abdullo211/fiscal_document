@@ -273,6 +273,76 @@ Operation for send fiscalization check to PayMe
 }
 ```
 
+# UZUM FASTPAY
+
+Operation for create paymen via UZUM FASTPAY
+
+**URL** : `/payment/uzum`
+
+**Method** : `POST`
+
+**Auth required** : NO
+## Request 
+```json
+{
+  "amount": [Payment price],
+  "qr_code": [Qr code from UZUM FAST PAY],
+}
+```
+**Content** :
+```{
+	"amount":500,
+	"qr_code":"880101698207133392"
+}
+```
+
+## Response
+
+```json
+{
+ "data":{
+  "payment_id": [payment_id],
+  "payment_status": [Payment status], 
+  "error_code,": [Error code],
+  "error_message": [Error message],
+  "is_success": [is success response] 
+}
+```
+
+**Success example**
+**Code** : `200 OK`
+
+**Content** :
+```{
+    "data": {
+    "status_code": 0,
+    "status": "successfully",
+    "message": "Успешно подтвержден",
+    "amount": 100,
+    "payment_id": "2388672086",
+    "transaction_id": "ba0d49c8-a2fa-4f80-8f0b-9cfa079f9684",
+    "qr_code": "880227987004122008"
+    },
+    "error": null,
+    "is_success": true
+}
+```
+**Error example**
+**Condition** : If 'Fiscal module not initialized'
+**Code** : `200 OK`
+
+**Content** :
+```json
+{
+"data": null,
+ "error": {
+    "code": 104,
+    "message": "BILLING_ERROR",
+    "data": null
+    },
+"is_success": false 
+}
+```
 
 # Humo
 
