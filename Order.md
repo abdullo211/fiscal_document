@@ -148,7 +148,7 @@ Operation for create order / Продажа, аванс, кредит
      "discount_percent":0,
      "other":0,
      "labels":["05367567230048c?eN1(o0029"],
-     "class_code":"02206",
+     "class_code":"04811001001000000",
      "comission_info":{
               "inn":"123456789",
               "pinfl":"12345678912345"
