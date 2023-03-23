@@ -43,6 +43,11 @@ Operation for create order / Продажа, аванс, кредит
 "received_cash":[received_cash_price multiplied by 100], 
 "change":[change_price multiplied by 100], 
 "received_card":[received card price  multiplied by 100],
+*"extra_info":{
+    "phone_number":[Phone_number from response Payme,Click,Uzum],
+    "qr_payment_id":[Payment_ID from response Payme,Click,Uzum],
+    "qr_payment_provider":[0141 - Payme, 0064 - Click, 0161 - Uzum]
+          }
 *"send_email":[Send order data to special email],
 *"email":[Email for sending order data],
 *"sms_phone_number" : [Phone number for sending order data],
@@ -95,7 +100,7 @@ Operation for create order / Продажа, аванс, кредит
 | open_cashbox       | String | Open cashbox device/Открытие денежнего ящика                                   | true = open, falce = not open               |
 | type               | String | Banner type - {text, barcode, qr_code}/Штрих-код, QR-код                       | barcode                                     |
 | data               | String | Banner text/Рекламный текст                                                    | Скидка на следующую покупку 5%              |
-| prices / name      | String | Price name/Наименование вида оплаты                                            | UDS, VISA, MasterCard, ...                  |
+| prices / name      | String | Price name/Наименование вида оплаты                                            | USD, VISA, MasterCard, Click, Payme, Uzum   |
 | prices / price     | String | Price/Сумма                                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | prices / vat_type  | String | Vat type/Название налога и ставка                                              | НДС 15%                                     |
 | prices / vat_price | String | Vat price/Сумма налога                                                         | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
