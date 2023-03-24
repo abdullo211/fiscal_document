@@ -11,6 +11,7 @@ Operation for create order / Продажа, аванс, кредит
 
 **Data constraints**
 -- With * are optional fields / Поля опциональные. Для более подробной информации обращаться в телеграм группу
+Если нужно интеграция с Payme,Click,Uzum, то поле extra_info считается обязательным
 ```json
 {
 "number":[*order number or id],
@@ -69,7 +70,7 @@ Operation for create order / Продажа, аванс, кредит
 ] 
 }
 ```
-Если будет использоваться Payme,Click,Uzum, то нужно дополнительно отправлять extra_info
+
 | Name               | Type   | Description EN/RU                                                              | Example                                     |
 | ------------------ | -------| ------------------------------------------------------------------------------ | ------------------------------------------- |
 | number             | String | Forder number/Номер чека                                                       | 1                                           |
