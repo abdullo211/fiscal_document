@@ -10,7 +10,7 @@ Operation for create order / Продажа, аванс, кредит
 **Auth required** : NO
 
 **Data constraints**
--- With * are optional fields
+-- With * are optional fields / Поля опциональные. Более подробно обращаться в телеграм группу
 ```json
 {
 "number":[*order number or id],
