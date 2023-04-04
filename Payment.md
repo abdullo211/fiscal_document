@@ -344,6 +344,46 @@ Operation for create paymen via UZUM FASTPAY
 }
 ```
 
+# UZUM Fiscalization check
+
+Operation for send fiscalization check to UZUM
+
+**URL** : `/payment/uzum_confirm`
+
+**Method** : `POST`
+
+**Auth required** : NO
+## Request 
+```json
+{
+    "payment_id": [Payment_id],
+    "qr_code": [URL cheka],    
+}
+```
+**Content** :
+```json
+{
+    "payment_id":"7e577908-6851-4a8d-ac1d-bdd17002f96b",
+    "qr_code":"https://ofd.soliq.uz/check?t=UZ170703100597&r=2421&c=20230104121801&s=514343190161",    
+}
+```
+
+## Response
+**Success example**
+```json
+{
+  "data": {
+    "payment_id": "7e577908-6851-4a8d-ac1d-bdd17002f96b",
+    "payment_status": "SUCCESS",
+    "error_code": "0",
+    "error_message": null,
+    "client_phone_number": null
+  },
+  "error": null,
+  "is_success": true
+}
+```
+
 # Humo
 
 Operation for create paymen via Humo PinPad
