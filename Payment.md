@@ -1,3 +1,7 @@
+После отправки оплаты в Payme, Click, Uzum в ответе получаем
+1. Номер телефона
+2. Payment ID
+Это нужно будет отправить вместе с /order в "extra_info" и так же выбрать соответствующий ЭПС
 # CLICK PASS
 
 Operation for create paymen via CLICK PASS
