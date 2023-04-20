@@ -52,17 +52,20 @@ Operation for create paymen via CLICK PASS
 
 **Content** :
 ```{
-    "data": {
-    "status_code": 0,
+  "data": {
+    "amount": 1,
+    "transaction_id": "0e436d79-f100-4373-b12a-1f238b558054",
+    "payment_id": "644113a290a5eba4298f05d5",
+    "inn": "123456789",
+    "qr_code": "50501010793410469483",
+    "kkm_id": "00000001",
+    "device_id": "00000001",
     "status": "successfully",
-    "message": "Успешно подтвержден",
-    "amount": 100,
-    "payment_id": "2388672086",
-    "transaction_id": "ba0d49c8-a2fa-4f80-8f0b-9cfa079f9684",
-    "qr_code": "880227987004122008"
-    },
-    "error": null,
-    "is_success": true
+    "message": "successfully payment",
+    "client_phone_number": "998946532140"
+  },
+  "error": null,
+  "is_success": true
 }
 ```
 **Error example**
@@ -184,19 +187,20 @@ Operation for create paymen via PAYME GO
 
 **Content** :
 ```{
-    "data": {
-        "amount": 100,
-        "transaction_id": "615736db-f869-4beb-abd3-f99842d959db",
-        "payment_id": "63b5282a6f47f572807fd53e",
-        "inn": "000000000",
-        "qr_code": "50501010793410803298",
-        "kkm_id": "00000001",
-        "device_id": "00000001",
-        "status": "successfully",
-        "message": "successfully payment"
-    },
-    "error": null,
-    "is_success": true
+  "data": {
+    "amount": 1,
+    "transaction_id": "0e436d79-f100-4373-b12a-1f238b558054",
+    "payment_id": "644113a290a5eba4298f05d5",
+    "inn": "123456789",
+    "qr_code": "50501010793410469483",
+    "kkm_id": "00000001",
+    "device_id": "00000001",
+    "status": "successfully",
+    "message": "successfully payment",
+    "client_phone_number": "998946532140"
+  },
+  "error": null,
+  "is_success": true
 }
 ```
 **Error example**
@@ -318,17 +322,15 @@ Operation for create paymen via UZUM FASTPAY
 
 **Content** :
 ```{
-    "data": {
-    "status_code": 0,
-    "status": "successfully",
-    "message": "Успешно подтвержден",
-    "amount": 100,
-    "payment_id": "2388672086",
-    "transaction_id": "ba0d49c8-a2fa-4f80-8f0b-9cfa079f9684",
-    "qr_code": "880227987004122008"
-    },
-    "error": null,
-    "is_success": true
+  "data": {
+    "payment_id": "bb75f609-6d97-4b45-9ed3-80e5fcd19ef1",
+    "payment_status": "SUCCESS",
+    "error_code": "0",
+    "error_message": null,
+    "client_phone_number": "998946532140"
+  },
+  "error": null,
+  "is_success": true
 }
 ```
 **Error example**
