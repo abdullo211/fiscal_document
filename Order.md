@@ -288,9 +288,13 @@ Operations for refuse order / Возврат
    "vat_percent":[nds percent],
    "discount":[discount price  multiplied to 100],
    "discount_percent":[discount price percent],
-   "other":[other discount prices  multiplied to 100] 
+   "other":[other discount prices  multiplied to 100],
+   "class_code":[product class code for marking],
   *"labels":[marking codes list],
-  *"class_code":[product class code for marking]
+   "comission_info":{
+              "inn":"inn/pinfl comision"
+   }
+  
    }
 ], 
 "qr_code":[link to web],
