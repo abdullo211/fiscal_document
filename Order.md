@@ -338,6 +338,10 @@ Operations for refuse order / Возврат
      "other":0.0,
      "labels":["05367567230048c?eN1(o0029","05367567230048b5Mp17W3346"],
      "class_code":"02206"
+     "comission_info":{
+              "inn":"123456789",
+              "pinfl":"12345678912345"
+    }
     }
   ], 
 "qr_code":"https://ofd.soliq.uz/check?t=UZ191211501001&r=1447&c=20220309125810&s=461313663448",
