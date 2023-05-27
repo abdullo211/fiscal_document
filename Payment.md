@@ -2,7 +2,7 @@
 1. Номер телефона
 2. Payment ID
 Это нужно будет отправить вместе с /order в "extra_info" и так же выбрать соответствующий ЭПС
-# CLICK PASS
+# CLICK PASS / Оплата через CLICK PASS
 
 Operation for create paymen via CLICK PASS
 
@@ -85,7 +85,7 @@ Operation for create paymen via CLICK PASS
 }
 ```
 
-# CLICK Fiscalization check
+# CLICK Fiscalization check / Отправка фискального чека в Click
 
 Operation for send fiscalization check to CLICK
 
@@ -138,7 +138,7 @@ Operation for send fiscalization check to CLICK
 ```
 
 
-# PAYME GO
+# PAYME GO / Оплата через PAYME GO
 
 Operation for create paymen via PAYME GO
 
@@ -221,7 +221,7 @@ Operation for create paymen via PAYME GO
 ```
 
 
-# PAYME Fiscalization check
+# PAYME Fiscalization check / Отправка фискального чека в Payme
 
 Operation for send fiscalization check to PayMe
 
@@ -281,7 +281,7 @@ Operation for send fiscalization check to PayMe
 }
 ```
 
-# UZUM FASTPAY
+# UZUM FASTPAY / Оплата через UZUM FAST PAY
 
 Operation for create paymen via UZUM FASTPAY
 
@@ -350,7 +350,7 @@ Operation for create paymen via UZUM FASTPAY
 }
 ```
 
-# UZUM Fiscalization check
+# UZUM Fiscalization check / Отправка фискального чека в Uzum
 
 Operation for send fiscalization check to UZUM
 
@@ -390,7 +390,7 @@ Operation for send fiscalization check to UZUM
 }
 ```
 
-# Humo
+# Humo / Оплата через терминал Humo
 
 Operation for create paymen via Humo PinPad
 
