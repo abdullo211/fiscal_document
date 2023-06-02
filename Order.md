@@ -35,7 +35,7 @@ Operation for create order / Продажа, аванс, кредит
    "class_code":[product_class_code],
    "package_code":[package_code]
    "comission_info":{
-              "inn":"inn/pinfl comision",
+              "inn":"inn comision",
               "pinfl":"pinfl comision"
    }
    }
