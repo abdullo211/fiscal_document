@@ -95,7 +95,7 @@ Operation for create order / Продажа, аванс, кредит
 | class_code         | String | Product class code/Код ИКПУ (МХИК) (tasnif.soliq.uz)                           | 10999001001000000                           |
 | package_code       | String | Package_code/ Код упаковки (tasnif.soliq.uz)                                   | 1520627                                     |
 | owner_type         | String | Owner_type/ Код происхождения товара (одно значение либо 0, либо 1, либо 2     | 0,1,2                                       |
-|                    |        |    (0-"Купля, продажа" / 1-"Самопроизводство" / 2-"Поставщик услуг")           |                                             |
+|                    |        | (0-"Куплено и продано" / 1-"Собственное производство" / 2-"Поставщик услуг")   |                                             |
 | comission_info     | String | Sign commission check TIN, PINFL/Признак комиссионный чек ИНН, ПИНФЛ           | 123456789, 12345678912345                   |
 | time               | String | Time in format yyyy-MM-dd hh:mm:ss/Дата и время в формате yyyy-MM-dd hh:mm:ss  | 2021-09-08 22:54:59                         |
 | cashier            | String | Cashier name/Имя кассира                                                       | Админ                                       |
