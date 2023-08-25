@@ -33,7 +33,8 @@ Operation for create order / Продажа, аванс, кредит
    "other":[other_discount_prices  multiplied by 100],
    "labels":[marking_codes_list],
    "class_code":[product_class_code],
-   "package_code":[package_code]
+   "package_code":[package_code],
+   "owner_type":[owner_type],
    "comission_info":{
               "inn":"inn comision",
               "pinfl":"pinfl comision"
@@ -93,6 +94,8 @@ Operation for create order / Продажа, аванс, кредит
 |                    |        | кол-во товаров с маркир. будет 5 шт, то в amount указываем 1 шт                |                                             |
 | class_code         | String | Product class code/Код ИКПУ (МХИК) (tasnif.soliq.uz)                           | 10999001001000000                           |
 | package_code       | String | Package_code/ Код упаковки (tasnif.soliq.uz)                                   | 1520627                                     |
+| owner_type         | String | Owner_type/ Код происхождения товара (одно значение либо 0, либо 1, либо 2     | 0,1,2                                       |
+|                    |        |    (0-"Купля, продажа" / 1-"Самопроизводство" / 2-"Поставщик услуг")           |                                             |
 | comission_info     | String | Sign commission check TIN, PINFL/Признак комиссионный чек ИНН, ПИНФЛ           | 123456789, 12345678912345                   |
 | time               | String | Time in format yyyy-MM-dd hh:mm:ss/Дата и время в формате yyyy-MM-dd hh:mm:ss  | 2021-09-08 22:54:59                         |
 | cashier            | String | Cashier name/Имя кассира                                                       | Админ                                       |
@@ -158,6 +161,8 @@ Operation for create order / Продажа, аванс, кредит
      "other":0,
      "labels":["05367567230048c?eN1(o0029"],
      "class_code":"04811001001000000",
+     "package_code":1431970,
+     "owner_type":1,  
      "comission_info":{
               "inn":"123456789",
               "pinfl":"12345678912345"
@@ -292,6 +297,8 @@ Operations for refuse order / Возврат
    "other":[other discount prices  multiplied to 100],
    "class_code":[product class code for marking],
   *"labels":[marking codes list],
+   "package_code":[package_code],
+   "owner_type":[owner_type],
    "comission_info":{
               "inn":"inn/pinfl comision"
    }
@@ -337,8 +344,10 @@ Operations for refuse order / Возврат
      "discount":115000.0,
      "discount_percent":50.0,
      "other":0.0,
-     "labels":["05367567230048c?eN1(o0029","05367567230048b5Mp17W3346"],
-     "class_code":"02206"
+     "labels":["05367567230048c?eN1(o0029"],
+     "class_code":"04811001001000000",
+     "package_code":1431970,
+     "owner_type":1,
      "comission_info":{
               "inn":"123456789",
               "pinfl":"12345678912345"
