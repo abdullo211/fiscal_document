@@ -154,8 +154,8 @@ Operation for create order / Продажа, аванс, кредит
      "units": 1,
      "price":50000,
      "product_price":50000, 
-     "vat":6522, 
-     "vat_percent":15,
+     "vat":6000, 
+     "vat_percent":12,
      "discount":0,
      "discount_percent":0,
      "other":0,
@@ -174,11 +174,11 @@ Operation for create order / Продажа, аванс, кредит
 "received_cash":50000, 
 "change":0, 
 "received_card":0,
-"open_cashbox":true,
-"send_email":true,
-"email":"abdullo21113@gmail.com",
-"sms_phone_number" :"+998909999999",
-"banners":
+*"open_cashbox":true,
+*"send_email":true,
+*"email":"ullo21113@gmail.com",
+*"sms_phone_number" :"+998909999999",
+*"banners":
 [ 
   {
   "type":"text",
@@ -189,7 +189,7 @@ Operation for create order / Продажа, аванс, кредит
   "data":"23423423"
   }
 ],
-"prices":
+*"prices":
   [
     {
      "name":"PayMe", 
@@ -336,11 +336,11 @@ Operations for refuse order / Возврат
     {
      "name":"наименование товара или услуги", 
      "barcode":"4780000000007", 
-     "amount":1000.0,
-     "price":230000.0,
+     "amount":1000,
+     "price":230000,
      "product_price":2300.0, 
      "vat":15000.0, 
-     "vat_percent":15,
+     "vat_percent":12,
      "discount":115000.0,
      "discount_percent":50.0,
      "other":0.0,
@@ -359,11 +359,11 @@ Operations for refuse order / Возврат
 "cashier":"Admin", 
 "received_cash":100000, 
 "change":0, 
-"send_email":true,
-"email":"abdullo21113@gmail.com",
-"sms_phone_number" :"+998909999999",
-"received_card":15000,
-"prices":
+*"send_email":true,
+*"email":"abdullo21113@gmail.com",
+*"sms_phone_number" :"+998909999999",
+*"received_card":15000,
+*"prices":
   [
     {
      "name":"UPAY", 
