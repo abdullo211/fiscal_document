@@ -390,7 +390,7 @@ Operation for send fiscalization check to UZUM
 }
 ```
 
-# Humo / Оплата через терминал Humo
+# Humo / Оплата через терминал (Ingenico iPP 320, Lane 3000, Lane 7000) Humo
 
 Operation for create paymen via Humo PinPad
 
@@ -444,5 +444,56 @@ Univ. EMV POS 1.0.0/(MP) /675\n
     },
     "error": null,
     "is_success": true
+}
+```
+
+# UzCard / Оплата через терминал (PAX A35) UzCard
+
+Operation for create paymen via UzCard PinPad
+
+**URL** : `/payment/uzcard`
+
+**Method** : `POST`
+
+**Auth required** : NO
+## Request 
+```json
+{
+  "amount": [Payment price]
+}
+```
+**Content** :
+```json
+{
+  "amount": 50000 (цена в сотых 00)
+}
+```
+
+**Success example**
+**Code** : `200 OK`
+
+**Content** :
+```json
+{
+    "data": {
+message=PAX A35 Uzcard POS v1.5.0
+Merchant: Technology-7
+Address: Tashkent, Uzbekistan
+Date/Time: 2023-11-10 12:39:48
+MID: 000000009052147
+TID: 00000166
+Operation: Payment
+Invoice: 140
+CARD: 626291******4571
+Card Holder:  /
+Total Amount: 50000
+Currency:  UZS
+Auth Code: 
+Resp Code: 000
+RRN: 010964712882
+PIN: The operation was confirmed with a pin code
+TVR: , TSI: 
+), error=null, isSuccess=true)
+
 }
 ```
