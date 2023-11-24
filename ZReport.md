@@ -334,19 +334,19 @@ Operation for ZReport Info / Проверка состояния кассово�
 ```
 | Name                        | Type   | Description EN/RU                                                      | Example                                    |
 | --------------------------- | -------| ---------------------------------------------------------------------- | ------------------------------------------ |
-| applet_version              | String | Fiscal module applet version/Версия аплета фискального модуля          | 0302                                       |
+| applet_version              | Integer| Fiscal module applet version/Версия аплета фискального модуля          | 0302                                       |
 | terminal_id                 | String | Fiscal module number/Номер фискального модуля                          | UZ191211501001                             |
-| number                      | String | Number/Номер смены                                                     | 118                                        |
-| count                       | String | Count/Кол-во закрытых смен                                             | 118                                        |
-| last_receipt_seq            | String | Last receipt seq/Последний номер чека                                  | 1159                                       |
-| first_receipt_seq           | String | First receipt seq/Первый номер чека в текущей смене                    | 1157                                       |
-| open_time                   | String | Open time/Дата и время открытия смены                                  | 2022-01-14 10:43:00                        |
-| close_time                  | String | Close time/Дата и время закрытия смены                                 | ""                                         |
-| total_refund_vat            | String | Total refund vat/Сумма возврата НДС                                    | 0                                          |
-| total_refund_card           | String | Total refund card/Сумма возврата по карте                              | 0                                          |
-| total_refund_cash           | String | Total refund cash/Сумма вовзрата наличкой                              | 0                                          |
-| total_refund_count          | String | Total refund count/Количество возвратных чеков                         | 0                                          |
-| total_sale_vat              | String | Total sale vat/Сумма продаж НДС                                        | 0                                          |
-| total_sale_card             | String | Total sale card/Сумма продаж по картам                                 | 0                                          |
-| total_sale_cash             | String | Total sale cash/Сумма продаж наличкой                                  | 0                                          |
-| total_sale_count            | String | Total sale count/Количество продажных чеков                            | 0                                          |
+| number                      | Integer| Number/Номер смены                                                     | 118                                        |
+| count                       | Integer| Count/Кол-во закрытых смен                                             | 118                                        |
+| last_receipt_seq            | Integer| Last receipt seq/Последний номер чека                                  | 1159                                       |
+| first_receipt_seq           | Integer| First receipt seq/Первый номер чека в текущей смене                    | 1157                                       |
+| open_time                   | Double | Open time/Дата и время открытия смены                                  | 2022-01-14 10:43:00                        |
+| close_time                  | Double | Close time/Дата и время закрытия смены                                 | ""                                         |
+| total_refund_vat            | Long   | Total refund vat/Сумма возврата НДС                                    | 0                                          |
+| total_refund_card           | Long   | Total refund card/Сумма возврата по карте                              | 0                                          |
+| total_refund_cash           | Long   | Total refund cash/Сумма вовзрата наличкой                              | 0                                          |
+| total_refund_count          | Integer| Total refund count/Количество возвратных чеков                         | 0                                          |
+| total_sale_vat              | Long   | Total sale vat/Сумма продаж НДС                                        | 0                                          |
+| total_sale_card             | Long   | Total sale card/Сумма продаж по картам                                 | 0                                          |
+| total_sale_cash             | Long   | Total sale cash/Сумма продаж наличкой                                  | 0                                          |
+| total_sale_count            | Long   | Total sale count/Количество продажных чеков                            | 0                                          |
