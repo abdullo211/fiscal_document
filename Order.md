@@ -59,7 +59,11 @@ Operation for create order / Продажа, аванс, кредит
   {
     "type":[Banner type - {text, barcode}]
     "data":[Banner text]
-  }
+    "style:{[Style text,barcode]
+            "font_width":[font_width],
+            "font_height":[font_height],
+            "is_bold":[true or false] 
+  },
  ],
 *"prices":
 [
@@ -182,11 +186,21 @@ Operation for create order / Продажа, аванс, кредит
 [ 
   {
   "type":"text",
-  "data": "Код скидки для следующий покупки "
+  "data": "Код скидки для следующий покупки"
+  "style":{
+                 "font_width":2,
+                "font_height":100,
+                "is_bold":true
+            }
   },
   {
   "type":"barcode",
   "data":"23423423"
+  "style":{
+                 "font_width":2,
+                "font_height":100,
+                "is_bold":true
+            },
   }
 ],
 *"prices":
