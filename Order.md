@@ -152,7 +152,7 @@ Operation for create order / Продажа, аванс, кредит
 "received_card":0,
 *"open_cashbox":true,
 *"send_email":true,
-*"email":"ullo21113@gmail.com",
+*"email":"abdullo21113@gmail.com",
 *"sms_phone_number" :"+998909999999",
 *"banners":
 [ 
