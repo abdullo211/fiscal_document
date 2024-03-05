@@ -127,7 +127,7 @@ Operation for create order / Продажа, аванс, кредит
      "name":"наименование товара или услуги",
      "barcode":"4780000000007", 
      "amount":1000,
-     "unit_name":litr,
+     "unit_name":"litr",
      "price":50000,
      "product_price":50000, 
      "vat":6000, 
