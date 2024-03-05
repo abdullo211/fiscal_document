@@ -23,7 +23,6 @@ Operation for create order / Продажа, аванс, кредит
    "barcode":[product barcode], 
    "amount":[product amount multiplied by 1000],
    "unit_name":[unit name],
-   "units":[unit],
    "price":[product_price * amount multiplied by 100],
    "product_price":[product_price multiplied by 100], 
    "vat":[nds_price multiplied by 100], 
@@ -85,8 +84,8 @@ Operation for create order / Продажа, аванс, кредит
 | name               | String | Product name/Наименование товара или услуги                                    | Хлеб                                        |
 | barcode            | Long   | Product barcode/Штрих-код (GTIN) товара                                        | EAN-8 47800007, EAN-13 4780000000007        |
 | amount             | Long   | Product amount/Количество                                                      | 1 шт. = 1000; 0,25 кг = 250                 |
-| unit_name          | String | Unit name/Едииница измереня для отображаения на чеке на лат. UZ                | dona                                        |
-| units              | Integr | Unit/Единица измерения                                                         | "1" - это шт. Подробности см ниже           |
+| unit_name          | String | Unit name/Едииница измерения для отображения на чеке на лат. UZ                | dona                                        |
+|                    |        | Название единиц измерения взять с сайта tasnif.soliq.uz                        |                                             |
 | price              | Long   | Price/Сумма                                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | product_price      | Long   | Product price/Цена за единицу товара/услуги                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | vat                | Long   | Nds price/Сумма НДС                                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
@@ -113,33 +112,6 @@ Operation for create order / Продажа, аванс, кредит
 | prices / price     | Long   | Price/Сумма                                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | prices / vat_type  | Long   | Vat type/Название налога и ставка                                              | НДС 15%                                     |
 | prices / vat_price | Long   | Vat price/Сумма налога                                                         | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-# Units
-|ID|Description RU/UZB       |
-|--| ------------            |
-|1 | штук/dona               |
-|2 | пачка/pachka            |
-|3 | миллиграмм/milligramm   |
-|4 | грамм/gramm             |
-|5 | килограмм/kilogramm     |
-|6 | центнер/tsentner        |
-|7 | тонна/tonna             |
-|8 | миллиметр/millimetr     |
-|9 | сантиметр/santimetr     |
-|11| метр/metr               |
-|12| километр/kilometr       |
-|22| миллилитр/millilitr     |
-|23| литр/litr               |
-|26| комплект/set            |
-|27| сутки/tunu-kun          |
-|28| час/soat                |
-|33| коробка/quti            |
-|38| упаковка/qadoq          |
-|39| минут/daqiqa            |
-|41| баллон/ballon           |
-|42| день/kun                |
-|43| месяц/oy                |
-|49| рулон/rulon             |
-
 
 
 
@@ -155,7 +127,7 @@ Operation for create order / Продажа, аванс, кредит
      "name":"наименование товара или услуги",
      "barcode":"4780000000007", 
      "amount":1000,
-     "units": 1,
+     "unit_name":litr,
      "price":50000,
      "product_price":50000, 
      "vat":6000, 
@@ -164,8 +136,8 @@ Operation for create order / Продажа, аванс, кредит
      "discount_percent":0,
      "other":0,
      "labels":["05367567230048c?eN1(o0029"],
-     "class_code":"04811001001000000",
-     "package_code":1431970,
+     "class_code":"02710001005000000",
+     "package_code":1282556,
      "owner_type":1,  
      "comission_info":{
               "inn":"123456789",
