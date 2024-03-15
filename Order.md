@@ -96,7 +96,7 @@ Operation for create order / Продажа, аванс, кредит
 | labels             | String | Marking codes list/Код маркировки (значеник кода DataMatrix). К примеру если   | 05367567230048c?eN1(o0029                   |
 |                    |        | кол-во товаров с маркир. будет 5 шт, то в amount указываем 1 шт                |                                             |
 | class_code         | Long   | Product class code/Код ИКПУ (МХИК) (tasnif.soliq.uz)                           | 10999001001000000                           |
-| package_code       | Long   | Package_code/ Код упаковки (tasnif.soliq.uz)                                   | 1520627                                     |
+| package_code       | Long   | Package_code/ Код ед.измерений / упаковки (tasnif.soliq.uz)                    | 1520627                                     |
 | owner_type         | Integer| Owner_type/ Код происхождения товара (одно значение либо 0, либо 1, либо 2     | 0,1,2                                       |
 |                    |        | (0-"Куплено и продано" / 1-"Собственное производство" / 2-"Поставщик услуг")   |                                             |
 | comission_info     | Long   | Sign commission check TIN, PINFL/Признак комиссионный чек ИНН, ПИНФЛ           | 123456789, 12345678912345                   |
