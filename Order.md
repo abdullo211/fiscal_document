@@ -45,7 +45,7 @@ Operation for create order / Продажа, аванс, кредит
 "received_cash":[received_cash_price multiplied by 100], 
 "change":[change_price multiplied by 100], 
 "received_card":[received card price  multiplied by 100],
-"card_type":[card type personal (0) or corporate (1)],
+"card_type":[card type personal 0 or corporate 1],
 *"extra_info":{
     "phone_number":[Phone_number from response Payme,Click,Uzum],
     "qr_payment_id":[Payment_ID from response Payme,Click,Uzum],
