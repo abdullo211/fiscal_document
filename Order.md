@@ -45,6 +45,7 @@ Operation for create order / Продажа, аванс, кредит
 "received_cash":[received_cash_price multiplied by 100], 
 "change":[change_price multiplied by 100], 
 "received_card":[received card price  multiplied by 100],
+"card_type":[card type personal (0) or corporate (1)],
 *"extra_info":{
     "phone_number":[Phone_number from response Payme,Click,Uzum],
     "qr_payment_id":[Payment_ID from response Payme,Click,Uzum],
@@ -105,6 +106,9 @@ Operation for create order / Продажа, аванс, кредит
 | received_cash      | Long   | Received cash price/Оплата наличными                                           | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | change             | Long   | Change price/Сдача                                                             | 100                                         |
 | received_card      | Long   | Received cash price/Оплата банковской картой,Payme,Click,UZUM                  | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| card_type          | Integer| Card type(personal or corporate) / Тип карты (личная или корпоративная)        | 0,1                                         |
+|                    |        | 0 - личная карта , 1 - корпоративная карта                                     |                                             |
+| ppt_id             | Long   | Номер RRN (ppt_id) в слипе ответе от банквоского пинпада (Humo, Uzcard)        | 123456789012                                |
 | open_cashbox       | String | Open cashbox device/Открытие денежнего ящика                                   | true = open, falce = not open               |
 | type               | String | Banner type - {text, barcode, qr_code}/Штрих-код, QR-код                       | barcode                                     |
 | data               | String | Banner text/Рекламный текст                                                    | Скидка на следующую покупку 5%              |
@@ -150,6 +154,8 @@ Operation for create order / Продажа, аванс, кредит
 "received_cash":50000, 
 "change":0, 
 "received_card":0,
+"card_type":0,
+"ppt_id":"123456789012",
 *"open_cashbox":true,
 *"send_email":true,
 *"email":"abdullo21113@gmail.com",
@@ -297,6 +303,8 @@ Operations for refuse order / Возврат
 "received_cash":[received cash price  multiplied to 100], 
 "change":[change price multiplied to 100], 
 "received_card":[received card price  multiplied to 100],
+"received_card":[received card price  multiplied by 100],
+"card_type":[card type personal (0) or corporate (1)],
 *"send_email":[Send order data to special email],
 *"email":[Email for sending order data],
 *"sms_phone_number" : [Phone number for sending order data],
@@ -349,6 +357,8 @@ Operations for refuse order / Возврат
 *"email":"abdullo21113@gmail.com",
 *"sms_phone_number" :"+998909999999",
 *"received_card":15000,
+"card_type":0,
+"ppt_id":"123456789012",
 *"prices":
   [
     {
