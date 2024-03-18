@@ -353,13 +353,14 @@ Operations for refuse order / Возврат
 "time":"2021-04-15 14:35:02",
 "cashier":"Admin", 
 "received_cash":100000, 
-"change":0, 
+"change":0,
+"received_card":15000,
+"card_type":0,
+"ppt_id":"123456789012",
 *"send_email":true,
 *"email":"abdullo21113@gmail.com",
 *"sms_phone_number" :"+998909999999",
-*"received_card":15000,
-"card_type":0,
-"ppt_id":"123456789012",
+
 *"prices":
   [
     {
