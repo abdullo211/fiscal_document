@@ -50,7 +50,7 @@ Operation for create order / Продажа, аванс, кредит
 *"extra_info":{
     "phone_number":[Phone_number from response Payme,Click,Uzum],
     "qr_payment_id":[Payment_ID from response Payme,Click,Uzum],
-    "qr_payment_provider":[0141 - Payme, 0064 - Click, 0161 - Uzum]
+    "qr_payment_provider":[0141 - Payme, 0064 - Click, 0161 - Uzum, 0187 - Anor bank]
           },
 *"send_email":[Send order data to special email],
 *"email":[Email for sending order data],
