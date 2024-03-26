@@ -157,6 +157,11 @@ Operation for create order / Продажа, аванс, кредит
 "received_card":0,
 "card_type":0,
 "ppt_id":"123456789012",
+*"extra_info":{
+    "phone_number":"998911234569",
+    "qr_payment_id":"123456789id12"
+    "qr_payment_provider":"0141"
+          },
 *"open_cashbox":true,
 *"send_email":true,
 *"email":"abdullo21113@gmail.com",
