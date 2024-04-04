@@ -587,24 +587,23 @@ Operation for create paymen via UzCard PinPad
 ```json
 {
     "data": {
-message=PAX A35 Uzcard POS v1.5.0
-Merchant: Technology-7
-Address: Tashkent, Uzbekistan
-Date/Time: 2023-11-10 12:39:48
-MID: 000000009052147
-TID: 00000166
-Operation: Payment
-Invoice: 140
-CARD: 626291******4571
-Card Holder:  /
-Total Amount: 50000
-Currency:  UZS
-Auth Code: 
-Resp Code: 000
-RRN: 010964712882
-PIN: The operation was confirmed with a pin code
-TVR: , TSI: 
-), error=null, isSuccess=true)
-
+        "message": "PAX A35 Uzcard POS v1.5.0\nMerchant: Technology-7\nAddress: Tashkent, Uzbekistan\n
+Date/Time: 2024-04-04 11:22:13\n
+MID: 000000009052147\n
+TID: 00000166\n
+Operation: Оплата\n
+Invoice: 474\nCARD: 626291******5674(БЕСКОНТАКТ(W))\n
+Card Holder: TCARD/ARCA\n
+Total Amount: 50000\n
+Currency:  UZS\n
+Auth Code: \n
+Resp Code: 000\n
+RRN: 010965628751\n
+PIN: \n
+TVR: , TSI: \n",
+        "ppt_id": "010965628751"
+    },
+    "error": null,
+    "is_success": true
 }
 ```
