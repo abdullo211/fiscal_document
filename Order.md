@@ -455,7 +455,7 @@ Operations for refuse order / Возврат
 
 
 ## Order print
-Operation for print last order / Печать последнего чека
+Operation for print copy last order / Печать копии последнего чека 
 
 **URL** : `/order/print/`
 
