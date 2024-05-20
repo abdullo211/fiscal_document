@@ -58,6 +58,23 @@ Operation for open ZReport / Открытие кассовой смены
 "is_success": false 
 }
 ```
+**Error example**
+**Condition** : If 'Invalid time'
+**Code** : `200 OK`
+
+**Content** :
+```json
+{
+"data": null,
+ "error": {
+    "code": 3,
+    "message": "Invalid time",
+    "data": null
+    },
+"is_success": false 
+}
+```
+
 ## Close ZReport
 Operation for close ZReport / Закрытие кассовой смены
 
