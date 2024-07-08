@@ -107,8 +107,8 @@ Operation for create order / Продажа, аванс, кредит
 | received_cash      | Long   | Received cash price/Оплата наличными                                           | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | change             | Long   | Change price/Сдача                                                             | 100                                         |
 | received_card      | Long   | Received cash price/Оплата банковской картой,Payme,Click,UZUM                  | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-| card_type          | Integer| Card type(personal or corporate) / Тип карты (личная или корпоративная)        | 0,1                                         |
-|                    |        | 0 - личная карта , 1 - корпоративная карта                                     |                                             |
+| card_type          | Integer| Card type(personal or corporate) / Тип карты (личная или корпоративная)        | 1,2                                         |
+|                    |        | 2 - личная карта , 1 - корпоративная карта                                     |                                             |
 | ppt_id             | Long   | Номер RRN (ppt_id) в слипе ответе от банквоского пинпада (Humo, Uzcard)        | 123456789012                                |
 | open_cashbox       | String | Open cashbox device/Открытие денежнего ящика                                   | true = open, falce = not open               |
 | type               | String | Banner type - {text, barcode, qr_code}/Штрих-код, QR-код                       | barcode                                     |
@@ -159,7 +159,7 @@ Operation for create order / Продажа, аванс, кредит
     *"phone_number":"998911234569",
     *"qr_payment_id":"123456789id12"
     *"qr_payment_provider":"0141",
-    "card_type":0,
+    "card_type":2,
     "ppt_id":"123456789012",
           },
 *"open_cashbox":true,
@@ -313,7 +313,7 @@ Operations for refuse order / Возврат
     *"phone_number":"998911234569",
     *"qr_payment_id":"123456789id12"
     *"qr_payment_provider":"0141",
-    "card_type":0,
+    "card_type":2,
     "ppt_id":"123456789012",
           },
 *"send_email":[Send order data to special email],
@@ -369,7 +369,7 @@ Operations for refuse order / Возврат
     *"phone_number":"998911234569",
     *"qr_payment_id":"123456789id12"
     *"qr_payment_provider":"0141",
-    "card_type":0,
+    "card_type":2,
     "ppt_id":"123456789012",
           },
 *"send_email":true,
