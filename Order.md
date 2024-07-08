@@ -49,7 +49,7 @@ Operation for create order / Продажа, аванс, кредит
     *"phone_number":[Phone_number from response Payme,Click,Uzum],
     *"qr_payment_id":[Payment_ID from response Payme,Click,Uzum],
     *"qr_payment_provider":[0141 - Payme, 0064 - Click, 0161 - Uzum, 0187 - Anor bank],
-    "card_type":[card type personal (0) or corporate (1)],
+    "card_type":[card type personal (2) or corporate (1)],
     "ppt_id":[ RRN number (ppt_id) in the slip response from the bank pinpad (Humo, Uzcard)],
           },
 *"send_email":[Send order data to special email],
