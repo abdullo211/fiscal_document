@@ -562,7 +562,7 @@ Univ. EMV POS 1.0.0/(MP) /675\n
 
 Operation for reconciliation of results via Humo PinPad
 
-**URL** : `/payment/xumo_сlose`
+**URL** : `/payment/xumo_close`
 
 **Method** : `GET`
 
@@ -636,7 +636,7 @@ TVR: , TSI: \n",
 
 Operation for reconciliation of results via PAX A35 PinPad
 
-**URL** : `/payment/uzcard_сlose`
+**URL** : `/payment/uzcard_close`
 
 **Method** : `GET`
 
