@@ -45,12 +45,12 @@ Operation for create order / Продажа, аванс, кредит
 "received_cash":[received_cash_price multiplied by 100], 
 "change":[change_price multiplied by 100], 
 "received_card":[received card price  multiplied by 100],
+"card_type":[card type personal (2) or corporate (1)],
+"ppt_id":[ RRN number (ppt_id) in the slip response from the bank pinpad (Humo, Uzcard)],
 "extra_info":{
     *"phone_number":[Phone_number from response Payme,Click,Uzum],
     *"qr_payment_id":[Payment_ID from response Payme,Click,Uzum],
-    *"qr_payment_provider":[0141 - Payme, 0064 - Click, 0161 - Uzum, 0187 - Anor bank],
-    "card_type":[card type personal (2) or corporate (1)],
-    "ppt_id":[ RRN number (ppt_id) in the slip response from the bank pinpad (Humo, Uzcard)],
+    *"qr_payment_provider":[0141 - Payme, 0064 - Click, 0161 - Uzum, 0187 - Anor bank]
           },
 *"send_email":[Send order data to special email],
 *"email":[Email for sending order data],
@@ -155,12 +155,12 @@ Operation for create order / Продажа, аванс, кредит
 "received_cash":50000, 
 "change":0, 
 "received_card":0,
+"card_type":2,
+"ppt_id":"123456789012",
 "extra_info":{
     *"phone_number":"998911234569",
     *"qr_payment_id":"123456789id12"
-    *"qr_payment_provider":"0141",
-    "card_type":2,
-    "ppt_id":"123456789012",
+    *"qr_payment_provider":"0141"   
           },
 *"open_cashbox":true,
 *"send_email":true,
@@ -309,12 +309,12 @@ Operations for refuse order / Возврат
 "received_cash":[received cash price  multiplied to 100], 
 "change":[change price multiplied to 100], 
 "received_card":[received card price  multiplied to 100],
+"card_type":2,
+"ppt_id":"123456789012",
 "extra_info":{
     *"phone_number":"998911234569",
     *"qr_payment_id":"123456789id12"
-    *"qr_payment_provider":"0141",
-    "card_type":2,
-    "ppt_id":"123456789012",
+    *"qr_payment_provider":"0141"
           },
 *"send_email":[Send order data to special email],
 *"email":[Email for sending order data],
@@ -365,12 +365,12 @@ Operations for refuse order / Возврат
 "received_cash":100000, 
 "change":0,
 "received_card":15000,
+"card_type":2,
+"ppt_id":"123456789012",
 "extra_info":{
     *"phone_number":"998911234569",
     *"qr_payment_id":"123456789id12"
-    *"qr_payment_provider":"0141",
-    "card_type":2,
-    "ppt_id":"123456789012",
+    *"qr_payment_provider":"0141"
           },
 *"send_email":true,
 *"email":"abdullo21113@gmail.com",
