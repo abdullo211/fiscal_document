@@ -29,7 +29,7 @@ Operation for create order / Продажа, аванс, кредит
    "vat_percent":[nds_percent],
    "discount":[discount_price],
    "discount_percent":[discount_price_percent],
-   "other":[other_discount_prices  multiplied by 100],
+   "other":[other_payments  multiplied by 100],
    "labels":[marking_codes_list],
    "class_code":[product_class_code],
    "package_code":[package_code],
@@ -94,7 +94,7 @@ Operation for create order / Продажа, аванс, кредит
 | vat_percent        | Integer| Nds percent/Процент НДС                                                        | 0 = 0%, 12 = 12%, null - БЕЗ НДС            |
 | discount           | Long   | Discount price/Цена cкидки                                                     | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | discount_percent   | Integr | Discount price percent/Процент скидки                                          | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
-| other              | Long   | Other discount prices/Другая скидка                                            | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
+| other              | Long   | Other payments (gift card)/Другая оплата (карта лояльности, подарочные карты)  | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | labels             | String | Marking codes list/Код маркировки (значеник кода DataMatrix). К примеру если   | 05367567230048c?eN1(o0029                   |
 |                    |        | кол-во товаров с маркир. будет 5 шт, то в amount указываем 1 шт                |                                             |
 | class_code         | Long   | Product class code/Код ИКПУ (МХИК) (tasnif.soliq.uz)                           | 10999001001000000                           |
