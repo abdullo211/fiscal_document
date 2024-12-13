@@ -234,18 +234,14 @@ Operation for send fiscalization check to PayMe
 ```json
 {
     "payment_id": [Payment_id],
-    "receipt_id": [Number check],
     "qr_code": [URL cheka],
-    "fiscal_sign": [Fiscal priznak cheka]
 }
 ```
 **Content** :
 ```json
 {
     "payment_id":"63b5282a6f47f572807fd53e",
-    "receipt_id":"2421",
     "qr_code":"https://ofd.soliq.uz/check?t=UZ170703100597&r=2421&c=20230104121801&s=514343190161",
-    "fiscal_sign":"514343190161"
 }
 ```
 
