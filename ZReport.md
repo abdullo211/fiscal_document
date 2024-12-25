@@ -146,8 +146,8 @@ Operation for close ZReport / Закрытие кассовой смены
 }
 ```
 
-## Close ZReport with print (X report = "false")
-Operation for close ZReport / Закрытие кассовой смены с напечатыванием чека 
+## Close ZReport with print (X report = "close_zreport": false)
+Operation for close ZReport / Закрытие кассовой смены с напечатыванием чека / X report add inside body "close_zreport": false / Х отчет добавить внутри тела "close_zreport": false
 
 **URL** : `/zreport/close/`
 
