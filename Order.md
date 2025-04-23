@@ -27,7 +27,7 @@ Operation for create order / Продажа, аванс, кредит
    "product_price":[product_price multiplied by 100], 
    "vat":[nds_price multiplied by 100], 
    "vat_percent":[nds_percent],
-   "discount":[discount_price],
+   "discount":[discount_price multiplied by 100],
    "discount_percent":[discount_price_percent],
    "other":[other_payments  multiplied by 100],
    "labels":[marking_codes_list],
