@@ -746,24 +746,38 @@ RRN                     010968002727
 }
 ```
 
-# Uzcard / Сверка итогов терминал (PAX A35) UzCard
+# Scan2pay / Оплата через сервис Scan2pay
 
-Operation for reconciliation of results via PAX A35 PinPad
+Payment via Scan2pay service
 
-**URL** : `/payment/uzcard_close`
+**URL** : `/payment/qr_pay`
 
-**Method** : `GET`
+**Method** : `POST`
 
 **Auth required** : NO
-**Success example**
-**Code** : `200 OK`
-
+## Request 
+```json
+{
+  "amount": [Payment price],
+  "order_id": [ORDER ID],
+  "print": [false if you don't need to print QR]
+}
+```
 **Content** :
+```{
+	"amount":500,
+	"order_id":"77777",
+	"print":false
+}
+```
+
+## Response
+
 ```json
 {
     "data": {
-        "message": "====================================\n        Отчет закрытия смены\n     Сверка итогов не требуется\nДата:08/07/24         Время:12:01:15\n           ОБЫЧНЫЙ ТОВАР\n====================================\n           Краткий отчет\n                                    \n====================================\n           Отчет окончен\n====================================\n",
-        "ppt_id": null
+        "status": "successfully",
+        "message": "http://scan2pay.uz/7c545c1e-9a57-4a2f-80dc-b7686023ec04"
     },
     "error": null,
     "is_success": true
