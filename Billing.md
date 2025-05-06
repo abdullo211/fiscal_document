@@ -1,6 +1,6 @@
-# Enter to billing
+# Authorization in billing
 
-Enter to billing / Вход в биллинг 
+Authorization in billing / Авторизация в биллинг 
 
 **URL** : `https://api.fbox.uz/api/v1/login/`
 
