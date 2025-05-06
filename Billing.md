@@ -97,6 +97,7 @@ Operation for orders count / Получение информации о прод
         "inn": "306429662"
     },
     "data": {
+        "company_name": "BAR CODE TECHNOLOGIES",
         "total_orders": 2,
         "total_amount": 700.0
     }
