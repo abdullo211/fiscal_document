@@ -1,3 +1,5 @@
+# Ошибки возвращаемые от фискального модуля / Errors returned from the fiscal module
+
 **ERROR_RECEIPT_INDEX_OUT_OF_BOUNDS** - номер чека неправильный / Check number is incorrect 
 
 **ERROR_RECEIPT_MEMORY_FULL** - Память чека заполнена / The check memory is full
@@ -30,11 +32,13 @@
 
 **ERROR_OPEN_ZREPORT_TIME_PAST** - Время открытия Z- report старое / Opening time Z- report old
 
+**Network error** - Нет интернета или нет связи с ОФД серверами для осуществления процедура возврата чека /  There is no internet or no connection with OFD servers to carry out the check return procedure
+
+# Ошибки возвращаемые фискалбоксом / Errors from FiscalBox 
+
 **Invalid time, time should be before or equal to current time: 2023-12-07 13:22:54** - Время отправленное на FBOX с кассового ПО отличается ( + - 5 минут допустимо) / The time sent to FBOX from the cash register software differs (+ - 5 minutes is acceptable)
 
 **Dobavьte IKPU(MXIK) kod v tovar/Mahsulotga MXIK kodini qo'shing** - Нет кода ИКПУ в товаре/услуге или имеется лишний пробел / There is no IKPU code in the product/service or there is an extra space
-
-**Network error** - Нет интернета или нет связи с ОФД серверами для осуществления процедура возврата чека /  There is no internet or no connection with OFD servers to carry out the check return procedure
 
 **You have invalid subscription, not multi user** - Сработала зашита от обращения с другого IP адреса. Нет подписки на услугу Multi User / Protection against access from another IP address has been triggered. No subscription to the Multi User service
 
