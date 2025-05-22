@@ -1,47 +1,48 @@
-# Ошибки возвращаемые от фискального модуля / Errors returned from the fiscal module
+# 📋 Ошибки фискального модуля / Fiscal Module Errors
 
-**ERROR_RECEIPT_INDEX_OUT_OF_BOUNDS** - номер чека неправильный / Check number is incorrect 
+| Код ошибки / Error Code | Описание (RU) | Description (EN) |
+|-------------------------|----------------|------------------|
+| `ERROR_RECEIPT_INDEX_OUT_OF_BOUNDS` | Номер чека неправильный | Check number is incorrect |
+| `ERROR_RECEIPT_MEMORY_FULL` | Память чека заполнена | The check memory is full |
+| `ERROR_RECEIPT_TIME_PAST` | Исправить дату и время на кассе и повторить попытку. Время операции должно отличаться минимум на 1 секунду от последней. | Correct the date and time on the cash register. Time must differ by at least 1 second from the last transaction. |
+| `ERROR_RECEIPT_STORE_DAYS_LIMIT_EXCEEDED` | Превышено количество дней хранения чеков в оффлайне. Отправьте чеки через `/order/sendreceipt`. | Number of days to store receipts offline exceeded. Send via `/order/sendreceipt`. |
+| `ERROR_CLOSE_ZREPORT_TIME_PAST` | Время закрытия Z-отчета устарело | Report closing time is old |
+| `ERROR_ZREPORT_SPACE_IS_FULL` | Память Z-отчетов заполнена. Требуется замена фискального модуля | Z-report memory is full. Physical replacement of the fiscal module is required |
+| `ERROR_ZREPORT_INDEX_OUT_OF_BOUNDS` | Неверный номер Z-отчета | Z-report number is incorrect |
+| `Fiscal drive locked` | Фискальный модуль заблокирован (возможно за неуплату) | The fiscal module is blocked (possibly due to non-payment) |
+| `ERROR_CURRENT_ZREPORT_IS_EMPTY` | Текущий Z-отчет пустой. Нельзя закрыть пустой Z-отчет | Current Z-report is empty. Cannot close an empty report |
+| `ERROR_ZREPORT_IS_NOT_OPEN` | Z-отчет не открыт. Нужно открыть смену | Z-report not opened. Need to open shift |
+| `ERROR_ZREPORT_OPEN_TIME_FORMAT_INVALID` | Неверный формат времени открытия Z-отчета | Z-report opening time format is incorrect |
+| `ERROR_ZREPORT_IS_ALREADY_OPEN` | Смена уже открыта. Можно продолжать работу | Shift is already open. You can continue punching checks |
+| `ERROR_NOT_ENOUGH_CASH_FOR_REFUND` | Недостаточно наличных для возврата | Not enough cash for refund |
+| `ERROR_NOT_ENOUGH_CARD_FOR_REFUND` | Недостаточно средств на карте для возврата | Not enough card funds for refund |
+| `ERROR_NOT_ENOUGH_VAT_FOR_REFUND` | Недостаточно средств (НДС) для возврата | Not enough VAT funds for refund |
+| `ERROR_OPEN_ZREPORT_TIME_PAST` | Время открытия Z-отчета устарело | Opening time of Z-report is old |
+| `Network error` | Нет интернета или связи с ОФД для возврата чека | No internet or connection with OFD for check return |
 
-**ERROR_RECEIPT_MEMORY_FULL** - Память чека заполнена / The check memory is full
+## 🧾 Ошибки FiscalBox / FiscalBox Errors
 
-**ERROR_RECEIPT_TIME_PAST** - Исправить дату и время на кассе и повторить попытку. Дата и время регистрации чека или открытия/закрытия Z-отчета должна отличаться хотя бы на одну секунду от даты и времени последней операции / Correct the date and time on the cash register and try again. The date and time of receipt registration or opening/closing of the Z-report must differ from the date and time of the last transaction by at least one second
+| Сообщение / Message | Описание (RU) | Description (EN) |
+|---------------------|----------------|------------------|
+| `Invalid time...` | Время отличается более чем на ±5 минут от текущего | Time differs more than ±5 minutes from current |
+| `Dobavьte IKPU(MXIK)...` | Нет кода ИКПУ или есть лишний пробел | No IKPU code or extra space in product |
+| `You have invalid subscription...` | Доступ с другого IP. Нет подписки Multi User | Access from another IP. No Multi User subscription |
+| `Subscription up to date` | Подписка ЦТО истекла | CTO subscription expired |
+| `U vas zadoljennost...` | Подписка ЦТО истекла | CTO subscription expired |
 
-**ERROR_RECEIPT_STORE_DAYS_LIMIT_EXCEEDED** - Кол-во дней хранения чеков оффлайне превышено, следует отправить чеки командной /order/sendreceipt / Number of days to store receipts offline exceeded, receipts should be sent via command /order/sendreceipt
+## ⚠️ Прочие коды ошибок / Other Error Codes
 
-**ERROR_CLOSE_ZREPORT_TIME_PAST** - Время закрытие отчета старое / Report closing time is old
-
-**ERROR_ZREPORT_SPACE_IS_FULL** - Память Z-отчета заполнена необходимо физическая замена фискального модуля / Z-report memory is full, physical replacement of the fiscal module is required 
-
-**ERROR_ZREPORT_INDEX_OUT_OF_BOUNDS** - Номер Z-report не правильный / Z-report number is incorrect
-
-**Fiscal drive locked** - Фискальный модуль заблокирован на стороне ОФД , возможно за неуплату / The fiscal module is blocked on the OFD side, possibly due to non-payment
-
-**ERROR_CURRENT_ZREPORT_IS_EMPTY** - Текущий Z-report пустой , невозможно закрыть пустой Z отчет /  Current Z-report is empty, it is impossible to close empty Z-report
-
-**ERROR_ZREPORT_IS_NOT_OPEN** - Z-report не открыт, нужно открыть смену / Z-report not opened, need to open
-
-**ERROR_ZREPORT_OPEN_TIME_FORMAT_INVALID** - Формат времени открытия Z-report ошибочна / Z-report opening time format is incorrect
-
-**ERROR_ZREPORT_IS_ALREADY_OPEN** - смена уже открыта , можно продолжать пробивать чеки / the shift is already open, you can continue punching checks
-
-**ERROR_NOT_ENOUGH_CASH_FOR_REFUND** - Не достаточно средств для возврата (наличка) / Not enough funds for refund (cash)
-
-**ERROR_NOT_ENOUGH_CARD_FOR_REFUND** - Не достаточно средств для возврата (пластик) / Not enough funds for return (plastic)
-
-**ERROR_NOT_ENOUGH_VAT_FOR_REFUND** - Не достаточно средств для возврата (НДС) / Not enough funds for refund (VAT)
-
-**ERROR_OPEN_ZREPORT_TIME_PAST** - Время открытия Z- report старое / Opening time Z- report old
-
-**Network error** - Нет интернета или нет связи с ОФД серверами для осуществления процедура возврата чека /  There is no internet or no connection with OFD servers to carry out the check return procedure
-
-# Ошибки возвращаемые фискалбоксом / Errors from FiscalBox 
-
-**Invalid time, time should be before or equal to current time: 2023-12-07 13:22:54** - Время отправленное на FBOX с кассового ПО отличается ( + - 5 минут допустимо) / The time sent to FBOX from the cash register software differs (+ - 5 minutes is acceptable)
-
-**Dobavьte IKPU(MXIK) kod v tovar/Mahsulotga MXIK kodini qo'shing** - Нет кода ИКПУ в товаре/услуге или имеется лишний пробел / There is no IKPU code in the product/service or there is an extra space
-
-**You have invalid subscription, not multi user** - Сработала зашита от обращения с другого IP адреса. Нет подписки на услугу Multi User / Protection against access from another IP address has been triggered. No subscription to the Multi User service
-
-**Subscription up to date** - Закончилась подписка за ЦТО / Subscription for KKM has expired
-
-**U vas zadoljennost po abonentskoj plate, obratites' v CTO** - Закончилась подписка за ЦТО / Subscription for KKM has expired
+| Код / Code | Описание | Description |
+|------------|----------|-------------|
+| `PRINTER_NOT_WORKING (101)` | Принтер не работает | Printer not working |
+| `SAVE_ORDER_ERROR (303)` | Ошибка сохранения заказа | Order save error |
+| `INTERNAL_ERROR (103)` | Внутренняя ошибка | Internal error |
+| `INVALID_ARGUMENT (104)` | Неверный аргумент | Invalid argument |
+| `SUBSCRIPTION_UP_TO_DATE (333)` | Подписка ЦТО истекла | CTO subscription expired |
+| `INVALID_SUBSCRIPTION_MULTI__USER (444)` | Нет подписки Multi User | No Multi User subscription |
+| `INVALID_CLASS_CODE (401)` | Неверный ИКПУ код | Invalid IKPU code |
+| `SCAN2PAY_TRANSACTION_NOT_FOUND (403)` | Транзакция по Scan2Pay не найдена | Scan2Pay transaction not found |
+| `BILLING_ERROR (105)` | Ошибка биллинга | Billing error |
+| `XUMO_ERROR (108)` | Ошибка XUMO | XUMO error |
+| `UZKARD_ERROR (109)` | Ошибка Uzcard | Uzcard error |
+| `PAYMENT_ERROR (106)` | Ошибка оплаты | Payment error |
