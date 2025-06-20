@@ -783,3 +783,57 @@ Payment via Scan2pay service
     "is_success": true
 }
 ```
+
+# Status payment Scan2pay / Статус оплаты Scan2pay
+
+Status payment via Scan2pay service
+
+**URL** : `/payment/qr_pay/status`
+
+**Method** : `POST`
+
+**Auth required** : NO
+## Request 
+```json
+{
+  "order_id": [ORDER ID]
+}
+```
+**Content** :
+```json
+{
+	"order_id":"77777"
+}
+```
+
+## Response payment has been completed
+
+```json
+{
+    "data": {
+        "status": "successfully",
+        "data": {
+            "uuid": "1c9389de-c41c-4148-8b46-5d666caffd89",
+            "order_id": "6532140",
+            "device": "00000001",
+            "status": "success"
+        },
+        "message": null
+    },
+    "error": null,
+    "is_success": true
+}
+```
+
+**Error example There has been no payment yet**
+```json
+{
+    "data": null,
+    "error": {
+        "code": 105,
+        "message": "{\"status\":\"error\",\"message\":\"Transaction not found\"}HTTP Exception 404 Not Found",
+        "data": null
+    },
+    "is_success": false
+}
+```
