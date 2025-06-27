@@ -758,14 +758,15 @@ Payment via Scan2pay service
 ## Request 
 ```json
 {
-  "amount": [Payment price],
+  "amount": [Payment price multiplied by 100],
   "order_id": [ORDER ID],
   "print": [false if you don't need to print QR]
 }
 ```
 **Content** :
-```{
-	"amount":500,
+```json
+{
+	"amount":500 (цена в сотых 00),
 	"order_id":"77777",
 	"print":false
 }
