@@ -514,7 +514,7 @@ Operation for create paymen via Humo PinPad
 **Content** :
 ```json
 {
-  "amount": 50000 (цена в сотых 00)
+  "amount": 1000 (цена в сотых 00)
 }
 ```
 
@@ -566,7 +566,7 @@ Operation for create paymen via Humo PinPad
 ## Request 
 ```json
 {
-  "request_id": [Request ID / Номер чека с банковского слипа],
+  "request_id": [Request ID / RRN с банковского слипа],
   "amount": [Payment price],
   "is_return": [true]
 }
@@ -574,8 +574,8 @@ Operation for create paymen via Humo PinPad
 **Content** :
 ```json
 {
-  "request_id":650,
-  "amount": 30000 (цена в сотых 00)
+  "request_id":408005356147,
+  "amount": 1000 (цена в сотых 00)
   "is_return":"true"
 }
 ```
@@ -596,7 +596,7 @@ ID Орг.:011760574070401       Чек 14
           Отмена (CANCEL)
               ОДОБРЕНО
          ОПЕРАЦИЯ ОТМЕНЕНА
-СУММА:                    300.00 UZS
+СУММА:                    10.00 UZS
 AID:A0860001000001   HUMO- Cless EMV
 Карта:HUMO
         986018******9831:01
