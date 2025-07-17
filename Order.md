@@ -47,10 +47,12 @@ Operation for create order / Продажа, аванс, кредит
 "received_card":[received card price  multiplied by 100],
 "card_type":[card type personal (2) or corporate (1)],
 "ppt_id":[ RRN number (ppt_id) in the slip response from the bank pinpad (Humo, Uzcard)],
+*"scan2pay_paid":[If the payment was made through the service Scan2Pay true or false],
 "extra_info":{
     *"phone_number":[Phone_number from response Payme,Click,Uzum],
     *"qr_payment_id":[Payment_ID from response Payme,Click,Uzum],
-    *"qr_payment_provider":[0141 - Payme, 0064 - Click, 0161 - Uzum, 0187 - Anor bank]
+    *"qr_payment_provider":[0141 - Payme, 0064 - Click, 0161 - Uzum, 0187 - Anor bank],
+    *"scan2pay_ID":[order id from /payment/qr_pay]
           },
 *"send_email":[Send order data to special email],
 *"email":[Email for sending order data],
@@ -110,7 +112,10 @@ Operation for create order / Продажа, аванс, кредит
 | card_type          | Integer| Card type(personal or corporate) / Тип карты (личная или корпоративная)        | 1,2                                         |
 |                    |        | 2 - личная карта , 1 - корпоративная карта                                     |                                             |
 | ppt_id             | Long   | Номер RRN (ppt_id) в слипе ответе от банквоского пинпада (Humo, Uzcard)        | 123456789012                                |
-| open_cashbox       | String | Open cashbox device/Открытие денежнего ящика                                   | true = open, falce = not open               |
+| scan2pay_paid      | Bool   | If the payment was made through the service Scan2Pay true or false             | true or false                               |
+|                    |        | Если оплата была через сервис Scan2Pay true или false                          |                                             |
+| scan2pay_ID        | String | Order id from /payment/qr_pay / Order ID из /payment/qr_pay                    | 14                                          |
+| open_cashbox       | String | Open cashbox device/Открытие денежнего ящика                                   | true = open, false = not open               |
 | type               | String | Banner type - {text, barcode, qr_code}/Штрих-код, QR-код                       | barcode                                     |
 | data               | String | Banner text/Рекламный текст                                                    | Скидка на следующую покупку 5%              |
 | prices / name      | String | Price name/Наименование вида оплаты                                            | USD, VISA, MasterCard, Click, Payme, Uzum   |
@@ -157,11 +162,13 @@ Operation for create order / Продажа, аванс, кредит
 "received_card":0,
 "card_type":2,
 "ppt_id":"123456789012",
+*"scan2pay_paid":true,
 "extra_info":{
     *"phone_number":"998911234569",
     *"qr_payment_id":"123456789id12"
     *"qr_payment_provider":"0141"   
-          },
+    *"scan2pay_ID":"14"
+      },
 *"open_cashbox":true,
 *"send_email":true,
 *"email":"abdullo21113@gmail.com",
