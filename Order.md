@@ -52,7 +52,7 @@ Operation for create order / Продажа, аванс, кредит
     *"phone_number":[Phone_number from response Payme,Click,Uzum],
     *"qr_payment_id":[Payment_ID from response Payme,Click,Uzum],
     *"qr_payment_provider":[0141 - Payme, 0064 - Click, 0161 - Uzum, 0187 - Anor bank],
-    *"scan2pay_id":[order id from /payment/qr_pay]
+    *"scan2pay_id":[uuid from /payment/qr_pay/status]
           },
 *"send_email":[Send order data to special email],
 *"email":[Email for sending order data],
@@ -114,7 +114,7 @@ Operation for create order / Продажа, аванс, кредит
 | ppt_id             | Long   | Номер RRN (ppt_id) в слипе ответе от банквоского пинпада (Humo, Uzcard)        | 123456789012                                |
 | scan2pay_paid      | Bool   | If the payment was made through the service Scan2Pay true or false             | true or false                               |
 |                    |        | Если оплата была через сервис Scan2Pay true или false                          |                                             |
-| scan2pay_id        | String | Order id from /payment/qr_pay / Order ID из /payment/qr_pay                    | 14                                          |
+| scan2pay_id        | String | uuid from /payment/qr_pay/status / uuid из /payment/qr_pay/status              | 59bcc56b-1fcf-4752-9f5b-a3fffdf525ae        |
 | open_cashbox       | String | Open cashbox device/Открытие денежнего ящика                                   | true = open, false = not open               |
 | type               | String | Banner type - {text, barcode, qr_code}/Штрих-код, QR-код                       | barcode                                     |
 | data               | String | Banner text/Рекламный текст                                                    | Скидка на следующую покупку 5%              |
@@ -167,7 +167,7 @@ Operation for create order / Продажа, аванс, кредит
     *"phone_number":"998911234569",
     *"qr_payment_id":"123456789id12"
     *"qr_payment_provider":"0141"   
-    *"scan2pay_id":"14"
+    *"scan2pay_id":"59bcc56b-1fcf-4752-9f5b-a3fffdf525ae"
       },
 *"open_cashbox":true,
 *"send_email":true,
