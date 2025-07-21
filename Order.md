@@ -469,6 +469,38 @@ Operations for refuse order / Возврат
 "is_success": false 
 }
 ```
+**Error example**
+**Condition** : If 'Сannot encode receipt'
+**Code** : `65531 OK`
+
+**Content** :
+```json
+{
+    "data": null,
+    "error": {
+        "code": 65531,
+        "message": "cannot encode receipt",
+        "data": "failed to make total block\n difference 65000 between 50000 and 115000 is larger than 10000\n math error\n"
+    },
+    "is_success": false
+}
+```
+**Error example**
+**Condition** : If 'Not enough cash for refund'
+**Code** : `36913 OK`
+
+**Content** :
+```json
+{
+    "data": null,
+    "error": {
+        "code": 36913,
+        "message": "ERROR_NOT_ENOUGH_CASH_FOR_REFUND",
+        "data": "ERROR_NOT_ENOUGH_CASH_FOR_REFUND\n ERROR_NOT_ENOUGH_CASH_FOR_REFUND\n"
+    },
+    "is_success": false
+}
+```
 
 
 
