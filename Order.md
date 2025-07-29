@@ -111,7 +111,7 @@ Operation for create order / Продажа, аванс, кредит
 | received_card      | Long   | Received cash price/Оплата банковской картой,Payme,Click,UZUM                  | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | card_type          | Integer| Card type(personal or corporate) / Тип карты (личная или корпоративная)        | 1,2                                         |
 |                    |        | 2 - личная карта , 1 - корпоративная карта                                     |                                             |
-| ppt_id             | Long   | Номер RRN (ppt_id) в слипе ответе от банквоского пинпада (Humo, Uzcard)        | 123456789012                                |
+| ppt_id             | Integer| Номер RRN (ppt_id) в слипе ответе от банквоского пинпада (Humo, Uzcard)        | 123456789012                                |
 | scan2pay_paid      | Bool   | If the payment was made through the service Scan2Pay true or false             | true or false                               |
 |                    |        | Если оплата была через сервис Scan2Pay true или false                          |                                             |
 | scan2pay_id        | String | uuid from /payment/qr_pay/status / uuid из /payment/qr_pay/status              | 59bcc56b-1fcf-4752-9f5b-a3fffdf525ae        |
