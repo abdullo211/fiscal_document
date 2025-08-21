@@ -760,7 +760,9 @@ Payment via Scan2pay service
 {
   "amount": [Payment price multiplied by 100],
   "order_id": [ORDER ID],
-  "print": [false if you don't need to print QR]
+  "print": [false if you don't need to print QR],
+  *"tip_card": [Card number for tips or null / Номер карты для чаевых или ноль],
+  *"tip_card_expire": [date expire card for tips or null / [дата истечения срока действия карты для чаевых или null]
 }
 ```
 **Content** :
@@ -768,7 +770,9 @@ Payment via Scan2pay service
 {
 	"amount":500 (цена в сотых 00),
 	"order_id":"77777",
-	"print":false
+	"print":false,
+    *"tip_card":"8600112991130444",
+    *"tip_card_expire":"0726"
 }
 ```
 
