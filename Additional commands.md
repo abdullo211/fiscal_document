@@ -1,10 +1,10 @@
 ## 🏦 Печать копии последней сверки итогов и транзакции проведенные через банковский пинпад (терминал) / Print a copy of the last reconciliation of totals and transactions carried out through a bank pinpad (terminal)
 | Метод | URL                               | Описание (RU)                          | Description (EN)               |
 | ----- | --------------------------------- | -------------------------------------- | ------------------------------ |
-| `GET` | `xumo_close/print_last`           | Печать последней закрытой смены Xumo   | Print last closed Xumo shift   |
+| `GET` | `payment/xumo_close/print_last`   | Печать последней закрытой смены Xumo   | Print last closed Xumo shift   |
 | `GET` | `payment/uzcard_close/print_last` | Печать последней закрытой смены Uzcard | Print last closed Uzcard shift |
-| `GET` | `Xumo/print_last`                 | Печать последней транзакции Xumo       | Print last Xumo transaction    |
-| `GET` | `uzcard/print_last`               | Печать последней транзакции Uzcard     | Print last Uzcard transaction  |
+| `GET` | `payment/xumo/print_last`         | Печать последней транзакции Xumo       | Print last Xumo transaction    |
+| `GET` | `payment/uzcard/print_last`       | Печать последней транзакции Uzcard     | Print last Uzcard transaction  |
 
 ## 🧾 Выборочная печать закрытых Z-отчетов / Selective Printing of Closed Z-Reports
 | Метод | URL                                                      | Описание (RU)                                                                                                                                              | Description (EN)                                                                                                                                                                  |
