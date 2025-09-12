@@ -762,7 +762,8 @@ Payment via Scan2pay service
   "order_id": [ORDER ID],
   "print": [false if you don't need to print QR],
   *"tip_card": [Card number for tips or null / Номер карты для чаевых или ноль],
-  *"tip_card_expire": [date expire card for tips or null / [дата истечения срока действия карты для чаевых или null]
+  *"tip_card_expire": [date expire card for tips or null / дата истечения срока действия карты для чаевых или null]
+  *"sms_phone_number": [send scan2pay url for payment via sms 998********* or null  /  отправить ссылку scan2pay для оплаты через смс 998********* или null]
 }
 ```
 **Content** :
@@ -773,6 +774,7 @@ Payment via Scan2pay service
 	"print":false,
     *"tip_card":"8600112991130444",
     *"tip_card_expire":"0726"
+    *"sms_phone_number":"998998895989"
 }
 ```
 
