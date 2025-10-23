@@ -39,7 +39,8 @@ Operation for create order / Продажа, аванс, кредит
               "pinfl":"pinfl comision"
    }
    }
-], 
+],
+*"uuid":[your uuid number], 
 "time":[time_in_format yyyy-MM-dd HH:mm:ss],
 "cashier":[cashier_name], 
 "received_cash":[received_cash_price multiplied by 100], 
@@ -104,6 +105,7 @@ Operation for create order / Продажа, аванс, кредит
 | owner_type         | Integer| Owner_type/ Код происхождения товара (одно значение либо 0, либо 1, либо 2     | 0,1,2                                       |
 |                    |        | (0-"Куплено и продано" / 1-"Собственное производство" / 2-"Поставщик услуг")   |                                             |
 | comission_info     | Long   | Sign commission check TIN, PINFL/Признак комиссионный чек ИНН, ПИНФЛ           | 123456789, 12345678912345                   |
+| uuid               | String | Your UUID / Ваш UUID                                                           | abc123                                      |
 | time               | Double | Time in format yyyy-MM-dd hh:mm:ss/Дата и время в формате yyyy-MM-dd hh:mm:ss  | 2021-09-08 22:54:59                         |
 | cashier            | String | Cashier name/Имя кассира                                                       | Админ                                       |
 | received_cash      | Long   | Received cash price/Оплата наличными                                           | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
@@ -154,7 +156,8 @@ Operation for create order / Продажа, аванс, кредит
               "pinfl":"12345678912345"
     }
     }
-  ], 
+  ],
+*"uuid":"123",
 "time":"2021-04-07 12:52:02",
 "cashier":"Admin", 
 "received_cash":50000, 
@@ -310,7 +313,8 @@ Operations for refuse order / Возврат
    }
   
    }
-], 
+],
+*"uuid":[your uuid number],
 "qr_code":[link to web],
 "time":[Time in format yyyy-MM-dd HH:mm:ss],
 "cashier":[Cashier name], 
@@ -367,7 +371,8 @@ Operations for refuse order / Возврат
               "pinfl":"12345678912345"
     }
     }
-  ], 
+  ],
+*"uuid":"123",
 "qr_code":"https://ofd.soliq.uz/check?t=UZ191211501001&r=1447&c=20220309125810&s=461313663448",
 "time":"2021-04-15 14:35:02",
 "cashier":"Admin", 
