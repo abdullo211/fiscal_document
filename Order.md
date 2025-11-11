@@ -274,6 +274,21 @@ Operation for create order / Продажа, аванс, кредит
 "is_success": false 
 }
 ```
+**Error example**
+**Condition** : If 'Invalid time'
+**Code** : `200 OK`
+
+**Content** :
+```json
+{
+"data": null,
+ "error": {
+    "code": 104 ,
+    "message": "Invalid time, time should be before or equal to current time: 2023-09-19 13:13:35",
+    "data": null
+    },
+"is_success": false 
+}
 
 
 ## Order refuse
