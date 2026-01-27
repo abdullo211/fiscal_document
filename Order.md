@@ -53,7 +53,8 @@ Operation for create order / Продажа, аванс, кредит
     *"phone_number":[Phone_number from response Payme,Click,Uzum],
     *"qr_payment_id":[Payment_ID from response Payme,Click,Uzum],
     *"qr_payment_provider":[0141 - Payme, 0064 - Click, 0161 - Uzum, 0187 - Anor bank],
-    *"scan2pay_id":[uuid from /payment/qr_pay/status]
+    *"scan2pay_id":[uuid from /payment/qr_pay/status],
+    *"card_number":[bank card number first 4 and last 4 digits for Social Card Type]
           },
 *"send_email":[Send order data to special email],
 *"email":[Email for sending order data],
@@ -111,8 +112,11 @@ Operation for create order / Продажа, аванс, кредит
 | received_cash      | Long   | Received cash price/Оплата наличными                                           | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | change             | Long   | Change price/Сдача                                                             | 100                                         |
 | received_card      | Long   | Received cash price/Оплата банковской картой,Payme,Click,UZUM                  | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-| card_type          | Integer| Card type(personal or corporate) / Тип карты (личная или корпоративная)        | 1,2                                         |
-|                    |        | 2 - личная карта , 1 - корпоративная карта                                     |                                             |
+| card_type          | Integer| Card type(1-corporate, 2-personal, 3-social)                                   |                                             |
+|                    |        | For social card (Additionally, we pass the card_number inside extra_info)      |                                             |
+|                    |        | Тип карты (личная, корпоративная, социальная)                                  | 1,2,3                                       |
+|                    |        | 1 - корпоративная карта, 2 - личная карта, 3 - социальная                      |                                             |
+|                    |        | Для социальной карты дополнительно передаем card_number внутри extra_info      |                                             |
 | ppt_id             | Integer| Номер RRN (ppt_id) в слипе ответе от банквоского пинпада (Humo, Uzcard)        | 123456789012                                |
 | scan2pay_paid      | Bool   | If the payment was made through the service Scan2Pay true or false             | true or false                               |
 |                    |        | Если оплата была через сервис Scan2Pay true или false                          |                                             |
@@ -168,9 +172,10 @@ Operation for create order / Продажа, аванс, кредит
 *"scan2pay_paid":true,
 "extra_info":{
     *"phone_number":"998911234569",
-    *"qr_payment_id":"123456789id12"
-    *"qr_payment_provider":"0141"   
-    *"scan2pay_id":"59bcc56b-1fcf-4752-9f5b-a3fffdf525ae"
+    *"qr_payment_id":"123456789id12",
+    *"qr_payment_provider":"0141",   
+    *"scan2pay_id":"59bcc56b-1fcf-4752-9f5b-a3fffdf525ae",
+    *"card_number":"1234********1234"
       },
 *"open_cashbox":true,
 *"send_email":true,
