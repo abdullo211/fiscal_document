@@ -34,6 +34,8 @@
 | `444` | `You have invalid subscription...` | Доступ с другого IP. Нет подписки Multi User | Access from another IP. No Multi User subscription |
 | `333` | `Subscription up to date` | Подписка ЦТО истекла | CTO subscription expired |
 | `333` | `U vas zadoljennost...` | Подписка ЦТО истекла | CTO subscription expired |
+| `402` | `Неправильный код упаковки для товара...` | Неверный код упаковки (единицы измерения) |  Invalid package code (units of measurement) |
+| `402` | `Добавьте код маркировки для товара...` | Не добавлен код маркировки для товра | The mark code for the product has not been added |
 
 ## ⚠️ Прочие коды ошибок / Other Error Codes
 
