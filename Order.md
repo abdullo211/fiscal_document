@@ -535,4 +535,189 @@ Operation for print copy last order / Печать копии последнег
 }
 ```
 
+## Check last successful order 
+Operation for check last successful order / Проверка последнего успешного чека 
 
+**URL** : `/order/last/`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+## Response
+
+```json
+{
+  "result": {
+    "data": {
+      "order": {
+        "id": 0,
+        "number": 142632,
+        "cashier": "Abduraxmon",
+        "products": [
+          {
+            "name": "armia 1",
+            "barcode": "",
+            "amount": 200,
+            "product_price": 2500000000,
+            "price": 2500000000,
+            "vat": 1071,
+            "vat_percent": 12,
+            "discount_percent": 0.0,
+            "discount": 0,
+            "other": 0,
+            "labels": [
+              "12abb3"
+            ],
+            "class_code": "11199008003000001",
+            "comission_info": {
+              "TIN": "",
+              "PINFL": ""
+            },
+            "unit_name": "dona",
+            "package_code": "1506986",
+            "owner_type": 1
+          },
+          {
+            "name": "Настенный громкоговоритель динамик 3 дюйма цвет черный OVO3T-BL",
+            "barcode": "",
+            "amount": 200,
+            "product_price": 2000000000,
+            "price": 2000000000,
+            "vat": 1071,
+            "vat_percent": 12,
+            "discount_percent": 0.0,
+            "discount": 0,
+            "other": 0,
+            "labels": [
+              "45242sdsf"
+            ],
+            "class_code": "11199008003000001",
+            "comission_info": {
+              "TIN": "",
+              "PINFL": ""
+            },
+            "unit_name": "dona",
+            "package_code": "1500169",
+            "owner_type": 1
+          }
+        ],
+        "time": "2026-04-15 10:40:06",
+        "received_cash": 0,
+        "received_card": 4500000000,
+        "received_ecash": null,
+        "change": 0,
+        "open_cashbox": false,
+        "banners": [
+          {
+            "type": "text",
+            "data": "PRACUJ Z NAMI \r\n ",
+            "cut": false,
+            "style": {
+              "font_height": 150,
+              "font_width": 1,
+              "is_bold": true,
+              "align": "center",
+              "barcode_type": 0,
+              "qr_size": 5
+            }
+          },
+          {
+            "type": "qr_code",
+            "data": "http://lpp.com.kariera/salony",
+            "cut": false,
+            "style": {
+              "font_height": 200,
+              "font_width": 2,
+              "is_bold": true,
+              "align": null,
+              "barcode_type": 0,
+              "qr_size": 12
+            }
+          },
+          {
+            "type": "text",
+            "data": "LPP.COM/KARIERA/SALONY",
+            "cut": false,
+            "style": {
+              "font_height": 150,
+              "font_width": 1,
+              "is_bold": true,
+              "align": "center",
+              "barcode_type": 0,
+              "qr_size": 5
+            }
+          }
+        ],
+        "prices": [
+          {
+            "name": "TEXT A",
+            "type": null,
+            "price": 1000,
+            "vat_type": null,
+            "vat_price": null
+          },
+          {
+            "name": "TEXT B",
+            "type": null,
+            "price": 1000,
+            "vat_type": null,
+            "vat_price": null
+          }
+        ],
+        "isSynced": false,
+        "type": "order",
+        "cash_desc_serial": null,
+        "cash_desc_number": null,
+        "market_name": null,
+        "inn": null,
+        "email": "",
+        "send_email": false,
+        "sms_phone_number": "",
+        "result_url": "https://ofd.soliq.uz/check?t=LG230110007813&r=2478&c=20260415104006&s=322032313241",
+        "location": {
+          "Latitude": 41.299123,
+          "Longitude": 69.272375
+        },
+        "receipt_type": "order",
+        "extra_info": {
+          "Other": null,
+          "PhoneNumber": "",
+          "PINFL": "",
+          "TIN": "",
+          "CarNumber": "",
+          "CardNumber": "9842********1078",
+          "QrPaymentID": "",
+          "QrPaymentProvider": null,
+          "CardType": null,
+          "PPTID": null,
+          "scan2pay_id": ""
+        },
+        "qr_code": "",
+        "special_print": false,
+        "payment_id": null,
+        "scan2pay_paid": false,
+        "taxi_info": null,
+        "merchant_info": null,
+        "card_type": 3,
+        "ppt_id": "603614527232",
+        "dbId": 0,
+        "uuid": ""
+      },
+      "fiscalOrder": null,
+      "result": {
+        "TerminalID": "LG230110007813",
+        "ReceiptSeq": 2478,
+        "DateTime": "20260415104006",
+        "FiscalSign": "322032313241",
+        "AppletVersion": "0323",
+        "QRCodeURL": "https://ofd.soliq.uz/check?t=LG230110007813&r=2478&c=20260415104006&s=322032313241",
+        "cash_box_number": "2"
+      },
+      "isRefund": false
+    },
+    "error": null,
+    "is_success": true
+  }
+}
+```
