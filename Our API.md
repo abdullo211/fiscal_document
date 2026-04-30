@@ -40,7 +40,7 @@ Content-Type: application/json
 | packageCode | string | Код упаковки                                              |
 | amount      | number | Количество отсканированных КМ для данного GTIN            |
 | kmIds       | array  | Список обрезанных КМ                                      |
-| fullKmIds   | array  | Всегда пустой массив                                      |
+| fullKmIds   | array  | необязательно если отправляется kmIds                     |
 
 ## Ответ
 ```json
