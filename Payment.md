@@ -2,6 +2,50 @@
 1. Номер телефона
 2. Payment ID
 Это нужно будет отправить вместе с /order в "extra_info" и так же выбрать соответствующий ЭПС
+
+## Common response wrapper
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data | object or null | Response data/Данные ответа |
+| error.code | integer | Error code/Код ошибки |
+| error.message | string | Error message/Сообщение об ошибке |
+| error.data | string or null | Extra error data/Дополнительные данные |
+| is_success | boolean | Success flag/Признак успешного ответа |
+
+## Common payment request (Click, Payme, Uzum, Anor)
+
+| Field | Type | Required | Description EN/RU |
+| ----- | ---- | -------- | ----------------- |
+| amount | integer | Yes | Payment amount in tiyin (×100)/Сумма оплаты в тийинах |
+| qr_code | string | Yes | QR code from payment app/QR-код из приложения оплаты |
+
+## Common confirm request (Click, Payme, Uzum)
+
+| Field | Type | Required | Description EN/RU |
+| ----- | ---- | -------- | ----------------- |
+| payment_id | string | Yes | Payment ID from provider/ID оплаты от провайдера |
+| qr_code | string | Yes | Fiscal receipt URL/URL фискального чека |
+
+## Pinpad return request (Humo, UzCard)
+
+| Field | Type | Required | Description EN/RU |
+| ----- | ---- | -------- | ----------------- |
+| amount | integer | Yes | Amount in tiyin (×100)/Сумма в тийинах |
+| request_id | string or integer | Yes | RRN from bank slip/RRN с банковского слипа |
+| is_return | boolean | Yes | Return flag/Признак возврата |
+
+## Scan2pay request
+
+| Field | Type | Required | Description EN/RU |
+| ----- | ---- | -------- | ----------------- |
+| amount | integer | Yes | Payment amount in tiyin (×100)/Сумма в тийинах |
+| order_id | string | Yes | Order ID/ID заказа |
+| print | boolean | No | Print QR on receipt/Печатать QR на чеке |
+| tip_card | string | No | Card number for tips/Номер карты для чаевых |
+| tip_card_expire | string | No | Tip card expiry (MMYY)/Срок действия карты |
+| sms_phone_number | string | No | Phone to send payment link/Телефон для ссылки оплаты |
+
 # CLICK PASS / Оплата через CLICK PASS
 
 Operation for create paymen via CLICK PASS
@@ -46,6 +90,21 @@ Operation for create paymen via CLICK PASS
   "is_success": [is success response] 
 }
 ```
+
+See [Common payment request](#common-payment-request-click-payme-uzum-anor) for request fields.
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.amount | integer | Payment amount/Сумма оплаты |
+| data.transaction_id | string | Transaction UUID/UUID транзакции |
+| data.payment_id | string | Payment ID/ID оплаты |
+| data.inn | string | Company TIN/ИНН |
+| data.qr_code | string | QR code/QR-код |
+| data.kkm_id | string | KKM ID/ID ККМ |
+| data.device_id | string | Device ID/ID устройства |
+| data.status | string | Status/Статус |
+| data.message | string | Status message/Сообщение |
+| data.client_phone_number | string | Client phone/Телефон клиента |
 
 **Success example**
 **Code** : `200 OK`
@@ -108,6 +167,16 @@ Operation for send fiscalization check to CLICK
     "qr_code":"https://ofd.soliq.uz/check?t=UZ170703100597&r=2421&c=20230104121801&s=514343190161",    
 }
 ```
+
+See [Common confirm request](#common-confirm-request-click-payme-uzum) for request fields.
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.inn | string | Company TIN/ИНН |
+| data.payment_id | string | Payment ID/ID оплаты |
+| data.qr_code | string | Fiscal receipt URL/URL фискального чека |
+| data.status | string | Status/Статус |
+| data.error | null | Always null on success/Всегда null при успехе |
 
 ## Response
 **Success example**
@@ -182,6 +251,21 @@ Operation for create paymen via PAYME GO
 }
 ```
 
+See [Common payment request](#common-payment-request-click-payme-uzum-anor) for request fields.
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.amount | integer | Payment amount/Сумма оплаты |
+| data.transaction_id | string | Transaction UUID/UUID транзакции |
+| data.payment_id | string | Payment ID/ID оплаты |
+| data.inn | string | Company TIN/ИНН |
+| data.qr_code | string | QR code/QR-код |
+| data.kkm_id | string | KKM ID/ID ККМ |
+| data.device_id | string | Device ID/ID устройства |
+| data.status | string | Status/Статус |
+| data.message | string | Status message/Сообщение |
+| data.client_phone_number | string | Client phone/Телефон клиента |
+
 **Success example**
 **Code** : `200 OK`
 
@@ -245,6 +329,16 @@ Operation for send fiscalization check to PayMe
 }
 ```
 
+See [Common confirm request](#common-confirm-request-click-payme-uzum) for request fields.
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.id | integer | Response ID/ID ответа |
+| data.result.receipt._id | string | Payme receipt ID/ID чека Payme |
+| data.result.receipt.create_time | integer | Receipt create timestamp/Время создания |
+| data.result.receipt.pay_time | integer | Payment timestamp/Время оплаты |
+| data.error | null | Always null on success/Всегда null при успехе |
+
 ## Response
 **Success example**
 ```json
@@ -307,11 +401,21 @@ Operation for create paymen via UZUM FASTPAY
  "data":{
   "payment_id": [payment_id],
   "payment_status": [Payment status], 
-  "error_code,": [Error code],
+  "error_code": [Error code],
   "error_message": [Error message],
   "is_success": [is success response] 
 }
 ```
+
+See [Common payment request](#common-payment-request-click-payme-uzum-anor) for request fields.
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.payment_id | string | Payment UUID/UUID оплаты |
+| data.payment_status | string | Status (`SUCCESS`, etc.)/Статус оплаты |
+| data.error_code | string | Error code (`0` = success)/Код ошибки |
+| data.error_message | string or null | Error message/Сообщение об ошибке |
+| data.client_phone_number | string | Client phone/Телефон клиента |
 
 **Success example**
 **Code** : `200 OK`
@@ -370,6 +474,16 @@ Operation for send fiscalization check to UZUM
 }
 ```
 
+See [Common confirm request](#common-confirm-request-click-payme-uzum) for request fields.
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.payment_id | string | Payment UUID/UUID оплаты |
+| data.payment_status | string | Status/Статус |
+| data.error_code | string | Error code/Код ошибки |
+| data.error_message | string or null | Error message/Сообщение об ошибке |
+| data.client_phone_number | string or null | Client phone/Телефон клиента |
+
 ## Response
 **Success example**
 ```json
@@ -408,6 +522,20 @@ Operation for create paymen via AnorCheck
 	"qr_code":"880101698207133392"
 }
 ```
+
+See [Common payment request](#common-payment-request-click-payme-uzum-anor) for request fields.
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.transaction_id | string | Transaction UUID/UUID транзакции |
+| data.status | string | Status/Статус |
+| data.message | string or null | Message/Сообщение |
+| data.error_code | string or null | Error code/Код ошибки |
+| data.payment_id | integer | Payment ID/ID оплаты |
+| data.error_note | string or null | Error note/Примечание об ошибке |
+| data.payment_status | integer | Payment status code/Код статуса оплаты |
+| data.phone_number | string | Client phone/Телефон клиента |
+| data.card_number | string | Masked card number/Маскированный номер карты |
 
 ## Response
 **Success example**
@@ -469,7 +597,20 @@ Operation for send fiscalization check to Anor
 } 
 ```
 
+| Field | Type | Required | Description EN/RU |
+| ----- | ---- | -------- | ----------------- |
+| transaction_id | string | Yes | Transaction ID from Anor payment/ID транзакции из оплаты Anor |
+| qr_code | string | Yes | Fiscal receipt URL/URL фискального чека |
+
 ## Response
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.message | string or null | Message/Сообщение |
+| data.error_code | string or null | Error code/Код ошибки |
+| data.payment_id | string or null | Payment ID/ID оплаты |
+| data.transaction_id | string | Transaction ID/ID транзакции |
+
 **Success example**
 ```json
 {
@@ -514,9 +655,18 @@ Operation for create paymen via Humo PinPad
 **Content** :
 ```json
 {
-  "amount": 1000 (цена в сотых 00)
+  "amount": 1000
 }
 ```
+
+| Field | Type | Required | Description EN/RU |
+| ----- | ---- | -------- | ----------------- |
+| amount | integer | Yes | Amount in tiyin (×100)/Сумма в тийинах |
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.message | string | Bank slip text/Текст банковского слипа |
+| data.ppt_id | string | RRN reference/RRN операции |
 
 **Success example**
 **Code** : `200 OK`
@@ -574,11 +724,18 @@ Operation for create paymen via Humo PinPad
 **Content** :
 ```json
 {
-  "request_id":408005356147,
-  "amount": 1000 (цена в сотых 00)
-  "is_return":"true"
+  "request_id": 408005356147,
+  "amount": 1000,
+  "is_return": true
 }
 ```
+
+See [Pinpad return request](#pinpad-return-request-humo-uzcard) for request fields.
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.message | string | Bank slip text/Текст банковского слипа |
+| data.ppt_id | string | RRN reference/RRN операции |
 
 **Success example**
 **Code** : `200 OK`
@@ -625,6 +782,12 @@ Operation for reconciliation of results via Humo PinPad
 **Method** : `GET`
 
 **Auth required** : NO
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.message | string | Reconciliation report text/Текст отчёта сверки |
+| data.ppt_id | string or null | RRN reference/RRN операции |
+
 **Success example**
 **Code** : `200 OK`
 
@@ -658,9 +821,18 @@ Operation for create paymen via UzCard PinPad
 **Content** :
 ```json
 {
-  "amount": 50000 (цена в сотых 00)
+  "amount": 50000
 }
 ```
+
+| Field | Type | Required | Description EN/RU |
+| ----- | ---- | -------- | ----------------- |
+| amount | integer | Yes | Amount in tiyin (×100)/Сумма в тийинах |
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.message | string | Bank slip text/Текст банковского слипа |
+| data.ppt_id | string | RRN reference/RRN операции |
 
 **Success example**
 **Code** : `200 OK`
@@ -710,11 +882,18 @@ Operation for create paymen via PAX A35 UzCard
 **Content** :
 ```json
 {
-  "request_id":010965270742,
-  "amount": 30000 (цена в сотых 00)
-  "is_return":"true"
+  "request_id": "010965270742",
+  "amount": 30000,
+  "is_return": true
 }
 ```
+
+See [Pinpad return request](#pinpad-return-request-humo-uzcard) for request fields.
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.message | string | Bank slip text/Текст банковского слипа |
+| data.ppt_id | string | RRN reference/RRN операции |
 
 **Success example**
 **Code** : `200 OK`
@@ -755,6 +934,12 @@ Operation for reconciliation of results via Uzcard PinPad
 **Method** : `GET`
 
 **Auth required** : NO
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.message | string | Reconciliation report text/Текст отчёта сверки |
+| data.ppt_id | string or null | RRN reference/RRN операции |
+
 **Success example**
 **Code** : `200 OK`
 
@@ -793,14 +978,21 @@ Payment via Scan2pay service
 **Content** :
 ```json
 {
-	"amount":500 (цена в сотых 00),
-	"order_id":"77777",
-	"print":false,
-    *"tip_card":"8600112991130444",
-    *"tip_card_expire":"0726"
-    *"sms_phone_number":"998998895989"
+  "amount": 500,
+  "order_id": "77777",
+  "print": false,
+  "tip_card": "8600112991130444",
+  "tip_card_expire": "0726",
+  "sms_phone_number": "998998895989"
 }
 ```
+
+See [Scan2pay request](#scan2pay-request) for request fields.
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.status | string | Status/Статус |
+| data.message | string | Payment URL or message/URL оплаты или сообщение |
 
 ## Response
 
@@ -837,7 +1029,20 @@ Status payment via Scan2pay service
 }
 ```
 
+| Field | Type | Required | Description EN/RU |
+| ----- | ---- | -------- | ----------------- |
+| order_id | string | Yes | Order ID from `/payment/qr_pay`/ID заказа |
+
 ## Response payment has been completed
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.status | string | Response status/Статус ответа |
+| data.data.uuid | string | Transaction UUID/UUID транзакции |
+| data.data.order_id | string | Order ID/ID заказа |
+| data.data.device | string | Device ID/ID устройства |
+| data.data.status | string | Payment status/Статус оплаты |
+| data.message | string or null | Message/Сообщение |
 
 ```json
 {
