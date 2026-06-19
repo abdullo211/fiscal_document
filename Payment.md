@@ -1399,6 +1399,76 @@ GET /payment/one_qr/status?invoice_id=INVC134B7FEFED34BC3B470B8
 }
 ```
 
+# UzQR Refund Status / Статус Возврата UzQR
+
+## Response
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.refund_id | string | Refund ID / ID возврата |
+| data.status | integer | Payment status: 1=in pending, 2=success, 3=failed / Статус оплаты |
+
+**Success example — payment completed**
+
+**Code** : `200 OK`
+
+```json
+{
+  "data": {
+    "refund_id": "REF123456",
+    "status": 2
+  },
+  "error": null,
+  "is_success": true
+}
+```
+
+**Success example — payment in progress (still polling)**
+
+**Code** : `200 OK`
+
+```json
+{
+  "data": {
+    "refund_id": "REF123456",
+    "status": 1
+  },
+  "error": null,
+  "is_success": true
+}
+```
+
+**Success example — payment declined**
+
+**Code** : `200 OK`
+
+```json
+{
+  "data": {
+    "refund_id": "REF123456",
+    "status": 3
+  },
+  "error": null,
+  "is_success": true
+}
+```
+
+**Error example**
+
+**Code** : `200 OK`
+
+```json
+{
+    "data": null,
+    "error": {
+        "code": 9001,
+        "message": "Временная ошибка UzQR. Повторите позже.",
+        "data": null
+    },
+    "is_success": false
+}
+```
+
 # Scan2pay / Оплата через сервис Scan2pay
 
 Payment via Scan2pay service
