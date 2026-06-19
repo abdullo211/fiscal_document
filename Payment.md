@@ -1232,6 +1232,80 @@ GET /payment/one_qr/status?invoice_id=INVC134B7FEFED34BC3B470B8
 }
 ```
 
+## Send UzQR fiscal receipt / Отправка фискального чека в UzQR
+
+**URL** : `/payment/one_qr/receipt`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+## Request
+
+| Field | Type | Required | Description EN/RU |
+| ----- | ---- | -------- | ----------------- |
+| pay_id | string | Yes | PAY ID from STATUS PAYMENT / Плтаженый ID операции от статуса платежа  |
+| fiscal_receipt_url | string | Yes | URL fiscal check from /order/create / URL фискального чека из /order/create |
+
+**Request:**
+
+```json
+{
+  "pay_id": "PAY12345678901234567",
+  "fiscal_receipt_url": "https://example.com/fiscal-receipt/123](https://ofd.soliq.uz/check?t=LG420230601161&r=92927&c=20260617102213&s=117733149112"
+}
+```
+
+## Response
+
+**Success example**
+
+**Code** : `200 OK`
+
+```json
+{
+  "data": {},
+  "error": null,
+  "is_success": true
+}
+```
+
+**Error example**
+
+**Condition** : UzQR payment transaction not found
+
+**Code** : `200 OK`
+
+```json
+{
+    "data": null,
+    "error": {
+        "code": 4001,
+        "message": "Платеж не найден.",
+        "data": null
+    },
+    "is_success": false
+}
+```
+
+**Error example**
+
+**Condition** : D'ont send fiscal url
+
+**Code** : `200 OK`
+
+```json
+{
+    "data": null,
+    "error": {
+        "code": 105,
+        "message": "fiscal_receipt_url is required",
+        "data": null
+    },
+    "is_success": false
+}
+```
+
 ---
 
 ## UzQR Error Codes / Коды ошибок UzQR
