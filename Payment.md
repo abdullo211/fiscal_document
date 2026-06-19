@@ -1251,6 +1251,154 @@ GET /payment/one_qr/status?invoice_id=INVC134B7FEFED34BC3B470B8
 
 ---
 
+# UzQR Cancel Payment / Отмена оплаты UzQR
+
+**URL** : `/payment/one_qr/cancel`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+## Request
+
+| Parameter | Type | Required | Description EN/RU |
+| --------- | ---- | -------- | ----------------- |
+| invoice_id | string | Yes | Invoice ID from create response / ID инвойса из ответа создания |
+
+**Request:** 
+
+```json
+{
+  "invoice_id": "INV8D1EBF7CDCBA44E7BF90D3"
+}
+```
+
+## Response
+
+**Success example**
+
+**Code** : `200 OK`
+
+```json
+{
+    "data": {},
+    "error": null,
+    "is_success": true
+}
+```
+
+**Error example**
+
+**Condition** : UzQR payment is not found
+
+**Code** : `200 OK`
+
+```json
+{
+    "data": null,
+    "error": {
+        "code": 3001,
+        "message": "Операция не найдена.",
+        "data": null
+    },
+    "is_success": false
+}
+```
+
+# UzQR Refund Payment / Возврат оплаты UzQR
+
+**Правила**
+
+●	Возврат доступен только для успешной операции.
+
+●	Доступен частичный возврат.
+
+●	POS должен передать сумму возврата в параметре amount.
+
+●	Для полного возврата POS передает полную сумму операции.
+
+●	Для частичного возврата POS передает сумму частичного возврата.
+
+●	Сумма возврата не может быть больше суммы операции.
+
+●	Возврат возможен только по операции, проведенной через этот POS.
+
+●	Причина возврата в POS не требуется.
+
+●	Возврат является асинхронным процессом.
+
+●	UzQR возвращает refund_id.
+
+●	POS использует refund_id для проверки статуса.
+
+●	При попытке отменить уже отмененный платеж UzQR возвращает ошибку.
+
+●	При попытке отменить платеж, недоступный к отмене, UzQR возвращает ошибку.
+
+
+**URL** : `/payment/one_qr/refund`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+## Request
+
+| Parameter | Type | Required | Description EN/RU |
+| --------- | ---- | -------- | ----------------- |
+| pay_id | string | Yes | PAY ID from PAYMENT STATUS response / ID платежа из ответа статуса оплаты |
+| amount | string | Yes | Amount / Сумма |
+
+**Request:** 
+
+```json
+{
+  "pay_id": "PAY123456",
+  "amount": "1"
+}
+```
+
+## Response
+
+| Field | Type | Description EN/RU |
+| ----- | ---- | ----------------- |
+| data.refund_id | string | Refund ID / ID возврата |
+| data.status | integer | Status: 1=success |
+
+
+**Success example**
+
+**Code** : `200 OK`
+
+```json
+{
+    "data": {
+        "refund_id": "REFF5149C4B458F4D7FB",
+        "status": 1
+    },
+    "error": null,
+    "is_success": true
+}
+```
+
+**Error example**
+
+**Condition** : UzQR payment is not found
+
+**Code** : `200 OK`
+
+```json
+{
+    "data": null,
+    "error": {
+        "code": 4001,
+        "message": "Платеж не найден.",
+        "data": null
+    },
+    "is_success": false
+}
+```
+
 # Scan2pay / Оплата через сервис Scan2pay
 
 Payment via Scan2pay service
