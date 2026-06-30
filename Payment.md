@@ -40,11 +40,12 @@
 | Field | Type | Required | Description EN/RU |
 | ----- | ---- | -------- | ----------------- |
 | amount | integer | Yes | Payment amount in tiyin (×100)/Сумма в тийинах |
-| order_id | string | Yes | Order ID/ID заказа |
+| order_id | integer | Yes | Order ID/ID заказа |
 | print | boolean | No | Print QR on receipt/Печатать QR на чеке |
 | tip_card | string | No | Card number for tips/Номер карты для чаевых |
 | tip_card_expire | string | No | Tip card expiry (MMYY)/Срок действия карты |
 | sms_phone_number | string | No | Phone to send payment link/Телефон для ссылки оплаты |
+| banners | array | No | Banners to print before the Scan2Pay QR/Баннеры для печати перед QR Scan2Pay |
 
 # CLICK PASS / Оплата через CLICK PASS
 
@@ -80,7 +81,8 @@ Operation for create paymen via CLICK PASS
   "transaction_id": [transaction_uuid],
   "payment_id": [payment_id],
   "amount": [Price],
-   "qr_code": [Qr code from CLICK PASS],
+  "qr_code": [Qr code from CLICK PASS],
+  "client_phone_number": [Client phone number],
   },
   "error": {
     "code":[code of error],
@@ -95,16 +97,14 @@ See [Common payment request](#common-payment-request-click-payme-uzum-anor) for 
 
 | Field | Type | Description EN/RU |
 | ----- | ---- | ----------------- |
+| data.status_code | integer | Provider status code/Код статуса провайдера |
 | data.amount | integer | Payment amount/Сумма оплаты |
 | data.transaction_id | string | Transaction UUID/UUID транзакции |
 | data.payment_id | string | Payment ID/ID оплаты |
-| data.inn | string | Company TIN/ИНН |
 | data.qr_code | string | QR code/QR-код |
-| data.kkm_id | string | KKM ID/ID ККМ |
-| data.device_id | string | Device ID/ID устройства |
 | data.status | string | Status/Статус |
 | data.message | string | Status message/Сообщение |
-| data.client_phone_number | string | Client phone/Телефон клиента |
+| data.client_phone_number | string or null | Client phone/Телефон клиента |
 
 **Success example**
 **Code** : `200 OK`
@@ -112,13 +112,11 @@ See [Common payment request](#common-payment-request-click-payme-uzum-anor) for 
 **Content** :
 ```{
   "data": {
+    "status_code": 0,
     "amount": 1,
     "transaction_id": "0e436d79-f100-4373-b12a-1f238b558054",
     "payment_id": "644113a290a5eba4298f05d5",
-    "inn": "123456789",
     "qr_code": "50501010793410469483",
-    "kkm_id": "00000001",
-    "device_id": "00000001",
     "status": "successfully",
     "message": "successfully payment",
     "client_phone_number": "998946532140"
@@ -264,7 +262,7 @@ See [Common payment request](#common-payment-request-click-payme-uzum-anor) for 
 | data.device_id | string | Device ID/ID устройства |
 | data.status | string | Status/Статус |
 | data.message | string | Status message/Сообщение |
-| data.client_phone_number | string | Client phone/Телефон клиента |
+| data.client_phone_number | string or null | Client phone/Телефон клиента |
 
 **Success example**
 **Code** : `200 OK`
@@ -415,7 +413,7 @@ See [Common payment request](#common-payment-request-click-payme-uzum-anor) for 
 | data.payment_status | string | Status (`SUCCESS`, etc.)/Статус оплаты |
 | data.error_code | string | Error code (`0` = success)/Код ошибки |
 | data.error_message | string or null | Error message/Сообщение об ошибке |
-| data.client_phone_number | string | Client phone/Телефон клиента |
+| data.client_phone_number | string or null | Client phone/Телефон клиента |
 
 **Success example**
 **Code** : `200 OK`
@@ -530,12 +528,12 @@ See [Common payment request](#common-payment-request-click-payme-uzum-anor) for 
 | data.transaction_id | string | Transaction UUID/UUID транзакции |
 | data.status | string | Status/Статус |
 | data.message | string or null | Message/Сообщение |
-| data.error_code | string or null | Error code/Код ошибки |
+| data.error_code | integer or null | Error code/Код ошибки |
 | data.payment_id | integer | Payment ID/ID оплаты |
 | data.error_note | string or null | Error note/Примечание об ошибке |
 | data.payment_status | integer | Payment status code/Код статуса оплаты |
-| data.phone_number | string | Client phone/Телефон клиента |
-| data.card_number | string | Masked card number/Маскированный номер карты |
+| data.phone_number | string or null | Client phone/Телефон клиента |
+| data.card_number | string or null | Masked card number/Маскированный номер карты |
 
 ## Response
 **Success example**
@@ -607,8 +605,8 @@ Operation for send fiscalization check to Anor
 | Field | Type | Description EN/RU |
 | ----- | ---- | ----------------- |
 | data.message | string or null | Message/Сообщение |
-| data.error_code | string or null | Error code/Код ошибки |
-| data.payment_id | string or null | Payment ID/ID оплаты |
+| data.error_code | integer or null | Error code/Код ошибки |
+| data.payment_id | integer or null | Payment ID/ID оплаты |
 | data.transaction_id | string | Transaction ID/ID транзакции |
 
 **Success example**
@@ -955,594 +953,6 @@ Operation for reconciliation of results via Uzcard PinPad
 }
 ```
 
-# UzQR / Оплата через UzQR (one_qr)
-
-Оплата через динамический QR-код UzQR. POS генерирует QR, покупатель сканирует его из банковского приложения.
-
-Интеграция состоит из двух шагов:
-1. Создать инвойс — получить `invoice_id` и `qr_text` для отображения QR покупателю
-2. Запросить статус оплаты — fbox держит соединение открытым и сам делает polling каждые 3 секунды (до 2 минут), ответ возвращается только при финальном статусе
-
----
-
-## Common response wrapper
-
-| Field | Type | Description EN/RU |
-| ----- | ---- | ----------------- |
-| data | object or null | Response data/Данные ответа |
-| error.code | integer | Error code/Код ошибки |
-| error.message | string | Error message/Сообщение об ошибке |
-| is_success | boolean | Success flag/Признак успешного ответа |
-
-## Payment status values / Статусы оплаты
-
-| Value | Description EN/RU |
-| ----- | ----------------- |
-| 1 | In progress / В процессе |
-| 2 | Success / Успешно |
-| 3 | Declined / Отклонено |
-
----
-
-# UzQR / Оплата через UzQR (one_qr)
-
-Оплата через динамический QR-код UzQR. POS генерирует QR, покупатель сканирует его из банковского приложения.
-
-Интеграция состоит из двух шагов:
-1. Создать инвойс — получить `invoice_id` и `qr_text` для отображения QR покупателю
-2. Запросить статус оплаты — fbox держит соединение открытым и сам делает polling каждые 3 секунды (до 2 минут), ответ возвращается только при финальном статусе
-
----
-
-## Common response wrapper
-
-| Field | Type | Description EN/RU |
-| ----- | ---- | ----------------- |
-| data | object or null | Response data/Данные ответа |
-| error.code | integer | Error code/Код ошибки |
-| error.message | string | Error message/Сообщение об ошибке |
-| is_success | boolean | Success flag/Признак успешного ответа |
-
-## Payment status values / Статусы оплаты
-
-| Value | Description EN/RU |
-| ----- | ----------------- |
-| 1 | In progress / В процессе |
-| 2 | Success / Успешно |
-| 3 | Declined / Отклонено |
-
----
-
-# UzQR Create Invoice / Создание динамического QR
-
-**URL** : `/payment/one_qr/create`
-
-**Method** : `POST`
-
-**Auth required** : NO
-
-## Request
-
-| Field | Type | Required | Description EN/RU |
-| ----- | ---- | -------- | ----------------- |
-| external_id | string | Yes | Unique operation ID on POS side, max 20 chars / Уникальный ID операции на стороне POS, до 20 знаков |
-| amount | string | Yes | Amount in UZS with dot separator, e.g. `"100.01"` / Сумма в сумах с разделителем точка |
-| print | boolean | No | If `true` — print banners and QR code on the receipt printer. If `false` or omitted — only return data / Если `true` — печатать баннеры и QR-код на принтере. Если `false` или не передан — только вернуть данные |
-| banners | array | No | Optional banners to print before the QR code (same format as `/print/banner`). Used only when `print=true` / Баннеры для печати перед QR-кодом (тот же формат, что и `/print/banner`). Используются только при `print=true` |
-
-> `fiscal_module` is set automatically from device config — do not send it / устанавливается автоматически из конфига устройства
-
-**Minimal request:**
-
-```json
-{
-  "external_id": "EXT001",
-  "amount": "100.00"
-}
-```
-
-**Request with printing:**
-
-```json
-{
-  "external_id": "EXT001",
-  "amount": "100.00",
-  "print": true,
-  "banners": [
-    {
-      "type": "text",
-      "data": "Thank you for your purchase!",
-      "style": { "align": "center", "is_bold": true }
-    }
-  ]
-}
-```
-
-## Response
-
-| Field | Type | Description EN/RU |
-| ----- | ---- | ----------------- |
-| data.invoice_id | string | UzQR invoice ID, use for status polling / ID инвойса, использовать для запроса статуса |
-| data.qr_text | string | QR content to display / Текст QR для отображения |
-
-**Success example**
-
-**Code** : `200 OK`
-
-```json
-{
-  "data": {
-    "invoice_id": "INVC134B7FEFED34BC3B470B8",
-    "qr_text": "00020101021240350012qr-online.uz0109987650001..."
-  },
-  "error": null,
-  "is_success": true
-}
-```
-
-**Error example**
-
-**Condition** : UzQR endpoint or API key not configured in device config
-
-**Code** : `200 OK`
-
-```json
-{
-  "data": null,
-  "error": {
-    "code": 104,
-    "message": "UzQR endpoint not configured",
-    "data": null
-  },
-  "is_success": false
-}
-```
-
-**Error example**
-
-**Condition** : UzQR authorization failed (wrong INN or API key)
-
-**Code** : `200 OK`
-
-```json
-{
-  "data": null,
-  "error": {
-    "code": 1001,
-    "message": "Ошибка авторизации UzQR. Проверьте настройки подключения.",
-    "data": null
-  },
-  "is_success": false
-}
-```
-
----
-
-# UzQR Payment Status / Статус оплаты UzQR
-
-**URL** : `/payment/one_qr/status?invoice_id={invoice_id}`
-
-**Method** : `GET`
-
-**Auth required** : NO
-
-> **Important / Важно**: This endpoint uses **long polling** — fbox internally polls UzQR every 3 seconds (up to 2 minutes) and responds only when a final status is received. Set client timeout to at least **150 seconds**.
->
-> **Важно**: Этот endpoint использует **long polling** — fbox внутри опрашивает UzQR каждые 3 секунды (до 2 минут) и отвечает только при финальном статусе. Установите таймаут клиента не менее **150 секунд**.
-
-## Request
-
-| Parameter | Type | Required | Description EN/RU |
-| --------- | ---- | -------- | ----------------- |
-| invoice_id | string | Yes | Invoice ID from create response / ID инвойса из ответа создания |
-
-```
-GET /payment/one_qr/status?invoice_id=INVC134B7FEFED34BC3B470B8
-```
-
-## Response
-
-| Field | Type | Description EN/RU |
-| ----- | ---- | ----------------- |
-| data.invoice_id | string | Invoice ID / ID инвойса |
-| data.status | integer | Payment status: 1=in progress, 2=success, 3=declined / Статус оплаты |
-| data.pay_id | string or null | Payment ID, present when status=2 / ID платежа, есть при статусе 2 |
-| data.payer_phone | string or null | Payer phone, e.g. `+998901234567` / Телефон плательщика |
-| data.card_type | string or null | Card type: 1=corporate, 2=personal, 3=social / Тип карты |
-| data.card_no | string or null | Masked card number, e.g. `8600********1234` / Маскированный номер карты |
-| data.fiscal_module | string | Fiscal module number / Номер фискального модуля |
-
-**Success example — payment completed**
-
-**Code** : `200 OK`
-
-```json
-{
-  "data": {
-    "invoice_id": "INVC134B7FEFED34BC3B470B8",
-    "status": 2,
-    "pay_id": "PAY12345678901234567",
-    "payer_phone": "+998901234567",
-    "card_type": "2",
-    "card_no": "8600********1234",
-    "fiscal_module": "12345678901234"
-  },
-  "error": null,
-  "is_success": true
-}
-```
-
-**Success example — payment in progress (still polling)**
-
-**Code** : `200 OK`
-
-```json
-{
-  "data": {
-    "invoice_id": "INVC134B7FEFED34BC3B470B8",
-    "status": 1,
-    "pay_id": null,
-    "payer_phone": null,
-    "card_type": null,
-    "card_no": null,
-    "fiscal_module": "12345678901234"
-  },
-  "error": null,
-  "is_success": true
-}
-```
-
-> fbox will continue polling internally — this response is only returned after timeout (2 min)
-
-**Success example — payment declined**
-
-**Code** : `200 OK`
-
-```json
-{
-  "data": {
-    "invoice_id": "INVC134B7FEFED34BC3B470B8",
-    "status": 3,
-    "pay_id": null,
-    "payer_phone": null,
-    "card_type": null,
-    "card_no": null,
-    "fiscal_module": "12345678901234"
-  },
-  "error": null,
-  "is_success": false
-}
-```
-
-**Error example**
-
-**Condition** : Invoice not found (polling stops immediately) / Инвойс не найден
-
-**Code** : `200 OK`
-
-```json
-{
-  "data": null,
-  "error": {
-    "code": 3001,
-    "message": "Операция не найдена.",
-    "data": null
-  },
-  "is_success": false
-}
-```
-
-## Send UzQR fiscal receipt / Отправка фискального чека в UzQR
-
-**URL** : `/payment/one_qr/receipt`
-
-**Method** : `POST`
-
-**Auth required** : NO
-
-## Request
-
-| Field | Type | Required | Description EN/RU |
-| ----- | ---- | -------- | ----------------- |
-| pay_id | string | Yes | PAY ID from STATUS PAYMENT / Плтаженый ID операции от статуса платежа  |
-| fiscal_receipt_url | string | Yes | URL fiscal check from /order/create / URL фискального чека из /order/create |
-
-**Request:**
-
-```json
-{
-  "pay_id": "PAY12345678901234567",
-  "fiscal_receipt_url": "https://example.com/fiscal-receipt/123](https://ofd.soliq.uz/check?t=LG420230601161&r=92927&c=20260617102213&s=117733149112"
-}
-```
-
-## Response
-
-**Success example**
-
-**Code** : `200 OK`
-
-```json
-{
-  "data": {},
-  "error": null,
-  "is_success": true
-}
-```
-
-**Error example**
-
-**Condition** : UzQR payment transaction not found
-
-**Code** : `200 OK`
-
-```json
-{
-    "data": null,
-    "error": {
-        "code": 4001,
-        "message": "Платеж не найден.",
-        "data": null
-    },
-    "is_success": false
-}
-```
-
-**Error example**
-
-**Condition** : D'ont send fiscal url
-
-**Code** : `200 OK`
-
-```json
-{
-    "data": null,
-    "error": {
-        "code": 105,
-        "message": "fiscal_receipt_url is required",
-        "data": null
-    },
-    "is_success": false
-}
-```
-
----
-
-## UzQR Error Codes / Коды ошибок UzQR
-
-| error_code | Description EN/RU |
-| ---------- | ----------------- |
-| 1001 | Auth failed — wrong INN or API key / Ошибка авторизации — неверный ИНН или API-ключ |
-| 1002 | Access blocked / Доступ заблокирован |
-| 2001 | Invalid request params / Некорректные параметры запроса |
-| 2002 | Invalid amount format / Некорректный формат суммы |
-| 2003 | Invalid external_id format / Некорректный формат external_id |
-| 2004 | Invalid fiscal_module / Некорректный номер фискального модуля |
-| 3001 | Invoice not found — polling stops / Инвойс не найден — polling прекращается |
-| 3002 | Invoice already paid / Инвойс уже оплачен |
-| 6001 | Rate limit exceeded — retry later / Превышен лимит запросов |
-| 9001 | UzQR internal error — retry later / Внутренняя ошибка UzQR |
-
----
-
-# UzQR Cancel Payment / Отмена оплаты UzQR
-
-**URL** : `/payment/one_qr/cancel`
-
-**Method** : `POST`
-
-**Auth required** : NO
-
-## Request
-
-| Parameter | Type | Required | Description EN/RU |
-| --------- | ---- | -------- | ----------------- |
-| invoice_id | string | Yes | Invoice ID from create response / ID инвойса из ответа создания |
-
-**Request:** 
-
-```json
-{
-  "invoice_id": "INV8D1EBF7CDCBA44E7BF90D3"
-}
-```
-
-## Response
-
-**Success example**
-
-**Code** : `200 OK`
-
-```json
-{
-    "data": {},
-    "error": null,
-    "is_success": true
-}
-```
-
-**Error example**
-
-**Condition** : UzQR payment is not found
-
-**Code** : `200 OK`
-
-```json
-{
-    "data": null,
-    "error": {
-        "code": 3001,
-        "message": "Операция не найдена.",
-        "data": null
-    },
-    "is_success": false
-}
-```
-
-# UzQR Refund Payment / Возврат оплаты UzQR
-
-**Правила**
-
-●	Возврат доступен только для успешной операции.
-
-●	Доступен частичный возврат.
-
-●	POS должен передать сумму возврата в параметре amount.
-
-●	Для полного возврата POS передает полную сумму операции.
-
-●	Для частичного возврата POS передает сумму частичного возврата.
-
-●	Сумма возврата не может быть больше суммы операции.
-
-●	Возврат возможен только по операции, проведенной через этот POS.
-
-●	Причина возврата в POS не требуется.
-
-●	Возврат является асинхронным процессом.
-
-●	UzQR возвращает refund_id.
-
-●	POS использует refund_id для проверки статуса.
-
-●	При попытке отменить уже отмененный платеж UzQR возвращает ошибку.
-
-●	При попытке отменить платеж, недоступный к отмене, UzQR возвращает ошибку.
-
-
-**URL** : `/payment/one_qr/refund`
-
-**Method** : `POST`
-
-**Auth required** : NO
-
-## Request
-
-| Parameter | Type | Required | Description EN/RU |
-| --------- | ---- | -------- | ----------------- |
-| pay_id | string | Yes | PAY ID from PAYMENT STATUS response / ID платежа из ответа статуса оплаты |
-| amount | string | Yes | Amount / Сумма |
-
-**Request:** 
-
-```json
-{
-  "pay_id": "PAY123456",
-  "amount": "1"
-}
-```
-
-## Response
-
-| Field | Type | Description EN/RU |
-| ----- | ---- | ----------------- |
-| data.refund_id | string | Refund ID / ID возврата |
-| data.status | integer | Status: 1=success |
-
-
-**Success example**
-
-**Code** : `200 OK`
-
-```json
-{
-    "data": {
-        "refund_id": "REFF5149C4B458F4D7FB",
-        "status": 1
-    },
-    "error": null,
-    "is_success": true
-}
-```
-
-**Error example**
-
-**Condition** : UzQR payment is not found
-
-**Code** : `200 OK`
-
-```json
-{
-    "data": null,
-    "error": {
-        "code": 4001,
-        "message": "Платеж не найден.",
-        "data": null
-    },
-    "is_success": false
-}
-```
-
-# UzQR Refund Status / Статус Возврата UzQR
-
-## Response
-
-| Field | Type | Description EN/RU |
-| ----- | ---- | ----------------- |
-| data.refund_id | string | Refund ID / ID возврата |
-| data.status | integer | Payment status: 1=in pending, 2=success, 3=failed / Статус оплаты |
-
-**Success example — payment completed**
-
-**Code** : `200 OK`
-
-```json
-{
-  "data": {
-    "refund_id": "REF123456",
-    "status": 2
-  },
-  "error": null,
-  "is_success": true
-}
-```
-
-**Success example — payment in progress (still polling)**
-
-**Code** : `200 OK`
-
-```json
-{
-  "data": {
-    "refund_id": "REF123456",
-    "status": 1
-  },
-  "error": null,
-  "is_success": true
-}
-```
-
-**Success example — payment declined**
-
-**Code** : `200 OK`
-
-```json
-{
-  "data": {
-    "refund_id": "REF123456",
-    "status": 3
-  },
-  "error": null,
-  "is_success": true
-}
-```
-
-**Error example**
-
-**Code** : `200 OK`
-
-```json
-{
-    "data": null,
-    "error": {
-        "code": 9001,
-        "message": "Временная ошибка UzQR. Повторите позже.",
-        "data": null
-    },
-    "is_success": false
-}
-```
-
 # Scan2pay / Оплата через сервис Scan2pay
 
 Payment via Scan2pay service
@@ -1560,18 +970,20 @@ Payment via Scan2pay service
   "print": [false if you don't need to print QR],
   *"tip_card": [Card number for tips or null / Номер карты для чаевых или ноль],
   *"tip_card_expire": [date expire card for tips or null / дата истечения срока действия карты для чаевых или null]
-  *"sms_phone_number": [send scan2pay url for payment via sms 998********* or null  /  отправить ссылку scan2pay для оплаты через смс 998********* или null]
+  *"sms_phone_number": [send scan2pay url for payment via sms 998********* or null  /  отправить ссылку scan2pay для оплаты через смс 998********* или null],
+  *"banners": [banner objects]
 }
 ```
 **Content** :
 ```json
 {
   "amount": 500,
-  "order_id": "77777",
+  "order_id": 77777,
   "print": false,
   "tip_card": "8600112991130444",
   "tip_card_expire": "0726",
-  "sms_phone_number": "998998895989"
+  "sms_phone_number": "998998895989",
+  "banners": []
 }
 ```
 
