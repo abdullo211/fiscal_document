@@ -28,11 +28,11 @@ Operation for create order / Продажа, аванс, кредит
    "vat":[nds_price multiplied by 100], 
    "vat_percent":[nds_percent],
    "discount":[discount_price multiplied by 100],
-   "discount_percent":[discount_price_percent],
+   "discount_percent":[discount_price_percent number],
    "other":[other_payments  multiplied by 100],
    "labels":[marking_codes_list],
    "class_code":[product_class_code],
-   "package_code":[package_code],
+   "package_code":[package_code string],
    "owner_type":[owner_type],
    "comission_info":{
               "inn":"inn comision",
@@ -52,7 +52,7 @@ Operation for create order / Продажа, аванс, кредит
 "extra_info":{
     *"phone_number":[Phone_number from response Payme,Click,Uzum],
     *"qr_payment_id":[Payment_ID from response Payme,Click,Uzum],
-    *"qr_payment_provider":[0141 - Payme, 0064 - Click, 0161 - Uzum, 0187 - Anor bank],
+    *"qr_payment_provider":[provider code number: 141 - Payme, 64 - Click, 161 - Uzum, 187 - Anor bank],
     *"scan2pay_id":[uuid from /payment/qr_pay/status],
     *"card_number":[bank card number first 4 and last 4 digits for Social Card Type]
           },
@@ -64,16 +64,21 @@ Operation for create order / Продажа, аванс, кредит
   {
     "type":[Banner type - {text, barcode}]
     "data":[Banner text]
+    "cut":[true or false]
     "style:{[Style text,barcode]
             "font_width":[font_width],
             "font_height":[font_height],
-            "is_bold":[true or false] 
+            "is_bold":[true or false],
+            "align":[center, left, right],
+            "barcode_type":[barcode type],
+            "qr_size":[QR size]
   },
  ],
 *"prices":
 [
   {
-   "name":[price_name], 
+   "name":[price_name],
+   "type":[price_type],
    "price":[price], 
    "vat_type":[vat_name],
    "vat_price":[vat_price],
@@ -95,11 +100,11 @@ Operation for create order / Продажа, аванс, кредит
 | vat                | integer        | No       | VAT price/Сумма НДС/ Расчет НДС (VAT calculate) Price*12/112                   | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | vat_percent        | integer        | No       | VAT percent/Процент НДС                                                        | 0 = 0%, 12 = 12%, null - БЕЗ НДС            |
 | discount           | integer        | No       | Discount price/Цена cкидки                                                     | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
-| discount_percent   | integer        | No       | Discount price percent/Процент скидки                                          | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
+| discount_percent   | number         | No       | Discount price percent/Процент скидки                                          | 0 = 0%, 10 = 10%, 15 = 15%, 20 = 20%        |
 | other              | integer        | No       | Other payments (gift card)/Другая оплата (карта лояльности, подарочные карты)  | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | labels             | array\<string\> | No       | Marking codes (DataMatrix) / Коды маркировки. If quantity is 5 marked items, set `amount` to 1000 per unit (1 шт = 1000) | ["05367567230048c?eN1(o0029"]              |
 | class_code         | string         | Yes      | Product class code/Код ИКПУ (МХИК) (tasnif.soliq.uz)                           | 10999001001000000                           |
-| package_code       | integer        | Yes      | Package_code/ Код ед.измерений / упаковки (tasnif.soliq.uz)                    | 1520627                                     |
+| package_code       | string         | Yes      | Package_code/ Код ед.измерений / упаковки (tasnif.soliq.uz)                    | "1520627"                                   |
 | owner_type         | integer        | Yes      | Product origin / Код происхождения: `0` — bought and sold (куплено и продано), `1` — own production (собственное производство), `2` — service provider (поставщик услуг) | 1                                           |
 | comission_info     | object         | No       | Sign commission check TIN, PINFL/Признак комиссионный чек ИНН, ПИНФЛ           | {"inn":"123456789","pinfl":"12345678912345"} |
 | uuid               | string         | No       | Your UUID / Ваш UUID                                                           | abc123                                      |
@@ -115,7 +120,7 @@ Operation for create order / Продажа, аванс, кредит
 | extra_info         | object         | Cond.    | Required for Payme/Click/Uzum integration/Обязательно для интеграции с ЭПС     |                                             |
 | extra_info.phone_number | string    | No       | Phone from payment response/Телефон из ответа оплаты                           | 998911234569                                |
 | extra_info.qr_payment_id | string   | No       | Payment ID from provider/ID оплаты от провайдера                               | 123456789id12                               |
-| extra_info.qr_payment_provider | string | No   | Provider code: 0141 Payme, 0064 Click, 0161 Uzum, 0187 Anor/Код провайдера    | 0141                                        |
+| extra_info.qr_payment_provider | integer | No  | Provider code number: 141 Payme, 64 Click, 161 Uzum, 187 Anor/Код провайдера   | 141                                         |
 | extra_info.card_number | string     | No       | Card number for social card type/Номер карты для социальной карты              | 1234********1234                            |
 | open_cashbox       | boolean        | No       | Open cashbox device/Открытие денежного ящика                                   | true = open, false = not open               |
 | send_email         | boolean        | No       | Send order data to special email/Отправка данных на email                      | true                                        |
@@ -123,10 +128,15 @@ Operation for create order / Продажа, аванс, кредит
 | sms_phone_number   | string         | No       | Phone number for sending order data/Телефон для отправки данных              | +998909999999                               |
 | type               | string         | No       | Banner type - {text, barcode, qr_code}/Штрих-код, QR-код                       | barcode                                     |
 | data               | string         | No       | Banner text/Рекламный текст                                                    | Скидка на следующую покупку 5%              |
+| cut                | boolean        | No       | Cut receipt after banner/Отрезать чек после баннера                            | false                                       |
 | style.font_width   | integer        | No       | Banner font width/Ширина шрифта баннера                                        | 2                                           |
 | style.font_height  | integer        | No       | Banner font height/Высота шрифта баннера                                       | 100                                         |
 | style.is_bold      | boolean        | No       | Banner bold flag/Жирный шрифт баннера                                          | true                                        |
+| style.align        | string         | No       | Banner alignment: `center`, `left`, `right`/Выравнивание баннера               | center                                      |
+| style.barcode_type | integer        | No       | Barcode type/Тип штрих-кода                                                    | 0                                           |
+| style.qr_size      | integer        | No       | QR code size/Размер QR-кода                                                    | 5                                           |
 | prices / name      | string         | No       | Price name/Наименование вида оплаты                                            | USD, VISA, MasterCard, Click, Payme, Uzum   |
+| prices / type      | string         | No       | Price type/Тип оплаты                                                          | card                                        |
 | prices / price     | integer        | No       | Price/Сумма                                                                    | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
 | prices / vat_type  | string         | No       | Vat type/Название налога и ставка                                              | НДС 15%                                     |
 | prices / vat_price | integer        | No       | Vat price/Сумма налога                                                         | 50 тийин = 50, 1 сум = 100, 100 сум = 10000 |
@@ -154,7 +164,7 @@ Operation for create order / Продажа, аванс, кредит
       "other": 0,
       "labels": ["05367567230048c?eN1(o0029"],
       "class_code": "02710001005000000",
-      "package_code": 1282556,
+      "package_code": "1282556",
       "owner_type": 1,
       "comission_info": {
         "inn": "123456789",
@@ -174,7 +184,7 @@ Operation for create order / Продажа, аванс, кредит
   "extra_info": {
     "phone_number": "998911234569",
     "qr_payment_id": "123456789id12",
-    "qr_payment_provider": "0141",
+    "qr_payment_provider": 141,
     "scan2pay_id": "59bcc56b-1fcf-4752-9f5b-a3fffdf525ae",
     "card_number": "1234********1234"
   },
@@ -186,25 +196,34 @@ Operation for create order / Продажа, аванс, кредит
     {
       "type": "text",
       "data": "Код скидки для следующий покупки",
+      "cut": false,
       "style": {
         "font_width": 2,
         "font_height": 100,
-        "is_bold": true
+        "is_bold": true,
+        "align": "center",
+        "barcode_type": 0,
+        "qr_size": 5
       }
     },
     {
       "type": "barcode",
       "data": "23423423",
+      "cut": false,
       "style": {
         "font_width": 2,
         "font_height": 100,
-        "is_bold": true
+        "is_bold": true,
+        "align": "center",
+        "barcode_type": 0,
+        "qr_size": 5
       }
     }
   ],
   "prices": [
     {
       "name": "PayMe",
+      "type": "card",
       "price": 100000,
       "vat_type": "QQS",
       "vat_price": 200000
@@ -309,11 +328,11 @@ Operations for refuse order / Возврат
    "vat":[nds price multiplied to 100], 
    "vat_percent":[nds percent],
    "discount":[discount price  multiplied to 100],
-   "discount_percent":[discount price percent],
+   "discount_percent":[discount price percent number],
    "other":[other discount prices  multiplied to 100],
    "class_code":[product class code for marking],
   *"labels":[marking codes list],
-   "package_code":[package_code],
+   "package_code":[package_code string],
    "owner_type":[owner_type],
    "comission_info":{
               "inn":"inn/pinfl comision"
@@ -333,7 +352,7 @@ Operations for refuse order / Возврат
 "extra_info":{
     *"phone_number":"998911234569",
     *"qr_payment_id":"123456789id12"
-    *"qr_payment_provider":"0141"
+    *"qr_payment_provider":[provider code number]
           },
 *"send_email":[Send order data to special email],
 *"email":[Email for sending order data],
@@ -341,7 +360,8 @@ Operations for refuse order / Возврат
 "prices":
 [
   {
-   "name":[price name String], 
+   "name":[price name String],
+   "type":[price type String],
    "price":[price multiplied by 100], 
    "vat_type":[vat name String],
    "vat_price":[vat price multiplied by 100],
@@ -389,7 +409,7 @@ Operations for refuse order / Возврат
       "other": 0,
       "labels": ["05367567230048c?eN1(o0029"],
       "class_code": "04811001001000000",
-      "package_code": 1431970,
+      "package_code": "1431970",
       "owner_type": 1,
       "comission_info": {
         "inn": "123456789",
@@ -409,7 +429,7 @@ Operations for refuse order / Возврат
   "extra_info": {
     "phone_number": "998911234569",
     "qr_payment_id": "123456789id12",
-    "qr_payment_provider": "0141"
+    "qr_payment_provider": 141
   },
   "send_email": true,
   "email": "abdullo21113@gmail.com",
@@ -417,6 +437,7 @@ Operations for refuse order / Возврат
   "prices": [
     {
       "name": "UPAY",
+      "type": "card",
       "price": 100000,
       "vat_type": "TUZATISH QQS",
       "vat_price": 200000
