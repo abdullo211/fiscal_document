@@ -647,7 +647,7 @@ Operation for create paymen via Humo PinPad
 ## Request 
 ```json
 {
-  "amount": [Payment price]
+  "amount": [Payment price * 100]
 }
 ```
 **Content** :
@@ -813,7 +813,7 @@ Operation for create paymen via UzCard PinPad
 ## Request 
 ```json
 {
-  "amount": [Payment price]
+  "amount": [Payment price * 100]
 }
 ```
 **Content** :
