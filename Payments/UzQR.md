@@ -532,7 +532,7 @@ GET /payment/one_qr/status?invoice_id=INVC134B7FEFED34BC3B470B8
 | refund_id | string | Yes | Refund ID from create refund response  / ID инвойса из ответа создания возврата |
 
 ```
-GET /payment/one_qr/refund/status?refund_id=REF123456
+GET /payment/one_qr/refund/status?refund_id=REFF5149C4B458F4D7FB
 ```
 
 ## Response
@@ -549,7 +549,7 @@ GET /payment/one_qr/refund/status?refund_id=REF123456
 ```json
 {
   "data": {
-    "refund_id": "REF123456",
+    "refund_id": "REFF5149C4B458F4D7FB",
     "status": 2
   },
   "error": null,
@@ -564,7 +564,7 @@ GET /payment/one_qr/refund/status?refund_id=REF123456
 ```json
 {
   "data": {
-    "refund_id": "REF123456",
+    "refund_id": "REFF5149C4B458F4D7FB",
     "status": 1
   },
   "error": null,
@@ -579,7 +579,7 @@ GET /payment/one_qr/refund/status?refund_id=REF123456
 ```json
 {
   "data": {
-    "refund_id": "REF123456",
+    "refund_id": "REFF5149C4B458F4D7FB",
     "status": 3
   },
   "error": null,
