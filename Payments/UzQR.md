@@ -542,7 +542,7 @@ GET /payment/one_qr/refund/status?refund_id=REFF5149C4B458F4D7FB
 | data.refund_id | string | Refund ID / ID возврата |
 | data.status | integer | Payment status: 1=in pending, 2=success, 3=failed / Статус оплаты |
 
-**Success example — payment completed**
+**Success example — refund completed**
 
 **Code** : `200 OK`
 
@@ -557,7 +557,7 @@ GET /payment/one_qr/refund/status?refund_id=REFF5149C4B458F4D7FB
 }
 ```
 
-**Success example — payment in progress (still polling)**
+**Success example — refund in progress (still polling)**
 
 **Code** : `200 OK`
 
@@ -572,7 +572,7 @@ GET /payment/one_qr/refund/status?refund_id=REFF5149C4B458F4D7FB
 }
 ```
 
-**Success example — payment declined**
+**Success example — refund declined**
 
 **Code** : `200 OK`
 
