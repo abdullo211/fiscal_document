@@ -519,6 +519,22 @@ GET /payment/one_qr/status?invoice_id=INVC134B7FEFED34BC3B470B8
 
 # UzQR Refund Status / Статус Возврата UzQR
 
+**URL** : `/payment/one_qr/refund/status?refund_id={refund_id}`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+## Request
+
+| Parameter | Type | Required | Description EN/RU |
+| --------- | ---- | -------- | ----------------- |
+| refund_id | string | Yes | Refund ID from create refund response  / ID инвойса из ответа создания возврата |
+
+```
+GET /payment/one_qr/refund/status?refund_id=REF123456
+```
+
 ## Response
 
 | Field | Type | Description EN/RU |
