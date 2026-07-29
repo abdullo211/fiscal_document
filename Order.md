@@ -531,7 +531,20 @@ Operations for refuse order / Возврат
 }
 ```
 
-
+**Error example**
+**Condition** : If 'If there is no Internet connection, there is no access to the OFD server, or the OFD server is unavailable'
+**Code** : `65274 OK`
+```json
+{
+    "data": null,
+    "error": {
+        "code": 65274,
+        "message": "network error",
+        "data": {}
+    },
+    "is_success": false
+}
+```
 
 
 ## Order print
