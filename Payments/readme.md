@@ -17,7 +17,7 @@
 
 | Field | Type | Required | Description EN/RU |
 | ----- | ---- | -------- | ----------------- |
-| amount | integer | Yes | Payment amount in tiyin (×100)/Сумма оплаты в тийинах |
+| amount | integer | Yes | Payment amount /Сумма оплаты |
 | qr_code | string | Yes | QR code from payment app/QR-код из приложения оплаты |
 
 ## Common confirm request (Click, Payme, Uzum)
