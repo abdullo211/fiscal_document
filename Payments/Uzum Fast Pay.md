@@ -10,14 +10,15 @@ Operation for create paymen via UZUM FASTPAY
 ## Request 
 ```json
 {
-  "amount": [Payment price],
+  "amount": [Payment price (minimum 500 sum)],
   "qr_code": [Qr code from UZUM FAST PAY],
 }
 ```
 **Content** :
-```{
-	"amount":500,
-	"qr_code":"880101698207133392"
+```json
+{
+	"amount": 500,
+	"qr_code": "880101698207133392"
 }
 ```
 
